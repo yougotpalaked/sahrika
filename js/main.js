@@ -126,9 +126,9 @@ function initCategorySection() {
                         duration: 0.3,
                         ease: "power2.out",
                         onComplete: () => {
-                            // For now, just alert since we don't have actual category pages
-                            alert(`Navigating to ${href} - This would take you to the product listing page for this category.`);
-                            // In a real implementation, you would use: window.location.href = href;
+                            
+                            window.location.href = href;
+                            
                         }
                     });
             });
