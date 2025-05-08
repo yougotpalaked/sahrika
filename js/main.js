@@ -471,7 +471,7 @@ function initBlessingHearts() {
         heart.style.pointerEvents = 'none';
         
        
-        heart.style.backgroundImage = "url('../images/handwoven-heart-Copy.svg')";
+        heart.style.backgroundImage = "url('../images/handwoven-heart.svg')";
         heart.style.backgroundSize = 'contain';
         heart.style.backgroundRepeat = 'no-repeat';
         heart.style.backgroundPosition = 'center';
