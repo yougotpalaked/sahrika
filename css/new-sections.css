@@ -5,10 +5,10 @@
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: repeat(6, 1fr);
-    gap: 0.8rem; /* Reduced gap */
-    margin-top: 1.5rem; /* Reduced margin */
+    gap: 0.8rem;
+    margin-top: 1.5rem; 
     height: 600px;
-    background-color: #121212; /* Dark mode background */
+    background-color: #121212; 
 }
 
 /* Collection items with different sizes in descending order */
@@ -117,15 +117,15 @@
 }
 
 .bestseller-1 {
-    background-image: url('../images/jdklas1.png');
+    background-image: url('../images/Throw.jpeg');
 }
 
 .bestseller-2 {
-    background-image: url('../images/joke083516.png');
+    background-image: url('../images/Pillow\ &\ Throw\ Sale\ _\ Cozy\ Accents\ for\ Every\ Room.jpeg');
 }
 
 .bestseller-3 {
-    background-image: url('../images/hehe4203.png');
+    background-image: url('../images/Unique\ Throw\ Blankets\ &\ Bed\ Throws.jpeg');
 }
 
 .bestseller-info {
