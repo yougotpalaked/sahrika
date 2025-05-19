@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sahrika - Product Listing</title>
+   
+    <link rel="icon" href="images/image-removebg-preview (41).png" type="image/png">
+    <link rel="shortcut icon" href="images/image-removebg-preview (41).png" type="image/png">
+    <link rel="apple-touch-icon" href="images/image-removebg-preview (41).png">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/carousel.css">
+    <link rel="stylesheet" href="css/new-sections.css">
+    <link rel="stylesheet" href="css/cloth-texture.css">
+    <link rel="stylesheet" href="css/scroll-button.css">
+    <link rel="stylesheet" href="css/wishlist-button.css">
+    <link rel="stylesheet" href="css/dropdown.css">
+    <link rel="stylesheet" href="css/plp.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo" style="padding-left: 20px;"><img style="height: 40px;" src="images/image-removebg-preview (41).png"><span class="hindi-ka"></span></div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <div class="dropdown">
+                <a href="#" class="dropdown-toggle">Shop <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <div class="dropdown-column">
+                        <h3>Men</h3>
+                        <ul>
+                            <li><a href="shop-men-gamcha.html">Gamcha</a></li>
+                            <li><a href="shop-men-lungi.html">Lungi</a></li>
+                            <li><a href="shop-men-yardage.html">Yardage</a></li>
+                            <li><a href="shop-men.html" class="view-all">View All</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown-column">
+                        <h3>Women</h3>
+                        <ul>
+                            <li><a href="shop-women-saree.html">Saree</a></li>
+                            <li><a href="shop-women-dupatta.html">Dupatta</a></li>
+                            <li><a href="shop-women-stole.html">Stole</a></li>
+                            <li><a href="shop-women-yardage.html">Yardage</a></li>
+                            <li><a href="shop-women.html" class="view-all">View All</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown-column">
+                        <h3>Utility</h3>
+                        <ul>
+                            <li><a href="shop-utility-napkin.html">Napkin</a></li>
+                            <li><a href="shop-utility-duster.html">Duster</a></li>
+                            <li><a href="shop-utility.html" class="view-all">View All</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown-column">
+                        <h3>Collections</h3>
+                        <ul>
+                            <li><a href="shop-collections-sutrashringar.html">Sutrashringar</a></li>
+                            <li><a href="shop-collections-lookbook.html">Lookbook</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown-column">
+                        <h3>Sale</h3>
+                        <ul>
+                            <li><a href="shop-sale-men.html">Men</a></li>
+                            <li><a href="shop-sale-women.html">Women</a></li>
+                            <li><a href="shop-sale-utility.html">Utility</a></li>
+                            <li><a href="shop-sale.html" class="view-all">View All</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown-column">
+                        <h3>Giftcards</h3>
+                        <ul>
+                            <li><a href="shop-giftcards-customise.html">Customise</a></li>
+                            <li><a href="shop-giftcards-b2b.html">B2B</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <a href="index.html#origin">Our Story</a>
+            <a href="index.html#process">Services</a>
+            <a href="index.html#support">Connect</a>
+        </div>
+        <div class="nav-icons">
+            <a href="#" class="nav-icon"><i class="fas fa-search"></i></a>
+            <a href="#" class="nav-icon"><i class="fas fa-user"></i></a>
+            <a href="#" class="nav-icon"><i class="fas fa-shopping-cart"></i></a>
+            <a href="#" class="nav-icon"><i class="fas fa-gift"></i></a>
+        </div>
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="plp-header">
+        <div class="plp-header-content">
+            <h1 class="category-title">Category Title</h1>
+            <p class="category-description">Discover our handcrafted collection of traditional textiles, each piece telling a unique story of heritage and craftsmanship.</p>
+        </div>
+    </section>
+
+    <!-- Product Listing Section -->
+    <section class="plp-section">
+        <div class="plp-container">
+            <!-- Filter Sidebar -->
+            <div class="filter-sidebar">
+                <div class="filter-header">
+                    <h3>Filters</h3>
+                    <button class="clear-filters">Clear All</button>
+                </div>
+                
+                <div class="filter-group">
+                    <h4 class="filter-title">Price Range</h4>
+                    <div class="price-range">
+                        <input type="range" min="0" max="10000" value="5000" class="price-slider" id="priceRange">
+                        <div class="price-inputs">
+                            <span>₹0</span>
+                            <span id="priceValue">₹5000</span>
+                            <span>₹10000</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="filter-group">
+                    <h4 class="filter-title">Color</h4>
+                    <div class="color-filters">
+                        <label class="color-option">
+                            <input type="checkbox" name="color" value="red">
+                            <span class="color-swatch" style="background-color: #D32F2F;"></span>
+                            <span class="color-name">Red</span>
+                        </label>
+                        <label class="color-option">
+                            <input type="checkbox" name="color" value="blue">
+                            <span class="color-swatch" style="background-color: #1976D2;"></span>
+                            <span class="color-name">Blue</span>
+                        </label>
+                        <label class="color-option">
+                            <input type="checkbox" name="color" value="green">
+                            <span class="color-swatch" style="background-color: #388E3C;"></span>
+                            <span class="color-name">Green</span>
+                        </label>
+                        <label class="color-option">
+                            <input type="checkbox" name="color" value="yellow">
+                            <span class="color-swatch" style="background-color: #FBC02D;"></span>
+                            <span class="color-name">Yellow</span>
+                        </label>
+                        <label class="color-option">
+                            <input type="checkbox" name="color" value="black">
+                            <span class="color-swatch" style="background-color: #212121;"></span>
+                            <span class="color-name">Black</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="filter-group">
+                    <h4 class="filter-title">Material</h4>
+                    <div class="checkbox-filters">
+                        <label class="checkbox-option">
+                            <input type="checkbox" name="material" value="cotton">
+                            <span class="checkbox-label">Cotton</span>
+                        </label>
+                        <label class="checkbox-option">
+                            <input type="checkbox" name="material" value="silk">
+                            <span class="checkbox-label">Silk</span>
+                        </label>
+                        <label class="checkbox-option">
+                            <input type="checkbox" name="material" value="linen">
+                            <span class="checkbox-label">Linen</span>
+                        </label>
+                        <label class="checkbox-option">
+                            <input type="checkbox" name="material" value="wool">
+                            <span class="checkbox-label">Wool</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="filter-group">
+                    <h4 class="filter-title">Pattern</h4>
+                    <div class="checkbox-filters">
+                        <label class="checkbox-option">
+                            <input type="checkbox" name="pattern" value="striped">
+                            <span class="checkbox-label">Striped</span>
+                        </label>
+                        <label class="checkbox-option">
+                            <input type="checkbox" name="pattern" value="checkered">
+                            <span class="checkbox-label">Checkered</span>
+                        </label>
+                        <label class="checkbox-option">
+                            <input type="checkbox" name="pattern" value="solid">
+                            <span class="checkbox-label">Solid</span>
+                        </label>
+                        <label class="checkbox-option">
+                            <input type="checkbox" name="pattern" value="printed">
+                            <span class="checkbox-label">Printed</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="filter-group">
+                    <h4 class="filter-title">Categories</h4>
+                    <div class="checkbox-filters">
+                        <label class="checkbox-option">
+                            <input type="checkbox" name="category" value="traditional">
+                            <span class="checkbox-label">Traditional</span>
+                        </label>
+                        <label class="checkbox-option">
+                            <input type="checkbox" name="category" value="contemporary">
+                            <span class="checkbox-label">Contemporary</span>
+                        </label>
+                        <label class="checkbox-option">
+                            <input type="checkbox" name="category" value="festive">
+                            <span class="checkbox-label">Festive</span>
+                        </label>
+                        <label class="checkbox-option">
+                            <input type="checkbox" name="category" value="casual">
+                            <span class="checkbox-label">Casual</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product Grid -->
+            <div class="product-grid-container">
+                <div class="product-controls">
+                    <div class="product-count">
+                        <span id="productCount">24</span> products
+                    </div>
+                    <div class="sort-options">
+                        <label for="sortSelect">Sort by:</label>
+                        <select id="sortSelect">
+                            <option value="featured">Featured</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                            <option value="newest">Newest</option>
+                            <option value="popularity">Popularity</option>
+                        </select>
+                    </div>
+                    <div class="view-toggle">
+                        <button class="grid-view active"><i class="fas fa-th"></i></button>
+                        <button class="list-view"><i class="fas fa-list"></i></button>
+                    </div>
+                </div>
+                
+                <div class="product-grid">
+                    <!-- Product items will be dynamically generated -->
+                    <!-- Sample product items for demonstration -->
+                    <div class="product-item">
+                        <div class="product-image">
+                            <img src="images/category (1).jpeg" alt="Product 1">
+                            <div class="product-actions">
+                                <button class="quick-view"><i class="fas fa-eye"></i></button>
+                                <button class="add-to-wishlist"><i class="far fa-heart"></i></button>
+                                <button class="add-to-cart">Add to Cart</button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Handwoven Cotton Gamcha</h3>
+                            <p class="product-price">₹1,200</p>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span>(24)</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="product-item">
+                        <div class="product-image">
+                            <img src="images/category (2).jpeg" alt="Product 2">
+                            <div class="product-actions">
+                                <button class="quick-view"><i class="fas fa-eye"></i></button>
+                                <button class="add-to-wishlist"><i class="far fa-heart"></i></button>
+                                <button class="add-to-cart">Add to Cart</button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Traditional Lungi</h3>
+                            <p class="product-price">₹950</p>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span>(18)</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="product-item">
+                        <div class="product-image">
+                            <img src="images/category (3).jpeg" alt="Product 3">
+                            <div class="product-actions">
+                                <button class="quick-view"><i class="fas fa-eye"></i></button>
+                                <button class="add-to-wishlist"><i class="far fa-heart"></i></button>
+                                <button class="add-to-cart">Add to Cart</button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Handloom Cotton Yardage</h3>
+                            <p class="product-price">₹1,800</p>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <i class="far fa-star"></i>
+                                <span>(12)</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Repeat for more products -->
+                    <div class="product-item">
+                        <div class="product-image

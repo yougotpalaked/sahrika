@@ -1,4 +1,3 @@
-// Hero Carousel Functionality
 document.addEventListener('DOMContentLoaded', () => {
     initCarousel();
 });
@@ -14,11 +13,9 @@ function initCarousel() {
     const slideCount = slides.length;
     let autoplayInterval;
     
-    // Initialize the carousel
     updateCarousel();
     startAutoplay();
     
-    // Event listeners for navigation
     prevBtn.addEventListener('click', () => {
         currentIndex = (currentIndex - 1 + slideCount) % slideCount;
         updateCarousel();
@@ -31,7 +28,6 @@ function initCarousel() {
         resetAutoplay();
     });
     
-    // Add event listeners to dots
     dots.forEach((dot, index) => {
         dot.addEventListener('click', () => {
             currentIndex = index;
@@ -40,7 +36,6 @@ function initCarousel() {
         });
     });
     
-    // Pause autoplay on hover
     carouselContainer.addEventListener('mouseenter', () => {
         clearInterval(autoplayInterval);
     });
@@ -49,12 +44,9 @@ function initCarousel() {
         startAutoplay();
     });
     
-    // Update carousel position and active dot
     function updateCarousel() {
-        // Update slide position
         carouselContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
         
-        // Update active dot
         dots.forEach((dot, index) => {
             if (index === currentIndex) {
                 dot.classList.add('active');
@@ -63,7 +55,6 @@ function initCarousel() {
             }
         });
         
-        // Add animation to current slide content
         slides.forEach((slide, index) => {
             const content = slide.querySelector('.carousel-content');
             if (index === currentIndex) {
@@ -74,21 +65,18 @@ function initCarousel() {
         });
     }
     
-    // Start autoplay
     function startAutoplay() {
         autoplayInterval = setInterval(() => {
             currentIndex = (currentIndex + 1) % slideCount;
             updateCarousel();
-        }, 5000); // Change slide every 5 seconds
+        }, 5000);
     }
     
-    // Reset autoplay timer
     function resetAutoplay() {
         clearInterval(autoplayInterval);
         startAutoplay();
     }
     
-    // Add touch support for mobile devices
     let touchStartX = 0;
     let touchEndX = 0;
     
@@ -102,14 +90,12 @@ function initCarousel() {
     }, {passive: true});
     
     function handleSwipe() {
-        const swipeThreshold = 50; // Minimum distance required for a swipe
+        const swipeThreshold = 50;
         const swipeDistance = touchEndX - touchStartX;
         
         if (swipeDistance > swipeThreshold) {
-            // Swiped right, go to previous slide
             currentIndex = (currentIndex - 1 + slideCount) % slideCount;
         } else if (swipeDistance < -swipeThreshold) {
-            // Swiped left, go to next slide
             currentIndex = (currentIndex + 1) % slideCount;
         }
         

@@ -1,4 +1,3 @@
-/* Hero Carousel Styles */
 .hero-carousel {
     position: relative;
     width: 100%;
@@ -8,7 +7,6 @@
     margin-top: 0px; /* Add space below the navbar */
 }
 
-/* Carousel Stripes Overlay */
 .carousel-stripes-overlay {
     position: absolute;
     top: 0;
@@ -16,7 +14,7 @@
     width: 100%;
     height: 100%;
     z-index: 5;
-    pointer-events: none; /* Changed to none to allow scrolling through */
+    pointer-events: none;
     overflow: hidden;
 }
 
@@ -31,7 +29,6 @@
     background-blend-mode: overlay;
     transform-origin: right center;
     background-color: rgba(0, 0, 0, 0.5);
-    /* Ensure vertical stripes can animate properly */
     will-change: transform, opacity;
     opacity: 0.8;
 }
@@ -47,7 +44,6 @@
     background-blend-mode: overlay;
     transform-origin: left center;
     background-color: rgba(0, 0, 0, 0.5);
-    /* Ensure horizontal stripes can animate properly */
     will-change: transform, opacity;
     opacity: 0.8;
 }
@@ -176,7 +172,6 @@
     }
 }
 
-/* Scroll Indicator */
 .scroll-indicator {
     position: absolute;
     bottom: 2rem;

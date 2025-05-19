@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sahrika - Services</title>
+   
+    <link rel="icon" href="images/image-removebg-preview (41).png" type="image/png">
+    <link rel="shortcut icon" href="images/image-removebg-preview (41).png" type="image/png">
+    <link rel="apple-touch-icon" href="images/image-removebg-preview (41).png">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/carousel.css">
+    <link rel="stylesheet" href="css/new-sections.css">
+    <link rel="stylesheet" href="css/cloth-texture.css">
+    <link rel="stylesheet" href="css/scroll-button.css">
+    <link rel="stylesheet" href="css/wishlist-button.css">
+    <link rel="stylesheet" href="css/dropdown.css">
+    <link rel="stylesheet" href="css/plp.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Services Page Styles */
+        .services-hero {
+            height: 60vh;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/category (1).jpeg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-bottom: 60px;
+        }
+
+        .services-hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .services-hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+
+        .services-hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .services-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 80px;
+        }
+
+        .services-intro {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .services-intro h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .services-intro p {
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .service-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-image {
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .service-card:hover .service-image img {
+            transform: scale(1.1);
+        }
+
+        .service-content {
+            padding: 30px;
+        }
+
+        .service-content h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .service-content p {
+            margin-bottom: 20px;
+            line-height: 1.6;
+            color: #ccc;
+        }
+
+        .service-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #388E3C;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .service-link:hover {
+            background-color: #2E7D32;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 80px 20px;
+            margin-top: 80px;
+        }
+
+        .testimonials-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonials-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .testimonials-header h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background-color: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 30px;
+            position: relative;
+        }
+
+        .testimonial-quote {
+            font-size: 3rem;
+            color: #388E3C;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            opacity: 0.2;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            line-height: 1.8;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .testimonial-author-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+        }
+
+        .testimonial-author-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .testimonial-author-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .testimonial-author-info p {
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 80px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            padding: 15px 30px;
+            background-color: #388E3C;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .cta-button.secondary {
+            background-color: transparent;
+            border: 1px solid #388E3C;
+        }
+
+        .cta-button:hover {
+            background-color: #2E7D32;
+            transform: translateY(-3px);
+        }
+
+        .cta-button.secondary:hover {
+            background-color: rgba(56, 142, 60, 0.1);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .services-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .services-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .service-image {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo" style="padding-left: 20px;"><img style="height: 40px;" src="images/image-removebg-preview (41).png"><span class="hindi-ka"></span></div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <div class="dropdown">
+                <a href="#" class="dropdown-toggle">Shop <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <div class="dropdown-column">
+                        <h3>Men</h3>
+                        <ul>
+                            <li><a href="shop-men-gamcha.html">Gamcha</a></li>
+                            <li><a href="shop-men-lungi.html">Lungi</a></li>
+                            <li><a href="shop-men-yardage.html">Yardage</a></li>
+                            <li><a href="shop-men.html" class="view-all">View All</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown-column">
+                        <h3>Women</h3>
+                        <ul>
+                            <li><a href="shop-women-saree.html">Saree</a></li>
+                            <li><a href="shop-women-dupatta.html">Dupatta</a></li>
+                            <li><a href="shop-women-stole.html">Stole</a></li>
+                            <li><a href="shop-women-yardage.html">Yardage</a></li>
+                            <li><a href="shop-women.html" class="view-all">View All</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown-column">
+                        <h3>Utility</h3>
+                        <ul>
+                            <li><a href="shop-utility-napkin.html">Napkin</a></li>
+                            <li><a href="shop-utility-duster.html">Duster</a></li>
+                            <li><a href="shop-utility.html" class="view-all">View All</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown-column">
+                        <h3>Collections</h3>
+                        <ul>
+                            <li><a href="shop-collections-sutrashringar.html">Sutrashringar</a></li>
+                            <li><a href="shop-collections-lookbook.html">Lookbook</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown-column">
+                        <h3>Sale</h3>
+                        <ul>
+                            <li><a href="shop-sale-men.html">Men</a></li>
+                            <li><a href="shop-sale-women.html">Women</a></li>
+                            <li><a href="shop-sale-utility.html">Utility</a></li>
+                            <li><a href="shop-sale.html" class="view-all">View All</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown-column">
+                        <h3>Giftcards</h3>
+                        <ul>
+                            <li><a href="shop-giftcards-customise.html">Customise</a></li>
+                            <li><a href="shop-giftcards-b2b.html">B2B</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#" class="dropdown-toggle">Our Story <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <div class="dropdown-column">
+                        <ul>
+                            <li><a href="index.html#origin">Origin</a></li>
+                            <li><a href="index.html#artisans">Artisans</a></li>
+                            <li><a href="of-art.html">Of Art</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#" class="dropdown-toggle">Services <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <div class="dropdown-column">
+                        <ul>
+                            <li><a href="services-workshop.html">Workshops</a></li>
+                            <li><a href="services-subscription.html">Subscription Box</a></li>
+                            <li><a href="services-b2b.html">B2B</a></li>
+                            <li><a href="services-customise.html">Customise</a></li>
+                            <li><a href="services-giftcards.html">Giftcards</a></li>
+                            <li><a href="services.html" class="view-all">View All</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <a href="index.html#support">Connect</a>
+        </div>
+        <div class="nav-icons">
+            <a href="#" class="nav-icon"><i class="fas fa-search"></i></a>
+            <a href="#" class="nav-icon"><i class="fas fa-user"></i></a>
+            <a href="#" class="nav-icon"><i class="fas fa-shopping-cart"></i></a>
+            <a href="#" class="nav-icon"><i class="fas fa-gift"></i></a>
+        </div>
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="services-hero">
+        <div class="services-hero-content">
+            <h1>Our Services</h1>
+            <p>Discover the world of handcrafted textiles through our specialized services designed to connect you with the rich heritage of Indian craftsmanship.</p>
+        </div>
+    </div>
+
+    <!-- Services Section -->
+    <div class="services-container">
+        <div class="services-intro">
+            <h2>Experience Sahrika Beyond Products</h2>
+            <p>At Sahrika, we believe in creating meaningful connections between our artisans and customers. Our services are designed to immerse you in the world of traditional textiles while supporting sustainable craftsmanship.</p>
+        </div>
+
+        <div class="services-grid">
+            <!-- Workshops Card -->
+            <div class="service-card">
+                <div class="service-image">
+                    <img src="images/category (2).jpeg" alt="Textile Workshops">
+                </div>
+                <div class="service-content">
+                    <h3>Workshops</h3>
+                    <p>Learn traditional weaving techniques directly from our master artisans. Our workshops offer hands-on experience in creating beautiful textiles using age-old methods.</p>
+                    <a href="services-workshop.html" class="service-link">Learn More</a>
+                </div>
+            </div>
+
+            <!-- Subscription Box Card -->
+            <div class="service-card">
+                <div class="service-image">
+                    <img src="images/category (3).jpeg" alt="Subscription Box">
+                </div>
+                <div class="service-content">
+                    <h3>Subscription Box</h3>
+                    <p>Receive curated handcrafted textiles delivered to your doorstep every month. Each box tells a story of Indian craftsmanship with exclusive products and artisan stories.</p>
+                    <a href="services-subscription.html" class="service-link">Learn More</a>
+                </div>
+            </div>
+
+            <!-- B2B Card -->
+            <div class="service-card">
+                <div class="service-image">
+                    <img src="images/category (4).jpeg" alt="B2B Services">
+                </div>
+                <div class="service-content">
+                    <h3>B2B</h3>
+                    <p>Partner with us for wholesale opportunities, corporate gifting, and custom textile solutions for your business. We offer sustainable and ethically sourced products.</p>
+                    <a href="services-b2b.html" class="service-link">Learn More</a>
+                </div>
+            </div>
+
+            <!-- Customise Card -->
+            <div class="service-card">
+                <div class="service-image">
+                    <img src="images/category (5).jpeg" alt="Customise Products">
+                </div>
+                <div class="service-content">
+                    <h3>Customise</h3>
+                    <p>Create your own unique textile pieces with our customization service. Work with our artisans to design personalized products that reflect your style and vision.</p>
+                    <a href="services-customise.html" class="service-link">Learn More</a>
+                </div>
+            </div>
+
+            <!-- Giftcards Card -->
+            <div class="service-card">
+                <div class="service-image">
+                    <img src="images/category (6).jpeg" alt="Gift Cards">
+                </div>
+                <div class="service-content">
+                    <h3>Giftcards</h3>
+                    <p>Share the gift of handcrafted textiles with your loved ones. Our gift cards are perfect for special occasions and allow recipients to choose their favorite products.</p>
+                    <a href="services-giftcards.html" class="service-link">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="testimonials-container">
+            <div class="testimonials-header">
+                <h2>What Our Customers Say</h2>
+            </div>
+            <div class="testimonials-grid">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-quote"><i class="fas fa-quote-left"></i></div>
+                    <p class="testimonial-text">"The weaving workshop was an incredible experience. Learning directly from the artisans gave me a deep appreciation for the craft and the cultural heritage behind each piece."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-author-image">
+                            <img src="images/artisan (1).PNG" alt="Priya S.">
+                        </div>
+                        <div class="testimonial-author-info">
+                            <h4>Priya S.</h4>
+                            <p>Workshop Participant</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-quote"><i class="fas fa-quote-left"></i></div>
+                    <p class="testimonial-text">"The subscription box has been a delightful surprise each month. The quality of the textiles is exceptional, and I love learning about the artisans who create these beautiful pieces."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-author-image">
+                            <img src="images/artisan (2).PNG" alt="Rahul M.">
+                        </div>
+                        <div class="testimonial-author-info">
+                            <h4>Rahul M.</h4>
+                            <p>Subscription Member</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-quote"><i class="fas fa-quote-left"></i></div>
+                    <p class="testimonial-text">"We partnered with Sahrika for our corporate gifting needs, and the response has been overwhelmingly positive. The customized products reflect our brand values while supporting traditional craftsmanship."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-author-image">
+                            <img src="images/pair.png" alt="Anita K.">
+                        </div>
+                        <div class="testimonial-author-info">
+                            <h4>Anita K.</h4>
+                            <p>Business Client</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>Ready to Experience Sahrika Services?</h2>
+        <p>Whether you're looking to learn a new skill, receive curated textiles, or create custom pieces, we have a service that's perfect for you. Join us in celebrating and preserving India's rich textile heritage.</p>
+        <div class="cta-buttons">
+            <a href="services-workshop.html" class="cta-button">Explore Workshops</a>
+            <a href="services-subscription.html" class="cta-button secondary">Subscribe Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Sahrika</h3>
+                <p>Sahrika celebrates India's rich textile heritage by connecting artisans with conscious consumers, preserving traditional craftsmanship while creating sustainable livelihoods.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop-men.html">Shop</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="of-art.html">Our Story</a></li>
+                    <li><a href="index.html#support">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: info@sahrika.com</p>
+                <p>Phone: +91 98765 43210</p>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-pinterest"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Newsletter</h3>
+                <p>Subscribe to receive updates on new products, special offers, and artisan stories.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your email address" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Sahrika. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Shipping Policy</a>
+                <a href="#">Returns & Exchanges</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

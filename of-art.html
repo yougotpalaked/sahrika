@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sahrika - Of Art</title>
+   
+    <link rel="icon" href="images/image-removebg-preview (41).png" type="image/png">
+    <link rel="shortcut icon" href="images/image-removebg-preview (41).png" type="image/png">
+    <link rel="apple-touch-icon" href="images/image-removebg-preview (41).png">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/carousel.css">
+    <link rel="stylesheet" href="css/new-sections.css">
+    <link rel="stylesheet" href="css/cloth-texture.css">
+    <link rel="stylesheet" href="css/scroll-button.css">
+    <link rel="stylesheet" href="css/wishlist-button.css">
+    <link rel="stylesheet" href="css/dropdown.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Styles specific to the OF ART page */
+        .charkha-container {
+            width: 100%;
+            max-width: 1000px;
+            position: relative;
+            overflow: visible;
+            margin: 40px auto 80px;
+            padding: 20px 0;
+            z-index: 10;
+        }
+        
+        .charkha-image {
+            width: 100%;
+            display: block;
+            z-index: 10;
+        }
+        
+        .wheels-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            pointer-events: none;
+            z-index: 10;
+        }
+        
+        .wheel {
+            position: absolute;
+            transform-origin: center;
+            transition: transform 0.1s ease-out;
+           z-index: 0;
+         
+            border-radius: 50%;
+        }
+        
+        .big-wheel {
+            width: 370px;
+            height: 370px;
+            right: calc(65% - 140px);
+            top: calc(19% - 75px);
+            z-index: 1;
+        }
+        
+        .small-wheel {
+            width: 225px;
+            height: 225px;
+            left: calc(70% - 70px);
+            top: calc(45% - 37px);
+            z-index: 1;
+        }
+        
+        .spin-counter {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 10px 15px;
+            border-radius: 20px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+          
+        }
+        
+        .content-section {
+            padding: 50px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+        
+        .content-section.visible {
+            opacity: 1;
+        }
+        
+        .content-section h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .content-section p {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+        
+        .art-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .art-item {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .art-item:hover {
+            transform: translateY(-10px);
+        }
+        
+        .art-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .art-info {
+            padding: 20px;
+            background-color: #fff;
+        }
+        
+        .art-info h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .art-info p {
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.9rem;
+            color: #666;
+            text-align: left;
+            margin-bottom: 0;
+        }
+        
+        .locked-scroll {
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo" style="padding-left: 20px;"><img style="height: 40px;" src="images/image-removebg-preview (41).png"><span class="hindi-ka"></span></div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <div class="dropdown">
+                <a href="#" class="dropdown-toggle">Shop <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <div class="dropdown-column">
+                        <h3>Men</h3>
+                        <ul>
+                            <li><a href="shop-men-gamcha.html">Gamcha</a></li>
+                            <li><a href="shop-men-lungi.html">Lungi</a></li>
+                            <li><a href="shop-men-yardage.html">Yardage</a></li>
+                            <li><a href="shop-men.html" class="view-all">View All</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown-column">
+                        <h3>Women</h3>
+                        <ul>
+                            <li><a href="shop-women-saree.html">Saree</a></li>
+                            <li><a href="shop-women-dupatta.html">Dupatta</a></li>
+                            <li><a href="shop-women-stole.html">Stole</a></li>
+                            <li><a href="shop-women-yardage.html">Yardage</a></li>
+                            <li><a href="shop-women.html" class="view-all">View All</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown-column">
+                        <h3>Utility</h3>
+                        <ul>
+                            <li><a href="shop-utility-napkin.html">Napkin</a></li>
+                            <li><a href="shop-utility-duster.html">Duster</a></li>
+                            <li><a href="shop-utility.html" class="view-all">View All</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown-column">
+                        <h3>Collections</h3>
+                        <ul>
+                            <li><a href="shop-collections-sutrashringar.html">Sutrashringar</a></li>
+                            <li><a href="shop-collections-lookbook.html">Lookbook</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown-column">
+                        <h3>Sale</h3>
+                        <ul>
+                            <li><a href="shop-sale-men.html">Men</a></li>
+                            <li><a href="shop-sale-women.html">Women</a></li>
+                            <li><a href="shop-sale-utility.html">Utility</a></li>
+                            <li><a href="shop-sale.html" class="view-all">View All</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown-column">
+                        <h3>Giftcards</h3>
+                        <ul>
+                            <li><a href="shop-giftcards-customise.html">Customise</a></li>
+                            <li><a href="shop-giftcards-b2b.html">B2B</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#" class="dropdown-toggle">Our Story <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <div class="dropdown-column">
+                        <ul>
+                            <li><a href="index.html#origin">Origin</a></li>
+                            <li><a href="index.html#artisans">Artisans</a></li>
+                            <li><a href="of-art.html">Of Art</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <a href="index.html#process">Services</a>
+            <a href="index.html#support">Connect</a>
+        </div>
+        <div class="nav-icons">
+            <a href="#" class="nav-icon"><i class="fas fa-search"></i></a>
+            <a href="#" class="nav-icon"><i class="fas fa-user"></i></a>
+            <a href="#" class="nav-icon"><i class="fas fa-shopping-cart"></i></a>
+            <a href="#" class="nav-icon"><i class="fas fa-gift"></i></a>
+        </div>
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- Charkha Section with Interactive Wheels -->
+    
+        
+        <div class="wheels-container">
+            <img src="images/bigwheel.png" alt="Big Wheel" class="wheel big-wheel">
+            <img src="images/smallwheel.png" alt="Small Wheel" class="wheel small-wheel">
+            <div class="spin-counter">0 of 10 spins complete</div>
+        </div>
+        <div class="charkha-container">
+            <img src="images/charkha.png" alt="Charkha" class="charkha-image">
+    </div>
+
+    <!-- Content Section (initially hidden) -->
+    <section class="content-section" id="artContent">
+        <h2>The Art of Handloom</h2>
+        <p>The art of handloom weaving is a testament to human creativity and patience. Each thread is carefully placed, each pattern meticulously designed, creating fabrics that tell stories of tradition, culture, and innovation.</p>
+        
+        <p>At Sahrika, we believe that handloom is not just a method of creating textiles—it is an art form that has been perfected over generations. Our weavers are artists who use the loom as their canvas, creating masterpieces that combine ancient techniques with contemporary designs.</p>
+        
+        <p>The rhythmic movement of the shuttle, the gentle creaking of the loom, and the focused concentration of the weaver all contribute to the creation of something truly special. Each piece carries with it the energy and intention of its creator, making it not just a product, but a work of art.</p>
+        
+        <div class="art-gallery">
+            <div class="art-item">
+                <img src="images/category (1).jpeg" alt="Handloom Art 1">
+                <div class="art-info">
+                    <h3>Traditional Patterns</h3>
+                    <p>Ancient motifs that have been passed down through generations, each with its own symbolic meaning.</p>
+                </div>
+            </div>
+            <div class="art-item">
+                <img src="images/category (2).jpeg" alt="Handloom Art 2">
+                <div class="art-info">
+                    <h3>Color Harmony</h3>
+                    <p>The careful selection and combination of colors to create visual balance and emotional resonance.</p>
+                </div>
+            </div>
+            <div class="art-item">
+                <img src="images/category (3).jpeg" alt="Handloom Art 3">
+                <div class="art-info">
+                    <h3>Texture Exploration</h3>
+                    <p>Experimenting with different weaving techniques to create unique textures and tactile experiences.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="blessing-section">
+            <p>Leave a heart if you liked our work!</p>
+            <button id="blessing-button" class="blessing-button">🤍</button>
+            <div class="blessing-hearts"></div>
+        </div>
+        <div class="footer-content">
+            <div class="footer-logo"> <img src="images/image-removebg-preview (41).png" alt="">
+                <p>Handloom Heritage</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h3>Shop</h3>
+                    <ul>
+                        <li><a href="shop-men.html">Men</a></li>
+                        <li><a href="shop-women.html">Women</a></li>
+                        <li><a href="shop-utility.html">Utility</a></li>
+                        <li><a href="shop-collections-sutrashringar.html">Collections</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>About</h3>
+                    <ul>
+                        <li><a href="index.html#origin">Our Story</a></li>
+                        <li><a href="index.html#artisans">Artisans</a></li>
+                        <li><a href="of-art.html">Of Art</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Returns & Exchanges</a></li>
+                        <li><a href="#">FAQs</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-newsletter">
+                <h3>Join Our Newsletter</h3>
+                <p>Stay updated with our latest collections and artisan stories.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your email address" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-pinterest-p"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Sahrika. All rights reserved.</p>
+            <div class="footer-bottom-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const bigWheel = document.querySelector('.big-wheel');
+            const smallWheel = document.querySelector('.small-wheel');
+            const spinCounter = document.querySelector('.spin-counter');
+            const contentSection = document.getElementById('artContent');
+            const body = document.body;
+            
+            let rotationAngle = 0;
+            let spinCount = 0;
+            let isScrollLocked = true;
+            let lastScrollY = 0;
+            
+            // Add locked-scroll class to body initially
+            body.classList.add('locked-scroll');
+            
+            // Update the counter display
+            function updateCounter() {
+                spinCounter.textContent = `${spinCount} of 10 spins complete`;
+                
+                // If 10 spins are complete, unlock scrolling and show content
+                if (spinCount >= 10) {
+                    isScrollLocked = false;
+                    body.classList.remove('locked-scroll');
+                    contentSection.classList.add('visible');
+                    spinCounter.textContent = 'Spinning complete! Scroll to explore';
+                    setTimeout(() => {
+                        spinCounter.style.opacity = '0';
+                    }, 3000);
+                }
+            }
+            
+            // Handle wheel event for rotation
+            window.addEventListener('wheel', function(event) {
+                if (isScrollLocked) {
+                    event.preventDefault();
+                    
+                    // Determine rotation direction based on scroll direction
+                    const delta = event.deltaY;
+                    rotationAngle += delta * 0.8; // Increased rotation speed for better visibility
+                    
+                    // Apply rotation to wheels with more visible rotation
+                    bigWheel.style.transform = `rotate(${rotationAngle}deg)`;
+                    smallWheel.style.transform = `rotate(${-rotationAngle * 2}deg)`; // Small wheel rotates faster in opposite direction
+                    
+                    // Count full rotations (360 degrees)
+                    if (Math.abs(rotationAngle) >= 360) {
+                        spinCount++;
+                        rotationAngle = rotationAngle % 360;
+                        updateCounter();
+                    }
+                }
+            }, { passive: false });
+            
+            // Handle touch events for mobile devices
+            let touchStartY = 0;
+            
+            window.addEventListener('touchstart', function(event) {
+                touchStartY = event.touches[0].clientY;
+            }, { passive: false });
+            
+            window.addEventListener('touchmove', function(event) {
+                if (isScrollLocked) {
+                    event.preventDefault();
+                    
+                    const touchY = event.touches[0].clientY;
+                    const delta = touchStartY - touchY;
+                    touchStartY = touchY;
+                    
+                    rotationAngle += delta * 2; // Adjust rotation speed for touch
+                    
+                    // Apply rotation to wheels
+                    bigWheel.style.transform = `rotate(${rotationAngle}deg)`;
+                    smallWheel.style.transform = `rotate(${-rotationAngle * 2}deg)`;
+                    
+                    // Count full rotations
+                    if (Math.abs(rotationAngle) >= 360) {
+                        spinCount++;
+                        rotationAngle = rotationAngle % 360;
+                        updateCounter();
+                    }
+                }
+            }, { passive: false });
+            
+            // Initialize counter
+            updateCounter();
+            
+            // Mobile menu toggle
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            
+            menuToggle.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+                menuToggle.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>

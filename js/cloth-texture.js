@@ -21,7 +21,6 @@ function initClothOverlay() {
             const stripe = document.createElement('div');
             stripe.classList.add('v-stripe');
             stripe.style.left = `${i * 4}%`;
-            // Remove transition delay to allow manual control
             stripe.style.transition = 'transform 0.8s ease, opacity 0.8s ease';
             clothOverlay.appendChild(stripe);
         }
@@ -31,7 +30,6 @@ function initClothOverlay() {
             const stripe = document.createElement('div');
             stripe.classList.add('h-stripe');
             stripe.style.top = `${i * 4}%`;
-            // Remove transition delay to allow manual control
             stripe.style.transition = 'transform 0.8s ease, opacity 0.8s ease';
             clothOverlay.appendChild(stripe);
         }

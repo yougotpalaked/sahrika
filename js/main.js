@@ -1,6 +1,4 @@
-// Wait for the DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize the page
     initLoader();
     initNavigation();
     initParallaxEffects();
@@ -9,9 +7,9 @@ document.addEventListener('DOMContentLoaded', () => {
     initCategorySection();
     initBlessingHearts();
     initScrollIndicator();
+    initScrollButtons();
 });
 
-// Initialize scroll indicator to only show in hero section
 function initScrollIndicator() {
     const scrollIndicator = document.querySelector('.scroll-indicator');
     const heroSection = document.querySelector('.hero-carousel-section');
@@ -21,7 +19,6 @@ function initScrollIndicator() {
             const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
             const scrollPosition = window.scrollY;
             
-            // Only show scroll indicator when in hero section
             if (scrollPosition < heroBottom - 100) {
                 scrollIndicator.style.opacity = '1';
             } else {
@@ -31,15 +28,12 @@ function initScrollIndicator() {
     }
 }
 
-// Initialize the Shop by Category section with animations and interactions
 function initCategorySection() {
     const categoryItems = document.querySelectorAll('.category-item');
     
-    // Add animation when scrolling to the category section
     if (categoryItems.length > 0) {
         gsap.registerPlugin(ScrollTrigger);
         
-        // Animate category items on scroll with a cloth-like unfold effect
         gsap.from(categoryItems, {
             y: 30,
             opacity: 0,
@@ -372,6 +366,97 @@ function initCollectionHover() {
 // Function removed as part of removing stripe animation
 
 // Flower/heart blessing footer animation inspired by "Made in Webflow" flower pile effect
+function initScrollButtons() {
+    const scrollToTopBtn = document.getElementById('scroll-to-top');
+    const scrollToBottomBtn = document.getElementById('scroll-to-bottom');
+    let lastScrollTop = 0;
+    let scrollingDown = true;
+    let scrollThreshold = 150; // Minimum scroll amount before showing buttons
+    
+    // Function to check scroll direction and toggle appropriate button
+    function checkScrollDirection() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const documentHeight = Math.max(
+            document.body.scrollHeight, 
+            document.body.offsetHeight, 
+            document.documentElement.clientHeight, 
+            document.documentElement.scrollHeight, 
+            document.documentElement.offsetHeight
+        );
+        const windowHeight = window.innerHeight;
+        const scrolledToBottom = scrollTop + windowHeight >= documentHeight - 100;
+        const scrolledToTop = scrollTop < scrollThreshold;
+        
+        // Only update if we've scrolled enough to determine direction
+        if (Math.abs(scrollTop - lastScrollTop) > 10) {
+            // Determine scroll direction
+            scrollingDown = scrollTop > lastScrollTop;
+            lastScrollTop = scrollTop;
+            
+            // Show/hide appropriate button based on scroll direction and position
+            if (scrollingDown && !scrolledToBottom && scrollTop > scrollThreshold) {
+                // When scrolling down, show the scroll-to-bottom button
+                scrollToBottomBtn.classList.add('show');
+                scrollToTopBtn.classList.remove('show');
+            } else if (!scrollingDown && !scrolledToTop) {
+                // When scrolling up, show the scroll-to-top button
+                scrollToTopBtn.classList.add('show');
+                scrollToBottomBtn.classList.remove('show');
+            } else {
+                // Hide both buttons when at the top or bottom
+                scrollToTopBtn.classList.remove('show');
+                scrollToBottomBtn.classList.remove('show');
+            }
+        }
+    }
+    
+    // Add scroll event listener with throttling for better performance
+    let isScrolling;
+    window.addEventListener('scroll', () => {
+        // Clear the timeout throughout the scroll
+        window.clearTimeout(isScrolling);
+        
+        // Check scroll direction immediately
+        checkScrollDirection();
+        
+        // Set a timeout to run after scrolling ends (250ms)
+        isScrolling = setTimeout(() => {
+            // Run one final check after scrolling stops
+            checkScrollDirection();
+        }, 250);
+    });
+    
+    // Add click event listeners to buttons with visual feedback
+    scrollToTopBtn.addEventListener('click', () => {
+        // Add pressed effect
+        scrollToTopBtn.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+            scrollToTopBtn.style.transform = '';
+        }, 150);
+        
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+    
+    scrollToBottomBtn.addEventListener('click', () => {
+        // Add pressed effect
+        scrollToBottomBtn.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+            scrollToBottomBtn.style.transform = '';
+        }, 150);
+        
+        window.scrollTo({
+            top: document.body.scrollHeight,
+            behavior: 'smooth'
+        });
+    });
+    
+    // Initial check
+    checkScrollDirection();
+}
+
 function initBlessingHearts() {
     console.log('Initializing blessing hearts...');
     const footer = document.querySelector('.footer');
@@ -392,18 +477,14 @@ function initBlessingHearts() {
     let heartCount = 0;
     const maxHearts = 30; // Increased maximum number of hearts
     
-    // Create heart pile container at the bottom of the footer
-    const heartPile = document.createElement('div');
-    heartPile.classList.add('heart-pile');
-    heartPile.style.position = 'absolute';
-    heartPile.style.bottom = '0';
-    heartPile.style.left = '0';
+    // Use footer-bottom as the heart pile container
+    const heartPile = document.querySelector('.footer-bottom');
+    // Ensure the heartPile has the necessary styles
+    heartPile.style.position = 'relative';
     heartPile.style.width = '100%';
-    heartPile.style.height = '90px'; // Increased height of the pile area
     heartPile.style.zIndex = '10'; // Increased z-index to ensure hearts appear above footer content
     heartPile.style.pointerEvents = 'none'; // Allow clicks to pass through
     heartPile.style.overflow = 'visible'; // Allow hearts to be visible outside container
-    footer.appendChild(heartPile);
     
     // Track pile positions to create stacking effect
     const pilePositions = [];

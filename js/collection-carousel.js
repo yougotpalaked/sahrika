@@ -1,4 +1,3 @@
-// Collection Carousel Functionality
 document.addEventListener('DOMContentLoaded', () => {
     initCollectionCarousel();
 });
@@ -15,11 +14,9 @@ function initCollectionCarousel() {
     const slideCount = slides.length;
     let autoplayInterval;
     
-    // Initialize the carousel
     updateCarousel();
     startAutoplay();
     
-    // Event listeners for navigation
     prevBtn.addEventListener('click', () => {
         currentIndex = (currentIndex - 1 + slideCount) % slideCount;
         updateCarousel();
@@ -32,7 +29,6 @@ function initCollectionCarousel() {
         resetAutoplay();
     });
     
-    // Pause autoplay on hover
     carouselContainer.addEventListener('mouseenter', () => {
         clearInterval(autoplayInterval);
     });
@@ -41,12 +37,9 @@ function initCollectionCarousel() {
         startAutoplay();
     });
     
-    // Update carousel position
     function updateCarousel() {
-        // Update slide position
         carouselContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
         
-        // Add animation to current slide content
         slides.forEach((slide, index) => {
             const item = slide.querySelector('.collection-item');
             if (index === currentIndex) {
@@ -59,21 +52,18 @@ function initCollectionCarousel() {
         });
     }
     
-    // Start autoplay
     function startAutoplay() {
         autoplayInterval = setInterval(() => {
             currentIndex = (currentIndex + 1) % slideCount;
             updateCarousel();
-        }, 5000); // Change slide every 5 seconds
+        }, 5000);
     }
     
-    // Reset autoplay timer
     function resetAutoplay() {
         clearInterval(autoplayInterval);
         startAutoplay();
     }
     
-    // Add touch support for mobile devices
     let touchStartX = 0;
     let touchEndX = 0;
     
@@ -87,14 +77,12 @@ function initCollectionCarousel() {
     }, {passive: true});
     
     function handleSwipe() {
-        const swipeThreshold = 50; // Minimum distance required for a swipe
+        const swipeThreshold = 50;
         const swipeDistance = touchEndX - touchStartX;
         
         if (swipeDistance > swipeThreshold) {
-            // Swiped right, go to previous slide
             currentIndex = (currentIndex - 1 + slideCount) % slideCount;
         } else if (swipeDistance < -swipeThreshold) {
-            // Swiped left, go to next slide
             currentIndex = (currentIndex + 1) % slideCount;
         }
         

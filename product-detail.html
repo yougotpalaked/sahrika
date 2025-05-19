@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sahrika - Traditional Cotton Gamcha</title>
+   
+    <link rel="icon" href="images/image-removebg-preview (41).png" type="image/png">
+    <link rel="shortcut icon" href="images/image-removebg-preview (41).png" type="image/png">
+    <link rel="apple-touch-icon" href="images/image-removebg-preview (41).png">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/carousel.css">
+    <link rel="stylesheet" href="css/new-sections.css">
+    <link rel="stylesheet" href="css/cloth-texture.css">
+    <link rel="stylesheet" href="css/scroll-button.css">
+    <link rel="stylesheet" href="css/wishlist-button.css">
+    <link rel="stylesheet" href="css/dropdown.css">
+    <link rel="stylesheet" href="css/plp.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Product Detail Page Styles */
+        .product-detail-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        /* Product Images Section */
+        .product-images {
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+        }
+
+        .main-image {
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .main-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .main-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .image-zoom-icon {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .image-zoom-icon:hover {
+            background-color: #388E3C;
+        }
+
+        .thumbnail-container {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding-bottom: 10px;
+            scrollbar-width: thin;
+        }
+
+        .thumbnail {
+            width: 80px;
+            height: 80px;
+            border-radius: 4px;
+            overflow: hidden;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .thumbnail.active {
+            opacity: 1;
+            border: 2px solid #388E3C;
+        }
+
+        /* Product Info Section */
+        .product-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .product-category {
+            font-size: 0.9rem;
+            color: #888;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .product-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .product-price {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .product-description {
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .product-meta {
+            margin-bottom: 30px;
+        }
+
+        .meta-item {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .meta-label {
+            width: 120px;
+            font-weight: 500;
+            color: #888;
+        }
+
+        .meta-value {
+            flex: 1;
+        }
+
+        /* Product Options */
+        .product-options {
+            margin-bottom: 30px;
+        }
+
+        .option-title {
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .color-options {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .color-option {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            position: relative;
+            border: 1px solid #ddd;
+        }
+
+        .color-option.active::after {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: -4px;
+            right: -4px;
+            bottom: -4px;
+            border: 2px solid #388E3C;
+            border-radius: 50%;
+        }
+
+        .size-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .size-option {
+            padding: 8px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background-color: transparent;
+            color: #fff;
+        }
+
+        .size-option.active {
+            background-color: #388E3C;
+            border-color: #388E3C;
+            color: white;
+        }
+
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .quantity-btn {
+            width: 40px;
+            height: 40px;
+            background-color: transparent;
+            border: 1px solid #ddd;
+            color: #fff;
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .quantity-btn:hover {
+            background-color: #388E3C;
+            border-color: #388E3C;
+        }
+
+        .quantity-input {
+            width: 60px;
+            height: 40px;
+            border: 1px solid #ddd;
+            border-left: none;
+            border-right: none;
+            text-align: center;
+            font-size: 1rem;
+            background-color: transparent;
+            color: #fff;
+        }
+
+        .add-to-cart-btn {
+            width: 100%;
+            padding: 15px;
+            background-color: #388E3C;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .add-to-cart-btn:hover {
+            background-color: #2E7D32;
+            transform: translateY(-2px);
+        }
+
+        .wishlist-btn {
+            width: 100%;
+            padding: 15px;
+            background-color: transparent;
+            color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .wishlist-btn:hover {
+            border-color: #388E3C;
+            color: #388E3C;
+        }
+
+        /* Product Tabs */
+        .product-tabs {
+            margin-top: 60px;
+            width: 100%;
+        }
+
+        .tabs-header {
+            display: flex;
+            border-bottom: 1px solid #333;
+            margin-bottom: 30px;
+        }
+
+        .tab-btn {
+            padding: 15px 30px;
+            background-color: transparent;
+            border: none;
+            color: #888;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .tab-btn.active {
+            color: #fff;
+        }
+
+        .tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #388E3C;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Related Products */
+        .related-products {
+            margin-top: 80px;
+            width: 100%;
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .related-products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .product-detail-container {
+                padding: 40px 15px;
+            }
+
+            .main-image {
+                height: 350px;
+            }
+
+            .product-title {
+                font-size: 2rem;
+            }
+
+            .tab-btn {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Zoom Modal */
+        .zoom-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .zoom-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .zoom-image-container {
+            position: relative;
+            width: 90%;
+            height: 90%;
+            max-width: 1200px;
+        }
+
+        .zoom-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .zoom-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .zoom-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            padding: 0 20px;
+        }
+
+        .zoom-nav-btn {
+            width: 50px;
+            height: 50px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .zoom-nav-btn:hover {
+            background-color: #388E3C;
+        }
+
+        /* Artisan Story Section */
+        .artisan-story {
+            margin-top: 80px;
+            padding: 40px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+        }
+
+        .artisan-story-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .artisan-image {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .artisan-image img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .artisan-text {
+            flex: 2;
+            min-width: 300px;
+        }
+
+        .artisan-text h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .artisan-text p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo" style="padding-left: 20px;"><img style="height: 40px;" src="images/image-removebg-preview (41).png"><span class="hindi-ka"></span></div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <div class="dropdown">
+                <a href="#" class="dropdown-toggle">Shop <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <div class="dropdown-column">
+                        <h3>Men</h3>
+                        <ul>
+                            <li><a href="shop-men-gamcha.html">Gamcha</a></li>
+                            <li><a href="shop-men-lungi.html">Lungi</a></li>
+                            <li><a href="shop-men-yardage.html">Yardage</a></li>
+                            <li><a href="shop-men.html" class="view-all">View All</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown-column">
+                        <h3>Women</h3>
+                        <ul>
+                            <li><a href="shop-women-saree.html">Saree</a></li>
+                            <li><a href="shop-women-dupatta.html">Dupatta</a></li>
+                            <li><a href="shop-women-stole.html">Stole</a></li>
+                            <li><a href="shop-women-yardage.html">Yardage</a></li>
+                            <li><a href="shop-women.html" class="view-all">View All</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown-column">
+                        <h3>Utility</h3>
+                        <ul>
+                            <li><a href="shop-utility-napkin.html">Napkin</a></li>
+                            <li><a href="shop-utility-duster.html">Duster</a></li>
+                            <li><a href="shop-utility.html" class="view-all">View All</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown-column">
+                        <h3>Collections</h3>
+                        <ul>
+                            <li><a href="shop-collections-sutrashringar.html">Sutrashringar</a></li>
+                            <li><a href="shop-collections-lookbook.html">Lookbook</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown-column">
+                        <h3>Sale</h3>
+                        <ul>
+                            <li><a href="shop-sale-men.html">Men</a></li>
+                            <li><a href="shop-sale-women.html">Women</a></li>
+                            <li><a href="shop-sale-utility.html">Utility</a></li>
+                            <li><a href="shop-sale.html" class="view-all">View All</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown-column">
+                        <h3>Giftcards</h3>
+                        <ul>
+                            <li><a href="shop-giftcards-customise.html">Customise</a></li>
+                            <li><a href="shop-giftcards-b2b.html">B2B</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#" class="dropdown-toggle">Our Story <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <div class="dropdown-column">
+                        <ul>
+                            <li><a href="index.html#origin">Origin</a></li>
+                            <li><a href="index.html#artisans">Artisans</a></li>
+                            <li><a href="of-art.html">Of Art</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#" class="dropdown-toggle">Services <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <div class="dropdown-column">
+                        <ul>
+                            <li><a href="services-workshop.html">Workshops</a></li>
+                            <li><a href="services-subscription.html">Subscription Box</a></li>
+                            <li><a href="services-b2b.html">B2B</a></li>
+                            <li><a href="services-customise.html">Customise</a></li>
+                            <li><a href="services-giftcards.html">Giftcards</a></li>
+                            <li><a href="services.html" class="view-all">View All</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <a href="index.html#support">Connect</a>
+        </div>
+        <div class="nav-icons">
+            <a href="#" class="nav-icon"><i class="fas fa-search"></i></a>
+            <a href="#" class="nav-icon"><i class="fas fa-user"></i></a>
+            <a href="#" class="nav-icon"><i class="fas fa-shopping-cart"></i></a>
+            <a href="#" class="nav-icon"><i class="fas fa-gift"></i></a>
+        </div>
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb-container" style="padding: 20px; background-color: rgba(255, 255, 255, 0.05);">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <ul class="breadcrumb" style="display: flex; list-style: none; gap: 10px; font-size: 0.9rem; color: #888;">
+                <li><a href="index.html" style="color: #888;">Home</a></li>
+                <li style="display: flex; align-items: center;"><i class="fas fa-chevron-right" style="font-size: 0.7rem; margin: 0 5px;"></i></li>
+                <li><a href="shop-men.html" style="color: #888;">Men</a></li>
+                <li style="display: flex; align-items: center;"><i class="fas fa-chevron-right" style="font-size: 0.7rem; margin: 0 5px;"></i></li>
+                <li><a href="shop-men-gamcha.html" style="color: #888;">Gamcha</a></li>
+                <li style="display: flex; align-items: center;"><i class="fas fa-chevron-right" style="font-size: 0.7rem; margin: 0 5px;"></i></li>
+                <li>Traditional Cotton Gamcha</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Product Detail Section -->
+    <div class="product-detail-container">
+        <!-- Product Images -->
+        <div class="product-images">
+            <div class="main-image">
+                <img src="images/category (1).jpeg" alt="Traditional Cotton Gamcha" id="mainImage">
+                <div class="image-zoom-icon" id="zoomIcon">
+                    <i class="fas fa-search-plus"></i>
+                </div>
+            </div>
+            <div class="thumbnail-container">
+                <div class="thumbnail active" data-image="images/category (1).jpeg">
+                    <img src="images/category (1).jpeg" alt="Traditional Cotton Gamcha - Front">
+                </div>
+                <div class="thumbnail" data-image="images/category (2).jpeg">
+                    <img src="images/category (2).jpeg" alt="Traditional Cotton Gamcha - Side">
+                </div>
+                <div class="thumbnail" data-image="images/category (3).jpeg">
+                    <img src="images/category (3).jpeg" alt="Traditional Cotton Gamcha - Detail">
+                </div>
+                <div class="thumbnail" data-image="images/category (4).jpeg">
+                    <img src="images/category (4).jpeg" alt="Traditional Cotton Gamcha - Worn">
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Info -->
+        <div class="product-info">
+            <div class="product-category">Men / Gamcha</div>
+            <h1 class="product-title">Traditional Cotton Gamcha</h1>
+            <div class="product-price">₹850</div>
+            <div class="product-description">
+                <p>This handwoven traditional cotton gamcha is crafted by skilled artisans using age-old techniques. The vibrant colors and intricate patterns make it not just a functional piece but also a work of art that celebrates India's rich textile heritage.</p>
+            </div>
+
+            <div class="product-meta">
+                <div class="meta-item">
+                    <div class="meta-label">SKU:</div>
+                    <div class="meta-value">GMCH-001</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Availability:</div>
+                    <div class="meta-value">In Stock</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Material:</div>
+                    <div class="meta-value">100% Handwoven Cotton</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Dimensions:</div>
+                    <div class="meta-value">180cm x 90cm</div>
+                </div>
+            </div>
+
+            <div class="product-options">
+                <div class="option-title">Color</div>
+                <div class="color-options">
+                    <div class="color-option active" style="background-color: #D32F2F;" data-color="Red"></div>
+                    <div class="color-option" style="background-color: #1976D2;" data-color="Blue"></div>
+                    <div class="color-option" style="background-color: #388E3C;" data-color="Green"></div>
+                    <div class="color-option" style="background-color: #FBC02D;" data-color="Yellow"></div>
+                </div>
+
+                <div class="option-title">Size</div>
+                <div class="size-options">
+                    <div class="size-option active" data-size="Standard">Standard</div>
+                    <div class="size-option" data-size="Large">Large</div>
+                    <div class="size-option" data-size="Extra Large">Extra Large</div>
+                </div>
+            </div>
+
+            <div class="quantity-selector">
+                <button class="quantity-btn decrease">-</button>
+                <input type="number" class="quantity-input" value="1" min="1" max="10">
+                <button class="quantity-btn increase">+</button>
+            </div>
+
+            <button class="add-to-cart-btn">
+                <i class="fas fa-shopping-cart"></i> Add to Cart
+            </button>
+
+            <button class="wishlist-btn">
+                <i class="far fa-heart"></i> Add to Wishlist
+            </button>
+        </div>
+
+        <!-- Product Tabs -->
+        <div class="product-tabs">
+            <div class="tabs-header">
+                <button class="tab-btn active" data-tab="description">Description</button>
+                <button class="tab-btn" data-tab="specifications">Specifications</button>
+                <button class="tab-btn" data-tab="care">Care Instructions</button>
+                <button class="tab-btn" data-tab="reviews">Reviews</button>
+            </div>
+
+            <div class="tab-content active" id="description">
+                <p>The Traditional Cotton Gamcha is a versatile piece of handwoven textile that has been an integral part of Indian culture for centuries. This particular gamcha is crafted by skilled artisans from rural Bengal, using techniques passed down through generations.</p>
+                <p>Each gamcha is meticulously handwoven on traditional looms, giving it a unique texture and character that machine-made alternatives simply cannot match. The vibrant red base with contrasting border patterns showcases the artistic heritage of Indian handloom.</p>
+                <p>Gamchas are traditionally used as towels, but their versatility extends to being worn as scarves, headwraps, or even decorative pieces. The lightweight, absorbent cotton makes it perfect for everyday use, while the beautiful craftsmanship makes it worthy of display.</p>
+                <p>By purchasing this gamcha, you're not just acquiring a beautiful handcrafted item; you're supporting traditional artisans and helping preserve an ancient craft that is increasingly threatened by mass production.</p>
+            </div>
+
+            <div class="tab-content" id="specifications">
+                <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+                    <tr style="border-bottom: 1px solid #333;">
+                        <td style="padding: 15px 0; width: 30%; color: #888;">Material</td>
+                        <td style="padding: 15px 0;">100% Handwoven Cotton</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #333;">
+                        <td style="padding: 15px 0; width: 30%; color: #888;">Dimensions</td>
+                        <td style="padding: 15px 0;">Standard: 180cm x 90cm<br>Large: 200cm x 100cm<br>Extra Large: 220cm x 110cm</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #333;">
+                        <td style="padding: 15px 0; width: 30%; color: #888;">Weight</td>
+                        <td style="padding: 15px 0;">Approximately 150g</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #333;">
+                        <td style="padding: 15px 0; width: 30%; color: #888;">Weaving Technique</td>
+                        <td style="padding: 15px 0;">Traditional Handloom</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #333;">
+                        <td style="padding: 15px 0; width: 30%; color: #888;">Origin</td>
+                        <td style="padding: 15px 0;">Bengal, India</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #333;">
+                        <td style="padding: 15px 0; width: 30%; color: #888;">Colors Available</td>
+                        <td style="padding: 15px 0;">Red, Blue, Green, Yellow</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 15px 0; width: 30%; color: #888;">Packaging</td>
+                        <td style="padding: 15px 0;">Eco-friendly handmade paper wrap with jute string</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="tab-content" id="care">
+                <h3 style="margin-bottom: 20px; font-size: 1.3rem;">Care Instructions for Your Handwoven Gamcha</h3>
+                <p>To ensure the longevity and beauty of your handwoven gamcha, please follow these care instructions:</p>
+                <ul style="list-style-type: disc; padding-left: 20px; margin-bottom: 20px;">
+                    <li style="margin-bottom: 10px;">Hand wash in cold water with mild detergent</li>
+                    <li style="margin-bottom: 10px;">Do not bleach or use harsh chemicals</li>
+                    <li style="margin-bottom: 10px;">Avoid wringing or twisting the fabric</li>
+                    <li style="margin-bottom: 10px;">Air dry in shade, away from direct sunlight</li>
+                    <li style="margin-bottom: 10px;">Iron on low heat if necessary</li>
+                    <li style="margin-bottom: 10px;">Store folded in a cool, dry place</li>
+                </ul>
+                <p>Natural variations in the handwoven texture and slight color differences are characteristic of handloom products and should be considered part of their unique charm rather than defects.</p>
+            </div>
+
+            <div class="tab-content" id="reviews">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+                    <div>
+                        <h3 style="margin-bottom: 10px; font-size: 1.3rem;">Customer Reviews</h3>
+                        <div style="display: flex; align-items: center;">
+                            <div style="display: flex; margin-right: 15px;">
+                                <i class="fas fa-star" style="color: #FBC02D;"></i>
+                                <i class="fas fa-star" style="color: #FBC02D;"></i>
+                                <i class="fas fa-star" style="color: #FBC02D;"></i>
+                                <i class="fas fa-star" style="color: #FBC02D;"></i>
+                                <i class="fas fa-star-half-alt" style="color: #FBC02D;"></i>
+                            </div>
+                            <span>4.5 out of 5 (12 reviews)</span>
+                        </div>
+                    </div>
+                    <button style="padding: 10px 20px; background-color: transparent; border: 1px solid #ddd; color: #fff; border-radius: 4px; cursor: pointer; transition: all 0.3s ease;">
+                        Write a Review
+                    </button>
+                </div>
+
+                <!-- Individual Reviews -->
+                <div style="margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #333;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                        <div>
+                            <h4 style="margin-bottom: 5px;">Exceptional Craftsmanship</h4>
+                            <div style="display: flex;">
+                                <i class="fas fa-star" style="color: #FBC02D;"></i>
+                                <i class="fas fa-star" style="color: #FBC02D;"></i>
+                                <i class="fas fa-star" style="color: #FBC02D;"></i>
+                                <i class="fas fa-star" style="color: #FBC02D;"></i>
+                                <i class="fas fa-star" style="color: #FBC02D;"></i>
+                            </div>
+                        </div>
+                        <div style="color: #888; font-size: 0.9rem;">June 15, 2023</div>
+                    </div>
+                    <div style="margin-bottom: 10px;">
+                        <span style="font-weight: 500;">Amit S.</span> - <span style="color: #888;">Verified Buyer</span>
+                    </div>
+                    <p>The quality of this gamcha is outstanding. The weaving is tight and even, and the colors are vibrant. I appreciate the traditional patterns and the fact that it's supporting artisans. It's absorbent yet dries quickly. Highly recommend!</p>
+                </div>
+
+                <div style="margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #333;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                        <div>
+                            <h4 style="margin-bottom: 5px;">Beautiful and Versatile</h4>
+                            <div style="display: flex;">
+                                <i class="fas fa-star" style="color: #FBC02D;"></i>
+                                <i class="fas fa-star" style="color: #FBC02D;"></i>
+                                <i class="fas fa-star" style="color: #FBC02D;"></i>
+                                <i class="fas fa-star" style="color: #FBC02D;"></i>
+                                <i class="far fa-star" style="color: #FBC02D;"></i>
+                            </div>
+                        </div>
+                        <div style="color: #888; font-size: 0.9rem;">May 22, 2023</div>
+                    </div>
+                    <div style="margin-bottom: 10px;">
+                        <span style="font-weight: 500;">Priya M.</span> - <span style="color: #888;">Verified Buyer</span>
+                    </div>
+                    <p>I bought this as a gift for my father and he loves it! The colors are even more vibrant in person. The only reason for 4 stars instead of 5 is that it's slightly smaller than I expected. Otherwise, it's perfect!</p>
+                </div>
+
+                <div style="margin-bottom: 30px;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                        <div>
+                            <h4 style="margin-bottom: 5px;">Great Quality, Slow Shipping</h4>
+                            <div style="display: flex;">
+                                <i class="fas fa-star" style="color: #FBC02D;"></i>
+                                <i class="fas fa-star" style="color: #FBC02D;"></i>
+                                <i class="fas fa-star" style="color: #FBC02D;"></i>
+                                <i class="fas fa-star" style="color: #FBC02D;"></i>
+                                <i class="far fa-star" style="color: #FBC02D;"></i>
+                            </div>
+                        </div>
+                        <div style="color: #888; font-size: 0.9rem;">April 10, 2023</div>
+                    </div>
+                    <div style="margin-bottom: 10px;">
+                        <span style="font-weight: 500;">Rajesh K.</span> - <span style="color: #888;">Verified Buyer</span>
+                    </div>
+                    <p>The gamcha itself is excellent quality and exactly as described. The handwoven texture is beautiful. Shipping took longer than expected, but the product was worth the wait. Would buy from Sahrika again.</p>
+                </div>
+
+                <button style="display: block; margin: 0 auto; padding: 10px 20px; background-color: transparent; border: 1px solid #ddd; color: #fff; border-radius: 4px; cursor: pointer; transition: all 0.3s ease;">
+                    Load More Reviews
+                </button>
+            </div>
+        </div>
+
+        <!-- Artisan Story -->
+        <div class="artisan-story">
+            <h2 class="section-title">The Artisan's Story</h2>
+            <div class="artisan-story-content">
+                <div class="artisan-image">
+                    <img src="images/artisan (1).PNG" alt="Master Weaver Rajib">
+                </div>
+                <div class="artisan-text">
+                    <h3>Meet Rajib, Master Weaver from Bengal</h3>
+                    <p>Rajib has been weaving traditional gamchas for over 30 years, having learned the craft from his father and grandfather before him. His family has been in the handloom business for generations, preserving techniques that date back centuries.</p>
+                    <p>"Each gamcha tells a story," says Rajib. "The patterns we weave are inspired by our culture, our surroundings, and our history. When you use one of my gamchas, you're connecting with a tradition that has been passed down through many generations."</p>
+                    <p>Working from his small workshop in rural Bengal, Rajib and his team of five weavers create each piece by hand, taking pride in maintaining the highest standards of craftsmanship. By purchasing this gamcha, you're directly supporting Rajib's family and helping to ensure this traditional craft continues to thrive.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Related Products -->
+        <div class="related-products">
+            <h2 class="section-title">You May Also Like</h2>
+            <div class="related-products-grid">
+                <a href="product-detail.html" class="product-item">
+                    <div class="product-image">
+                        <img src="images/category (2).jpeg" alt="Striped Gamcha">
+                        <div class="product-actions">
+                            <button class="quick-view"><i class="fas fa-eye"></i></button>
+                            <button class="add-to-wishlist"><i class="far fa-heart"></i></button>
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Striped Handloom Gamcha</h3>
+                        <p class="product-price">₹950</p>
+                    </div>
+                </a>
+                
+                <a href="product-detail.html" class="product-item">
+                    <div class="product-image">
+                        <img src="images/category (3).jpeg" alt="Checkered Gamcha">
+                        <div class="product-actions">
+                            <button class="quick-view"><i class="fas fa-eye"></i></button>
+                            <button class="add-to-wishlist"><i class="far fa-heart"></i></button>
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Checkered Cotton Gamcha</h3>
+                        <p class="product-price">₹780</p>
+                    </div>
+                </a>
+                
+                <a href="product-detail.html" class="product-item">
+                    <div class="product-image">
+                        <img src="images/category (4).jpeg" alt="Red Gamcha">
+                        <div class="product-actions">
+                            <button class="quick-view"><i class="fas fa-eye"></i></button>
+                            <button class="add-to-wishlist"><i class="far fa-heart"></i></button>
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Red Handwoven Gamcha</h3>
+                        <p class="product-price">₹1,200</p>
+                    </div>
+                </a>
+                
+                <a href="product-detail.html" class="product-item">
+                    <div class="product-image">
+                        <img src="images/category (5).jpeg" alt="Blue Gamcha">
+                        <div class="product-actions">
+                            <button class="quick-view"><i class="fas fa-eye"></i></button>
+                            <button class="add-to-wishlist"><i class="far fa-heart"></i></button>
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Blue Traditional Gamcha</h3>
+                        <p class="product-price">₹890</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Zoom Modal -->
+    <div class="zoom-modal" id="zoomModal">
+        <div class="zoom-close" id="zoomClose">
+            <i class="fas fa-times"></i>
+        </div>
+        <div class="zoom-image-container">
+            <img src="" alt="Zoomed Product Image" class="zoom-image" id="zoomImage">
+        </div>
+        <div class="zoom-nav">
+            <div class="zoom-nav-btn prev" id="zoomPrev">
+                <i class="fas fa-chevron-left"></i>
+            </div>
+            <div class="zoom-nav-btn next" id="zoomNext">
+                <i class="fas fa-chevron-right"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="blessing-section">
+            <p>Leave a heart if you liked our work!</p>
+            <button id="blessing-button" class="blessing-button">🤍</button>
+            <div class="blessing-hearts"></div>
+        </div>
+        <div class="footer-content">
+            <div class="footer-logo"> <img src="images/image-removebg-preview (41).png" alt="">
+                <p>Handloom Heritage</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h3>Shop</h3>
+                    <ul>
+                        <li><a href="shop-men.html">Men</a></li>
+                        <li><a href="shop-women.html">Women</a></li>
+                        <li><a href="shop-utility.html">Utility</a></li>
+                        <li><a href="shop-collections-sutrashringar.html">Collections</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>About</h3>
+                    <ul>
+                        <li><a href="index.html#origin">Our Story</a></li>
+                        <li><a href="index.html#artisans">Artisans</a></li>
+                        <li><a href="of-art.html">Of Art</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Returns & Exchanges</a></li>
+                        <li><a href="#">FAQs</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-newsletter">
+                <h3>Join Our Newsletter</h3>
+                <p>Stay updated with our latest collections and artisan stories.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your email address" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-pinterest-p"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Sahrika. All rights reserved.</p>
+            <div class="footer-bottom-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Thumbnail Image Switching
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            const mainImage = document.getElementById('mainImage');
+            
+            thumbnails.forEach(thumbnail => {
+                thumbnail.addEventListener('click', function() {
+                    // Update active class
+                    thumbnails.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Update main image
+                    const imageUrl = this.getAttribute('data-image');
+                    mainImage.src = imageUrl;
+                });
+            });
+            
+            // Quantity Selector
+            const decreaseBtn = document.querySelector('.quantity-btn.decrease');
+            const increaseBtn = document.querySelector('.quantity-btn.increase');
+            const quantityInput = document.querySelector('.quantity-input');
+            
+            decreaseBtn.addEventListener('click', function() {
+                let value = parseInt(quantityInput.value);
+                if (value > 1) {
+                    quantityInput.value = value - 1;
+                }
+            });
+            
+            increaseBtn.addEventListener('click', function() {
+                let value = parseInt(quantityInput.value);
+                if (value < 10) {
+                    quantityInput.value = value + 1;
+                }
+            });
+            
+            // Color Options
+            const colorOptions = document.querySelectorAll('.color-option');
+            
+            colorOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    colorOptions.forEach(o => o.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+            
+            // Size Options
+            const sizeOptions = document.querySelectorAll('.size-option');
+            
+            sizeOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    sizeOptions.forEach(o => o.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+            
+            // Tab Switching
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Update active tab button
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Show corresponding tab content
+                    const tabId = this.getAttribute('data-tab');
+                    tabContents.forEach(content => {
+                        content.classList.remove('active');
+                        if (content.id === tabId) {
+                            content.classList.add('active');
+                        }
+                    });
+                });
+            });
+            
+            // Image Zoom Modal
+            const zoomIcon = document.getElementById('zoomIcon');
+            const zoomModal = document.getElementById('zoomModal');
+            const zoomImage = document.getElementById('zoomImage');
+            const zoomClose = document.getElementById('zoomClose');
+            const zoomPrev = document.getElementById('zoomPrev');
+            const zoomNext = document.getElementById('zoomNext');
+            
+            let currentImageIndex = 0;
+            const imageUrls = Array.from(thumbnails).map(thumb => thumb.getAttribute('data-image'));
+            
+            zoomIcon.addEventListener('click', function() {
+                zoomModal.classList.add('active');
+                zoomImage.src = mainImage.src;
+                
+                // Find current image index
+                currentImageIndex = imageUrls.indexOf(mainImage.src);
+            });
+            
+            zoomClose.addEventListener('click', function() {
+                zoomModal.classList.remove('active');
+            });
+            
+            zoomPrev.addEventListener('click', function() {
+                currentImageIndex = (currentImageIndex - 1 + imageUrls.length) % imageUrls.length;
+                zoomImage.src = imageUrls[currentImageIndex];
+            });
+            
+            zoomNext.addEventListener('click', function() {
+                currentImageIndex = (currentImageIndex + 1) % imageUrls.length;
+                zoomImage.src = imageUrls[currentImageIndex];
+            });
+            
+            // Close modal on escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && zoomModal.classList.contains('active')) {
+                    zoomModal.classList.remove('active');
+                }
+            });
+            
+            // Mobile menu toggle
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            
+            menuToggle.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+                menuToggle.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
