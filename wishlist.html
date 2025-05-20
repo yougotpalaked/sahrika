@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sahrika - My Wishlist</title>
+   
+    <link rel="icon" href="images/image-removebg-preview (41).png" type="image/png">
+    <link rel="shortcut icon" href="images/image-removebg-preview (41).png" type="image/png">
+    <link rel="apple-touch-icon" href="images/image-removebg-preview (41).png">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/carousel.css">
+    <link rel="stylesheet" href="css/new-sections.css">
+    <link rel="stylesheet" href="css/cloth-texture.css">
+    <link rel="stylesheet" href="css/scroll-button.css">
+    <link rel="stylesheet" href="css/wishlist-button.css">
+    <link rel="stylesheet" href="css/dropdown.css">
+    <link rel="stylesheet" href="css/plp.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Wishlist Page Styles */
+        .wishlist-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .wishlist-header {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .wishlist-header h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .wishlist-header p {
+            color: #888;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .empty-wishlist {
+            text-align: center;
+            padding: 60px 20px;
+            display: none;
+        }
+
+        .empty-wishlist i {
+            font-size: 3rem;
+            color: #888;
+            margin-bottom: 20px;
+        }
+
+        .empty-wishlist h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .empty-wishlist p {
+            color: #888;
+            margin-bottom: 30px;
+        }
+
+        .browse-products-btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: #388E3C;
+            color: white;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .browse-products-btn:hover {
+            background-color: #2E7D32;
+            transform: translateY(-2px);
+        }
+
+        .wishlist-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .wishlist-item {
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .wishlist-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .wishlist-item-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .wishlist-item-details {
+            padding: 20px;
+        }
+
+        .wishlist-item-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .wishlist-item-price {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .wishlist-item-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .add-to-cart-btn {
+            flex: 2;
+            padding: 10px;
+            background-color: #388E3C;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .add-to-cart-btn:hover {
+            background-color: #2E7D32;
+        }
+
+        .remove-from-wishlist {
+            flex: 1;
+            padding: 10px;
+            background-color: transparent;
+            color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .remove-from-wishlist:hover {
+            color: #ff6b6b;
+            border-color: #ff6b6b;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .wishlist-container {
+                padding: 40px 15px;
+            }
+
+            .wishlist-header h1 {
+                font-size: 2rem;
+            }
+
+            .wishlist-items {
+                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+                gap: 20px;
+            }
+
+            .wishlist-item-image {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo" style="padding-left: 20px;"><img style="height: 40px;" src="images/image-removebg-preview (41).png"><span class="hindi-ka"></span></div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <div class="dropdown">
+                <a href="#" class="dropdown-toggle">Shop <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <div class="dropdown-column">
+                        <h3>Men</h3>
+                        <ul>
+                            <li><a href="shop-men-gamcha.html">Gamcha</a></li>
+                            <li><a href="shop-men-lungi.html">Lungi</a></li>
+                            <li><a href="shop-men-yardage.html">Yardage</a></li>
+                            <li><a href="shop-men.html" class="view-all">View All</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown-column">
+                        <h3>Women</h3>
+                        <ul>
+                            <li><a href="shop-women-saree.html">Saree</a></li>
+                            <li><a href="shop-women-dupatta.html">Dupatta</a></li>
+                            <li><a href="shop-women-stole.html">Stole</a></li>
+                            <li><a href="shop-women-yardage.html">Yardage</a></li>
+                            <li><a href="shop-women.html" class="view-all">View All</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown-column">
+                        <h3>Utility</h3>
+                        <ul>
+                            <li><a href="shop-utility-napkin.html">Napkin</a></li>
+                            <li><a href="shop-utility-duster.html">Duster</a></li>
+                            <li><a href="shop-utility.html" class="view-all">View All</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown-column">
+                        <h3>Collections</h3>
+                        <ul>
+                            <li><a href="shop-collections-sutrashringar.html">Sutrashringar</a></li>
+                            <li><a href="shop-collections-lookbook.html">Lookbook</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown-column">
+                        <h3>Sale</h3>
+                        <ul>
+                            <li><a href="shop-sale-men.html">Men</a></li>
+                            <li><a href="shop-sale-women.html">Women</a></li>
+                            <li><a href="shop-sale-utility.html">Utility</a></li>
+                            <li><a href="shop-sale.html" class="view-all">View All</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown-column">
+                        <h3>Giftcards</h3>
+                        <ul>
+                            <li><a href="shop-giftcards-customise.html">Customise</a></li>
+                            <li><a href="shop-giftcards-b2b.html">B2B</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#" class="dropdown-toggle">Our Story <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <div class="dropdown-column">
+                        <ul>
+                            <li><a href="index.html#origin">Origin</a></li>
+                            <li><a href="index.html#artisans">Artisans</a></li>
+                            <li><a href="of-art.html">Of Art</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#" class="dropdown-toggle">Services <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <div class="dropdown-column">
+                        <ul>
+                            <li><a href="services-workshop.html">Workshops</a></li>
+                            <li><a href="services-subscription.html">Subscription Box</a></li>
+                            <li><a href="services-b2b.html">B2B</a></li>
+                            <li><a href="services-customise.html">Customise</a></li>
+                            <li><a href="services-giftcards.html">Giftcards</a></li>
+                            <li><a href="services.html" class="view-all">View All</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <a href="connect.html">Connect</a>
+        </div>
+        <div class="nav-icons">
+            <a href="#" class="nav-icon"><i class="fas fa-search"></i></a>
+            <a href="#" class="nav-icon"><i class="fas fa-user"></i></a>
+            <a href="cart.html" class="nav-icon"><i class="fas fa-shopping-cart"></i></a>
+            <a href="#" class="nav-icon"><i class="fas fa-gift"></i></a>
+        </div>
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb-container" style="padding: 20px; background-color: rgba(255, 255, 255, 0.05);">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <ul class="breadcrumb" style="display: flex; list-style: none; gap: 10px; font-size: 0.9rem; color: #888;">
+                <li><a href="index.html" style="color: #888;">Home</a></li>
+                <li style="display: flex; align-items: center;"><i class="fas fa-chevron-right" style="font-size: 0.7rem; margin: 0 5px;"></i></li>
+                <li>My Wishlist</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Wishlist Content -->
+    <div class="wishlist-container">
+        <div class="wishlist-header">
+            <h1>My Wishlist</h1>
+            <p>Items you've saved for later. Add them to your cart when you're ready to make a purchase.</p>
+        </div>
+
+        <!-- Empty Wishlist Message -->
+        <div class="empty-wishlist" id="emptyWishlist">
+            <i class="far fa-heart"></i>
+            <h2>Your wishlist is empty</h2>
+            <p>Browse our collections and add items you love to your wishlist.</p>
+            <a href="index.html" class="browse-products-btn">Browse Products</a>
+        </div>
+
+        <!-- Wishlist Items -->
+        <div class="wishlist-items" id="wishlistItems">
+            <!-- Wishlist items will be dynamically added here -->
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h3>Shop</h3>
+                    <ul>
+                        <li><a href="shop-men.html">Men</a></li>
+                        <li><a href="shop-women.html">Women</a></li>
+                        <li><a href="shop-utility.html">Utility</a></li>
+                        <li><a href="shop-collections-sutrashringar.html">Collections</a></li>
+                        <li><a href="shop-sale.html">Sale</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="services-workshop.html">Workshops</a></li>
+                        <li><a href="services-subscription.html">Subscription Box</a></li>
+                        <li><a href="services-b2b.html">B2B</a></li>
+                        <li><a href="services-customise.html">Customise</a></li>
+                        <li><a href="services-giftcards.html">Giftcards</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>About</h3>
+                    <ul>
+                        <li><a href="index.html#origin">Our Story</a></li>
+                        <li><a href="index.html#artisans">Artisans</a></li>
+                        <li><a href="of-art.html">Of Art</a></li>
+                        <li><a href="connect.html">Connect</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Help</h3>
+                    <ul>
+                        <li><a href="#">Shipping & Returns</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-newsletter">
+                <h3>Join Our Newsletter</h3>
+                <p>Stay updated with our latest collections and artisan stories.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your email address" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-pinterest-p"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Sahrika. All rights reserved.</p>
+            <div class="footer-bottom-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Scroll Buttons -->
+    <div class="scroll-button" id="scroll-to-bottom">
+        <i class="fas fa-chevron-down"></i>
+    </div>
+    <div class="scroll-button" id="scroll-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+    
+    <!-- Floating Wishlist Button -->
+    <div class="wishlist-button" id="wishlist-button">
+        <i class="fas fa-heart"></i>
+        <span class="wishlist-count">0</span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/wishlist.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get wishlist from localStorage
+            const wishlist = JSON.parse(localStorage.getItem('sahrikaWishlist')) || [];
+            const wishlistItems = document.getElementById('wishlistItems');
+            const emptyWishlist = document.getElementById('emptyWishlist');
+            
+            // Check if wishlist is empty
+            if (wishlist.length === 0) {
+                emptyWishlist.style.display = 'block';
+                wishlistItems.style.display = 'none';
+            } else {
+                emptyWishlist.style.display = 'none';
+                wishlistItems.style.display = 'grid';
+                
+                // Render wishlist items
+                renderWishlistItems();
+            }
+            
+            function renderWishlistItems() {
+                // Clear existing items
+                wishlistItems.innerHTML = '';
+                
+                // Render each wishlist item
+                wishlist.forEach(item => {
+                    const wishlistItemElement = document.createElement('div');
+                    wishlistItemElement.className = 'wishlist-item';
+                    wishlistItemElement.innerHTML = `
+                        <img src="${item.image || 'images/category (1).jpeg'}" alt="${item.name}" class="wishlist-item-image">
+                        <div class="wishlist-item-details">
+                            <h3 class="wishlist-item-title">${item.name}</h3>
+                            <div class="wishlist-item-price">₹${item.price || 850}</div>
+                            <div class="wishlist-item-actions">
+                                <button class="add-to-cart-btn" data-id="${item.id}">Add to Cart</button>
+                                <button class="remove-from-wishlist" data-id="${item.id}"><i class="fas fa-trash-alt"></i></button>
+                            </div>
+                        </div>
+                    `;
+                    
+                    wishlistItems.appendChild(wishlistItemElement);
+                });
+                
+                // Add event listeners to buttons
+                addEventListeners();
+            }
+            
+            function addEventListeners() {
+                // Remove from wishlist buttons
+                const removeButtons = document.querySelectorAll('.remove-from-wishlist');
+                removeButtons.forEach(button => {
+                    button.addEventListener('click', function() {
+                        const itemId = this.getAttribute('data-id');
+                        removeFromWishlist(itemId);
+                    });
+                });
+                
+                // Add to cart buttons
+                const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
+                addToCartButtons.forEach(button => {
+                    button.addEventListener('click', function() {
+                        const itemId = this.getAttribute('data-id');
+                        addToCart(itemId);
+                    });
+                });
+            }
+            
+            function removeFromWishlist(itemId) {
+                // Remove item from wishlist array
+                wishlist = wishlist.filter(item => item.id != itemId);
+                
+                // Save updated wishlist to localStorage
+                localStorage.setItem('sahrikaWishlist', JSON.stringify(wishlist));
+                
+                // Update wishlist count
+                const wishlistCount = document.querySelector('.wishlist-count');
+                if (wishlist.length > 0) {
+                    wishlistCount.textContent = wishlist.length;
+                    wishlistCount.classList.add('show');
+                } else {
+                    wishlistCount.classList.remove('show');
+                    // Show empty wishlist message
+                    emptyWishlist.style.display = 'block';
+                    wishlistItems.style.display = 'none';
+                }
+                
+                // Re-render wishlist items
+                renderWishlistItems();
+            }
+            
+            function addToCart(itemId) {
+                // Find item in wishlist
+                const item = wishlist.find(item => item.id == itemId);
+                
+                if (item) {
+                    // Get cart from localStorage or create empty array
+                    let cart = JSON.parse(localStorage.getItem('sahrikaCart')) || [];
+                    
+                    // Check if item already exists in cart
+                    const existingItem = cart.find(cartItem => cartItem.id == itemId);
+                    
+                    if (existingItem) {
+                        // Increase quantity if item already in cart
+                        existingItem.quantity += 1;
+                    } else {
+                        // Add item to cart with quantity 1
+                        cart.push({
+                            ...item,
+                            quantity: 1
+                        });
+                    }
+                    
+                    // Save updated cart to localStorage
+                    localStorage.setItem('sahrikaCart', JSON.stringify(cart));
+                    
+                    // Show success message
+                    alert('Item added to cart successfully!');
+                }
+            }
+            
+            // Mobile menu toggle
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            
+            menuToggle.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+                menuToggle.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>

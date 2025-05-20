@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sahrika - Shopping Cart</title>
+   
+    <link rel="icon" href="images/image-removebg-preview (41).png" type="image/png">
+    <link rel="shortcut icon" href="images/image-removebg-preview (41).png" type="image/png">
+    <link rel="apple-touch-icon" href="images/image-removebg-preview (41).png">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/carousel.css">
+    <link rel="stylesheet" href="css/new-sections.css">
+    <link rel="stylesheet" href="css/cloth-texture.css">
+    <link rel="stylesheet" href="css/scroll-button.css">
+    <link rel="stylesheet" href="css/wishlist-button.css">
+    <link rel="stylesheet" href="css/dropdown.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Cart Page Styles */
+        .cart-container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+        
+        @media (max-width: 768px) {
+            .cart-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .cart-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-align: center;
+            padding-top: 50px;
+        }
+        
+        .cart-items {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            padding: 20px;
+        }
+        
+        .cart-item {
+            display: grid;
+            grid-template-columns: 120px 1fr auto;
+            gap: 20px;
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+        
+        .cart-item-image {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+        
+        .cart-item-details h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+        }
+        
+        .cart-item-details p {
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        
+        .cart-item-price {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+        
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            margin-top: 15px;
+        }
+        
+        .quantity-btn {
+            width: 30px;
+            height: 30px;
+            background-color: #f5f5f5;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+        
+        .quantity-btn:hover {
+            background-color: #e0e0e0;
+        }
+        
+        .quantity-input {
+            width: 40px;
+            height: 30px;
+            text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin: 0 10px;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .remove-item {
+            color: #999;
+            font-size: 0.9rem;
+            text-decoration: underline;
+            background: none;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .remove-item:hover {
+            color: #d9534f;
+        }
+        
+        .cart-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+        
+        .continue-shopping {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .continue-shopping i {
+            margin-right: 8px;
+        }
+        
+        .update-cart {
+            font-family: 'Poppins', sans-serif;
+            background: none;
+            border: 1px solid #333;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .update-cart:hover {
+            background-color: #333;
+            color: #fff;
+        }
+        
+        .order-summary {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            padding: 20px;
+            position: sticky;
+            top: 20px;
+            height: fit-content;
+        }
+        
+        .order-summary h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            font-family: 'Poppins', sans-serif;
+            margin-bottom: 12px;
+        }
+        
+        .summary-total {
+            display: flex;
+            justify-content: space-between;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+        
+        .promo-code {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+        
+        .promo-code h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .promo-form {
+            display: flex;
+            margin-top: 10px;
+        }
+        
+        .promo-input {
+            flex-grow: 1;
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px 0 0 4px;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .apply-promo {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 0 15px;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .checkout-btn {
+            display: block;
+            width: 100%;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 12px 0;
+            border-radius: 4px;
+            margin-top: 20px;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+        
+        .checkout-btn:hover {
+            background-color: #555;
+        }
+        
+        .payment-options {
+            display: flex;
+            justify-content: center;
+            margin-top: 15px;
+            gap: 10px;
+        }
+        
+        .payment-options i {
+            font-size: 1.5rem;
+            color: #666;
+        }
+        
+        .empty-cart {
+            text-align: center;
+            padding: 50px 20px;
+        }
+        
+        .empty-cart i {
+            font-size: 4rem;
+            color: #ddd;
+            margin-bottom: 20px;
+        }
+        
+        .empty-cart h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        
+        .empty-cart p {
+            font-family: 'Poppins', sans-serif;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        
+        .shop-now-btn {
+            display: inline-block;
+            background-color: #333;
+            color: #fff;
+            padding: 10px 25px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-family: 'Poppins', sans-serif;
+            transition: background-color 0.3s;
+        }
+        
+        .shop-now-btn:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo" style="padding-left: 20px;"><img style="height: 40px;" src="images/image-removebg-preview (41).png"><span class="hindi-ka"></span></div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <div class="dropdown">
+                <a href="#" class="dropdown-toggle">Shop <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <div class="dropdown-column">
+                        <h3>Men</h3>
+                        <ul>
+                            <li><a href="shop-men-gamcha.html">Gamcha</a></li>
+                            <li><a href="shop-men-lungi.html">Lungi</a></li>
+                            <li><a href="shop-men-yardage.html">Yardage</a></li>
+                            <li><a href="shop-men.html" class="view-all">View All</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown-column">
+                        <h3>Women</h3>
+                        <ul>
+                            <li><a href="shop-women-saree.html">Saree</a></li>
+                            <li><a href="shop-women-dupatta.html">Dupatta</a></li>
+                            <li><a href="shop-women-stole.html">Stole</a></li>
+                            <li><a href="shop-women-yardage.html">Yardage</a></li>
+                            <li><a href="shop-women.html" class="view-all">View All</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown-column">
+                        <h3>Utility</h3>
+                        <ul>
+                            <li><a href="shop-utility-napkin.html">Napkin</a></li>
+                            <li><a href="shop-utility-duster.html">Duster</a></li>
+                            <li><a href="shop-utility.html" class="view-all">View All</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown-column">
+                        <h3>Collections</h3>
+                        <ul>
+                            <li><a href="shop-collections-sutrashringar.html">Sutrashringar</a></li>
+                            <li><a href="shop-collections-lookbook.html">Lookbook</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown-column">
+                        <h3>Sale</h3>
+                        <ul>
+                            <li><a href="shop-sale-men.html">Men</a></li>
+                            <li><a href="shop-sale-women.html">Women</a></li>
+                            <li><a href="shop-sale-utility.html">Utility</a></li>
+                            <li><a href="shop-sale.html" class="view-all">View All</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown-column">
+                        <h3>Giftcards</h3>
+                        <ul>
+                            <li><a href="shop-giftcards-customise.html">Customise</a></li>
+                            <li><a href="shop-giftcards-b2b.html">B2B</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#" class="dropdown-toggle">Our Story <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <div class="dropdown-column">
+                        <ul>
+                            <li><a href="index.html#origin">Origin</a></li>
+                            <li><a href="index.html#artisans">Artisans</a></li>
+                            <li><a href="of-art.html">Of Art</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <a href="index.html#process">Services</a>
+            <a href="connect.html">Connect</a>
+        </div>
+        <div class="nav-icons">
+            <a href="#" class="nav-icon"><i class="fas fa-search"></i></a>
+            <a href="#" class="nav-icon"><i class="fas fa-user"></i></a>
+            <a href="cart.html" class="nav-icon"><i class="fas fa-shopping-cart"></i></a>
+            <a href="#" class="nav-icon"><i class="fas fa-gift"></i></a>
+        </div>
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- Cart Page Content -->
+    <h1 class="cart-title">Your Shopping Cart</h1>
+    
+    <div class="cart-container" id="cartContainer">
+        <!-- Cart will be populated by JavaScript -->
+        <!-- This is a placeholder for empty cart state -->
+        <div class="empty-cart" id="emptyCart" style="display: none;">
+            <i class="fas fa-shopping-cart"></i>
+            <h2>Your cart is empty</h2>
+            <p>Looks like you haven't added any items to your cart yet.</p>
+            <a href="index.html" class="shop-now-btn">Continue Shopping</a>
+        </div>
+        
+        <!-- Cart Items Section -->
+        <div class="cart-items" id="cartItems">
+            <!-- Sample cart item (will be generated by JS) -->
+            <div class="cart-item">
+                <img src="images/category (1).jpeg" alt="Product Image" class="cart-item-image">
+                <div class="cart-item-details">
+                    <h3>Handwoven Cotton Saree</h3>
+                    <p>Color: Blue</p>
+                    <p>Size: Free Size</p>
+                    <div class="quantity-selector">
+                        <button class="quantity-btn decrease">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1" max="10">
+                        <button class="quantity-btn increase">+</button>
+                    </div>
+                    <button class="remove-item">Remove</button>
+                </div>
+                <div class="cart-item-price">₹4,500</div>
+            </div>
+            
+            <div class="cart-item">
+                <img src="images/category (2).jpeg" alt="Product Image" class="cart-item-image">
+                <div class="cart-item-details">
+                    <h3>Traditional Gamcha</h3>
+                    <p>Color: Red & White</p>
+                    <p>Size: Standard</p>
+                    <div class="quantity-selector">
+                        <button class="quantity-btn decrease">-</button>
+                        <input type="number" class="quantity-input" value="2" min="1" max="10">
+                        <button class="quantity-btn increase">+</button>
+                    </div>
+                    <button class="remove-item">Remove</button>
+                </div>
+                <div class="cart-item-price">₹1,200</div>
+            </div>
+            
+            <div class="cart-actions">
+                <a href="index.html" class="continue-shopping"><i class="fas fa-arrow-left"></i> Continue Shopping</a>
+                <button class="update-cart">Update Cart</button>
+            </div>
+        </div>
+        
+        <!-- Order Summary Section -->
+        <div class="order-summary" id="orderSummary">
+            <h2>Order Summary</h2>
+            <div class="summary-item">
+                <span>Subtotal (3 items)</span>
+                <span>₹6,900</span>
+            </div>
+            <div class="summary-item">
+                <span>Shipping</span>
+                <span>₹150</span>
+            </div>
+            <div class="summary-item">
+                <span>Tax</span>
+                <span>₹345</span>
+            </div>
+            <div class="summary-total">
+                <span>Total</span>
+                <span>₹7,395</span>
+            </div>
+            
+            <div class="promo-code">
+                <h3>Promo Code</h3>
+                <div class="promo-form">
+                    <input type="text" class="promo-input" placeholder="Enter code">
+                    <button class="apply-promo">Apply</button>
+                </div>
+            </div>
+            
+            <button class="checkout-btn">Proceed to Checkout</button>
+            
+            <div class="payment-options">
+                <i class="fab fa-cc-visa"></i>
+                <i class="fab fa-cc-mastercard"></i>
+                <i class="fab fa-cc-amex"></i>
+                <i class="fab fa-cc-paypal"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="blessing-section">
+            <p>Leave a heart if you liked our work!</p>
+            <button id="blessing-button" class="blessing-button">🤍</button>
+            <div class="blessing-hearts"></div>
+        </div>
+        <div class="footer-content">
+            <div class="footer-logo"> <img src="images/image-removebg-preview (41).png" alt="">
+                <p>Handloom Heritage</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h3>Shop</h3>
+                    <ul>
+                        <li><a href="shop-men.html">Men</a></li>
+                        <li><a href="shop-women.html">Women</a></li>
+                        <li><a href="shop-utility.html">Utility</a></li>
+                        <li><a href="shop-collections-sutrashringar.html">Collections</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>About</h3>
+                    <ul>
+                        <li><a href="index.html#origin">Our Story</a></li>
+                        <li><a href="index.html#artisans">Artisans</a></li>
+                        <li><a href="of-art.html">Of Art</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Returns & Exchanges</a></li>
+                        <li><a href="#">FAQs</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-newsletter">
+                <h3>Join Our Newsletter</h3>
+                <p>Stay updated with our latest collections and artisan stories.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your email address" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-pinterest-p"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Sahrika. All rights reserved.</p>
+            <div class="footer-bottom-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Sample cart data (in a real application, this would come from localStorage or a backend)
+            let cart = [
+                {
+                    id: 1,
+                    name: "Handwoven Cotton Saree",
+                    price: 4500,
+                    color: "Blue",
+                    size: "Free Size",
+                    quantity: 1,
+                    image: "images/category (1).jpeg"
+                },
+                {
+                    id: 2,
+                    name: "Traditional Gamcha",
+                    price: 600,
+                    color: "Red & White",
+                    size: "Standard",
+                    quantity: 2,
+                    image: "images/category (2).jpeg"
+                }
+            ];
+            
+            // Function to render cart items
+            function renderCart() {
+                const cartItemsContainer = document.getElementById('cartItems');
+                const emptyCartMessage = document.getElementById('emptyCart');
+                const orderSummary = document.getElementById('orderSummary');
+                
+                // Clear previous content except the cart actions
+                cartItemsContainer.innerHTML = '';
+                
+                if (cart.length === 0) {
+                    // Show empty cart message
+                    emptyCartMessage.style.display = 'block';
+                    orderSummary.style.display = 'none';
+                    return;
+                }
+                
+                // Hide empty cart message and show order summary
+                emptyCartMessage.style.display = 'none';
+                orderSummary.style.display = 'block';
+                
+                // Render each cart item
+                cart.forEach(item => {
+                    const cartItemElement = document.createElement('div');
+                    cartItemElement.className = 'cart-item';
+                    cartItemElement.innerHTML = `
+                        <img src="${item.image}" alt="${item.name}" class="cart-item-image">
+                        <div class="cart-item-details">
+                            <h3>${item.name}</h3>
+                            <p>Color: ${item.color}</p>
+                            <p>Size: ${item.size}</p>
+                            <div class="quantity-selector">
+                                <button class="quantity-btn decrease" data-id="${item.id}">-</button>
+                                <input type="number" class="quantity-input" value="${item.quantity}" min="1" max="10" data-id="${item.id}">
+                                <button class="quantity-btn increase" data-id="${item.id}">+</button>
+                            </div>
+                            <button class="remove-item" data-id="${item.id}">Remove</button>
+                        </div>
+                        <div class="cart-item-price">₹${item.price * item.quantity}</div>
+                    `;
+                    
+                    cartItemsContainer.appendChild(cartItemElement);
+                });
+                
+                // Add cart actions
+                const cartActionsElement = document.createElement('div');
+                cartActionsElement.className = 'cart-actions';
+                cartActionsElement.innerHTML = `
+                    <a href="index.html" class="continue-shopping"><i class="fas fa-arrow-left"></i> Continue Shopping</a>
+                    <button class="update-cart">Update Cart</button>
+                `;
+                
+                cartItemsContainer.appendChild(cartActionsElement);
+                
+                // Update order summary
+                updateOrderSummary();
+                
+                // Add event listeners to the newly created elements
+                addEventListeners();
+            }
+            
+            // Function to update order summary
+            function updateOrderSummary() {
+                const subtotal = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+                const shipping = subtotal > 0 ? 150 : 0;
+                const tax = Math.round(subtotal * 0.05); // 5% tax
+                const total = subtotal + shipping + tax;
+                
+                const orderSummary = document.getElementById('orderSummary');
+                const summaryItems = orderSummary.querySelectorAll('.summary-item');
+                const summaryTotal = orderSummary.querySelector('.summary-total');
+                
+                // Update subtotal
+                summaryItems[0].innerHTML = `
+                    <span>Subtotal (${cart.reduce((count, item) => count + item.quantity, 0)} items)</span>
+                    <span>₹${subtotal}</span>
+                `;
+                
+                // Update shipping
+                summaryItems[1].innerHTML = `
+                    <span>Shipping</span>
+                    <span>₹${shipping}</span>
+                `;
+                
+                // Update tax
+                summaryItems[2].innerHTML = `
+                    <span>Tax</span>
+                    <span>₹${tax}</span>
+                `;
+                
+                // Update total
+                summaryTotal.innerHTML = `
+                    <span>Total</span>
+                    <span>₹${total}</span>
+                `;
+            }
+            
+            // Function to add event listeners
+            function addEventListeners() {
+                // Quantity decrease buttons
+                document.querySelectorAll('.quantity-btn.decrease').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const id = parseInt(this.getAttribute('data-id'));
+                        const item = cart.find(item => item.id === id);
+                        
+                        if (item && item.quantity > 1) {
+                            item.quantity--;
+                            renderCart();
+                        }
+                    });
+                });
+                
+                // Quantity increase buttons
+                document.querySelectorAll('.quantity-btn.increase').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const id = parseInt(this.getAttribute('data-id'));
+                        const item = cart.find(item => item.id === id);
+                        
+                        if (item && item.quantity < 10) {
+                            item.quantity++;
+                            renderCart();
+                        }
+                    });
+                });
+                
+                // Quantity input fields
+                document.querySelectorAll('.quantity-input').forEach(input => {
+                    input.addEventListener('change', function() {
+                        const id = parseInt(this.getAttribute('data-id'));
+                        const item = cart.find(item => item.id === id);
+                        const newQuantity = parseInt(this.value);
+                        
+                        if (item && newQuantity >= 1 && newQuantity <= 10) {
+                            item.quantity = newQuantity;
+                            renderCart();
+                        }
+                    });
+                });
+                
+                // Remove item buttons
+                document.querySelectorAll('.remove-item').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const id = parseInt(this.getAttribute('data-id'));
+                        cart = cart.filter(item => item.id !== id);
+                        renderCart();
+                    });
+                });
+                
+                // Update cart button
+                const updateCartButton = document.querySelector('.update-cart');
+                if (updateCartButton) {
+                    updateCartButton.addEventListener('click', function() {
+                        // In a real application, this would send the updated cart to the server
+                        alert('Cart updated successfully!');
+                    });
+                }
+            }
+            
+            // Function to handle checkout
+            function handleCheckout() {
+                // In a real application, this would redirect to a checkout page
+                alert('Proceeding to checkout...');
+                // window.location.href = 'checkout.html';
+            }
+            
+            // Function to apply promo code
+            function applyPromoCode(code) {
+                // In a real application, this would validate the promo code with the server
+                alert(`Promo code "${code}" applied!`);
+                renderCart();
+            }
+            
+            // Initialize the cart
+            renderCart();
+            
+            // Add event listener for checkout button
+            const checkoutButton = document.querySelector('.checkout-btn');
+            if (checkoutButton) {
+                checkoutButton.addEventListener('click', handleCheckout);
+            }
+            
+            // Add event listener for promo code button
+            const applyPromoButton = document.querySelector('.apply-promo');
+            if (applyPromoButton) {
+                applyPromoButton.addEventListener('click', function() {
+                    const promoInput = document.querySelector('.promo-input');
+                    if (promoInput && promoInput.value.trim() !== '') {
+                        applyPromoCode(promoInput.value.trim());
+                        promoInput.value = '';
+                    }
+                });
+            }
+            
+            // Mobile menu toggle
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            
+            menuToggle.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+                menuToggle.classList.toggle('active');
+            }); // Close mobile menu toggle event listener
+        });

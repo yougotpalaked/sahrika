@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sahrika - Customize Your Handloom</title>
+   
+    <link rel="icon" href="images/image-removebg-preview (41).png" type="image/png">
+    <link rel="shortcut icon" href="images/image-removebg-preview (41).png" type="image/png">
+    <link rel="apple-touch-icon" href="images/image-removebg-preview (41).png">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/carousel.css">
+    <link rel="stylesheet" href="css/new-sections.css">
+    <link rel="stylesheet" href="css/cloth-texture.css">
+    <link rel="stylesheet" href="css/scroll-button.css">
+    <link rel="stylesheet" href="css/wishlist-button.css">
+    <link rel="stylesheet" href="css/dropdown.css">
+    <link rel="stylesheet" href="css/plp.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Customization Page Styles */
+        .customization-hero {
+            height: 60vh;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/category (5).jpeg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-bottom: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .customization-hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .customization-hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+
+        .customization-hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .customization-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 80px;
+        }
+
+        .customization-intro {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .customization-intro h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .customization-intro p {
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* Customization Interface */
+        .customization-interface {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        @media (max-width: 992px) {
+            .customization-interface {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Preview Section */
+        .product-preview {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 30px;
+            position: relative;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-preview-image {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-preview-image img {
+            max-width: 100%;
+            max-height: 400px;
+            transition: all 0.5s ease;
+        }
+
+        .pattern-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: 200px 200px;
+            opacity: 0.7;
+            mix-blend-mode: overlay;
+            pointer-events: none;
+        }
+
+        /* Customization Controls */
+        .customization-controls {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 30px;
+        }
+
+        .control-section {
+            margin-bottom: 30px;
+        }
+
+        .control-section h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Product Type Selection */
+        .product-type-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .product-type-option {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 2px solid transparent;
+            border-radius: 8px;
+            padding: 15px 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .product-type-option:hover {
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .product-type-option.active {
+            border-color: #388E3C;
+            background-color: rgba(56, 142, 60, 0.2);
+        }
+
+        .product-type-option img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            margin-bottom: 10px;
+        }
+
+        .product-type-option span {
+            display: block;
+            font-size: 0.9rem;
+        }
+
+        /* Color Selection */
+        .color-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .color-option {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .color-option:hover {
+            transform: scale(1.1);
+        }
+
+        .color-option.active::after {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border: 2px solid #fff;
+            border-radius: 50%;
+        }
+
+        /* Pattern Selection */
+        .pattern-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .pattern-option {
+            height: 80px;
+            border-radius: 8px;
+            cursor: pointer;
+            background-size: cover;
+            background-position: center;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .pattern-option:hover {
+            transform: scale(1.05);
+        }
+
+        .pattern-option.active {
+            border-color: #388E3C;
+            box-shadow: 0 0 10px rgba(56, 142, 60, 0.5);
+        }
+
+        /* Size Selection */
+        .size-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .size-option {
+            padding: 10px 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .size-option:hover {
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .size-option.active {
+            background-color: #388E3C;
+            color: white;
+        }
+
+        /* Custom Dimensions */
+        .custom-dimensions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .dimension-input {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .dimension-input label {
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
+
+        .dimension-input input {
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+            color: white;
+        }
+
+        /* Border Options */
+        .border-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .border-option {
+            height: 60px;
+            border-radius: 8px;
+            cursor: pointer;
+            background-size: cover;
+            background-position: center;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .border-option:hover {
+            transform: scale(1.05);
+        }
+
+        .border-option.active {
+            border-color: #388E3C;
+            box-shadow: 0 0 10px rgba(56, 142, 60, 0.5);
+        }
+
+        /* Additional Options */
+        .additional-options {
+            margin-bottom: 20px;
+        }
+
+        .option-checkbox {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .option-checkbox input[type="checkbox"] {
+            margin-right: 10px;
+            width: 18px;
+            height: 18px;
+            accent-color: #388E3C;
+        }
+
+        /* Price Summary */
+        .price-summary {
+            background-color: rgba(56, 142, 60, 0.1);
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        .price-summary h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            border-bottom: none;
+        }
+
+        .price-details {
+            margin-bottom: 15px;
+        }
+
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .price-total {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .action-button {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .add-to-cart {
+            background-color: #388E3C;
+            color: white;
+        }
+
+        .add-to-cart:hover {
+            background-color: #2E7D32;
+        }
+
+        .save-design {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        .save-design:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .customization-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .product-type-options,
+            .pattern-options,
+            .border-options {
+                grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+            }
+
+            .action-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo" style="padding-left: 20px;"><img style="height: 40px;" src="images/image-removebg-preview (41).png"><span class="hindi-ka"></span></div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <div class="dropdown">
+                <a href="#" class="dropdown-toggle">Shop <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <div class="dropdown-column">
+                        <h3>Men</h3>
+                        <ul>
+                            <li><a href="shop-men-gamcha.html">Gamcha</a></li>
+                            <li><a href="shop-men-lungi.html">Lungi</a></li>
+                            <li><a href="shop-men-yardage.html">Yardage</a></li>
+                            <li><a href="shop-men.html" class="view-all">View All</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown-column">
+                        <h3>Women</h3>
+                        <ul>
+                            <li><a href="shop-women-saree.html">Saree</a></li>
+                            <li><a href="shop-women-dupatta.html">Dupatta</a></li>
+                            <li><a href="shop-women-stole.html">Stole</a></li>
+                            <li><a href="shop-women-yardage.html">Yardage</a></li>
+                            <li><a href="shop-women.html" class="view-all">View All</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown-column">
+                        <h3>Utility</h3>
+                        <ul>
+                            <li><a href="shop-utility-napkin.html">Napkin</a></li>
+                            <li><a href="shop-utility-duster.html">Duster</a></li>
+                            <li><a href="shop-utility.html" class="view-all">View All</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown-column">
+                        <h3>Collections</h3>
+                        <ul>
+                            <li><a href="shop-collections-sutrashringar.html">Sutrashringar</a></li>
+                            <li><a href="shop-collections-lookbook.html">Lookbook</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown-column">
+                        <h3>Sale</h3>
+                        <ul>
+                            <li><a href="shop-sale-men.html">Men</a></li>
+                            <li><a href="shop-sale-women.html">Women</a></li>
+                            <li><a href="shop-sale-utility.html">Utility</a></li>
+                            <li><a href="shop-sale.html" class="view-all">View All</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown-column">
+                        <h3>Giftcards</h3>
+                        <ul>
+                            <li><a href="shop-giftcards-customise.html">Customise</a></li>
+                            <li><a href="shop-giftcards-b2b.html">B2B</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#" class="dropdown-toggle">Our Story <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <div class="dropdown-column">
+                        <ul>
+                            <li><a href="index.html#origin">Origin</a></li>
+                            <li><a href="index.html#artisans">Artisans</a></li>
+                            <li><a href="of-art.html">Of Art</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#" class="dropdown-toggle">Services <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <div class="dropdown-column">
+                        <ul>
+                            <li><a href="services-workshop.html">Workshops</a></li>
+                            <li><a href="services-subscription.html">Subscription Box</a></li>
+                            <li><a href="services-b2b.html">B2B</a></li>
+                            <li><a href="services-customise.html" class="active">Customise</a></li>
+                            <li><a href="services-giftcards.html">Giftcards</a></li>
+                            <li><a href="services.html" class="view-all">View All</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <a href="contact.html">Connect</a>
+        </div>
+        <div class="nav-icons">
+            <a href="#" class="nav-icon"><i class="fas fa-search"></i></a>
+            <a href="#" class="nav-icon"><i class="fas fa-user"></i></a>
+            <a href="#" class="nav-icon"><i class="fas fa-shopping-cart"></i></a>
+            <a href="#" class="nav-icon"><i class="fas fa-gift"></i></a>
+        </div>
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Cloth Texture -->
+    <div class="customization-hero">
+        <div class="cloth-overlay">
+            <!-- Cloth texture will be added via JavaScript -->
+        </div>
+        <div class="customization-hero-content">
+            <h1>Customize Your Handloom</h1>
+            <p>Create a unique piece that reflects your personal style. Design your own handloom product with our interactive customization tool.</p>
+        </div>
+    </div>
+
+    <!-- Customization Section -->
+    <div class="customization-container">
+        <div class="customization-intro">
+            <h2>Design Your Own Handloom</h2>
+            <p>Our artisans will bring your vision to life. Select from various options below to create a truly unique handloom piece that tells your story. Watch your design come to life in real-time as you make your selections.</p>
+        </div>
+
+        <!-- Customization Interface -->
+        <div class="customization-interface">
+            <!-- Product Preview -->
+            <div class="product-preview">
+                <div class="product-preview-image">
+                    <img id="preview-image" src="images/category (5).jpeg" alt="Product Preview">
+                    <div id="pattern-overlay" class="pattern-overlay"></div>
+                </div>
+            </div>
+
+            <!-- Customization Controls -->
+            <div class="customization-controls">
+                <!-- Product Type Selection -->
+                <div class="control-section">
+                    <h3>Select Product Type</h3>
+                    <div class="product-type-options">
+                        <div class="product-type-option active" data-product="saree">
+                            <img src="images/category (1).jpeg" alt="Saree">
+                            <span>Saree</span>
+                        </div>
+                        <div class="product-type-option" data-product="dupatta">
+                            <img src="images/category (2).jpeg" alt="Dupatta">
+                            <span>Dupatta</span>
+                        </div>
+                        <div class="product-type-option" data-product="stole">
+                            <img src="images/category (3).jpeg" alt="Stole">
+                            <span>Stole</span>
+                        </div>
+                        <div class="product-type-option" data-product="gamcha">
+                            <img src="images/category (4).jpeg" alt="Gamcha">
+                            <span>Gamcha</span>
+                        </div>
+                        <div class="product-type-option" data-product="lungi">
+                            <img src="images/category (5).jpeg" alt="Lungi">
+                            <span>Lungi</span>
+                        </div>
+                        <div class="product-type-option" data-product="yardage">
+                            <img src="images/category (6).jpeg" alt="Yardage">
+                            <span>Yardage</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Color Selection -->
+                <div class="control-section">
+                    <h3>Select Base Color</h3>
+                    <div class="color-options">
+                        <div class="color-option active" style="background-color: #D7B98E;" data-color="#D7B98E"></div>
+                        <div class="color-option" style="background-color: #8B4513;" data-color="#8B4513"></div>
+                        <div class="color-option" style="background-color: #5D8AA8;" data-color="#5D8AA8"></div>
+                        <div class="color-option" style="background-color: #E32636;" data-color="#E32636"></div>
+                        <div class="color-option" style="background-color: #9F8170;" data-color="#9F8170"></div>
+                        <div class="color-option" style="background-color: #5F9EA0;" data-color="#5F9EA0"></div>
+                        <div class="color-option" style="background-color: #7B3F00;" data-color="#7B3F00"></div>
+                        <div class="color-option" style="background-color: #008000;" data-color="#008000"></div>
+                        <div class="color-option" style="background-color: #E97451;" data-color="#E97451"></div>
+                        <div class="color-option" style="background-color: #8A2BE2;" data-color="#8A2BE2"></div>
+                    </div>
+                </div>
+
+                <!-- Pattern Selection -->
+                <div class="control-section">
+                    <h3>Select Pattern</h3>
+                    <div class="pattern-options">
+                        <div class="pattern-option active" style="background-image: url('images/cloth-texture.svg');" data-pattern="cloth-texture.svg"></div>
+                        <div class="pattern-option" style="background-image: url('images/stripes.png');" data-pattern="stripes.png"></div>
+                        <div class="pattern-option" style="background-image: url('images/checks.png');" data-pattern="checks.png"></div>
+                        <div class="pattern-option" style="background-image: url('images/dots.png');" data-pattern="dots.png"></div>
+                        <div class="pattern-option" style="background-image: url('images/floral.png');" data-pattern="floral.png"></div>
+                        <div class="pattern-option" style="background-image: url('images/geometric.png');" data-pattern="geometric.png"></div>
+                    </div>
+                </div>
+
+                <!-- Size Selection -->
+                <div class="control-section">
+                    <h3>Select Size</h3>
+                    <div class="size-options">
+                        <div class="size-option active" data-size="standard">Standard</div>
+                        <div class="size-option" data-size="medium">Medium</div>
+                        <div class="size-option" data-size="large">Large</div>
+                        <div class="size-option" data-size="custom">Custom</div>
+                    </div>
+
+                    <!-- Custom Dimensions (hidden by default) -->
+                    <div class="custom-dimensions" id="custom-dimensions" style="display: none;">
+                        <div class="dimension-input">
+                            <label for="width">Width (cm)</label>
+                            <input type="number" id="width" min="50" max="500" value="100">
+                        </div>
+                        <div class="dimension-input">
+                            <label for="length">Length (cm)</label>
+                            <input type="number" id="length" min="50" max="900" value="200">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Border Options -->
+                <div class="control-section">
+                    <h3>Select Border Style</h3>
+                    <div class="border-options">
+                        <div class="border-option active" style="background-image: url('images/border1.png');" data-border="border1.png"></div>
+                        <div class="border-option" style="background-image: url('images/border2.png');" data-border="border2.png"></div>
+                        <div class="border-option" style="background-image: url('images/border3.png');" data-border="border3.png"></div>
+                        <div class="border-option" style="background-image: url('images/border4.png');" data-border="border4.png"></div>
+                    </div>
+                </div>
+
+                <!-- Additional Options -->
+                <div class="control-section">
+                    <h3>Additional Options</h3>
+                    <div class="additional-options">
+                        <div class="option-checkbox">
+                            <input type="checkbox" id="tassels">
+                            <label for="tassels">Add Tassels</label>
+                        </div>
+                        <div class="option-checkbox">
+                            <input type="checkbox" id="embroidery">
+                            <label for="embroidery">Add Embroidery</label>
+                        </div>
+                        <div class="option-checkbox">
+                            <input type="checkbox" id="gift-wrap">
+                            <label for="gift-wrap">Gift Wrapping</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Price Summary -->
+                <div class="price-summary">
+                    <h3>Price Summary</h3>
+                    <div class="price-details">
+                        <div class="price-row">
+                            <span>Base Price:</span>
+                            <span id="base-price">₹2,500</span>
+                        </div>
+                        <div class="price-row">
+                            <span>Pattern:</span>
+                            <span id="pattern-price">₹500</span>
+                        </div>
+                        <div class="price-row">
+                            <span>Border:</span>
+                            <span id="border-price">₹300</span>
+                        </div>
+                        <div class="price-row">
+                            <span>Additional Options:</span>
+                            <span id="options-price">₹0</span>
+                        </div>
+                    </div>
+                    <div class="price-total">
+                        <span>Total:</span>
+                        <span id="total-price">₹3,300</span>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="action-buttons">
+                    <button class="action-button add-to-cart">Add to Cart</button>
+                    <button class="action-button save-design">Save Design</button>
+                </div>

@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sahrika - Subscription Box</title>
+   
+    <link rel="icon" href="images/image-removebg-preview (41).png" type="image/png">
+    <link rel="shortcut icon" href="images/image-removebg-preview (41).png" type="image/png">
+    <link rel="apple-touch-icon" href="images/image-removebg-preview (41).png">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/carousel.css">
+    <link rel="stylesheet" href="css/new-sections.css">
+    <link rel="stylesheet" href="css/cloth-texture.css">
+    <link rel="stylesheet" href="css/scroll-button.css">
+    <link rel="stylesheet" href="css/wishlist-button.css">
+    <link rel="stylesheet" href="css/dropdown.css">
+    <link rel="stylesheet" href="css/plp.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Subscription Box Page Styles */
+        .subscription-hero {
+            height: 60vh;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/category (3).jpeg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-bottom: 60px;
+        }
+
+        .subscription-hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .subscription-hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+
+        .subscription-hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .subscription-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 80px;
+        }
+
+        .subscription-intro {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .subscription-intro h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .subscription-intro p {
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .subscription-plans {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .plan-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            overflow: hidden;
+            width: 100%;
+            max-width: 350px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .plan-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .plan-header {
+            background-color: #388E3C;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .plan-header h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .plan-price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .plan-price span {
+            font-size: 1rem;
+            font-weight: 400;
+        }
+
+        .plan-content {
+            padding: 30px;
+        }
+
+        .plan-features {
+            margin-bottom: 30px;
+        }
+
+        .plan-feature {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .plan-feature i {
+            color: #388E3C;
+            margin-right: 10px;
+            margin-top: 5px;
+        }
+
+        .plan-feature p {
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .plan-button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: #388E3C;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .plan-button:hover {
+            background-color: #2E7D32;
+        }
+
+        .subscription-process {
+            margin-bottom: 80px;
+        }
+
+        .subscription-process h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            counter-reset: step-counter;
+        }
+
+        .process-step {
+            flex: 1;
+            min-width: 250px;
+            padding: 30px;
+            position: relative;
+            counter-increment: step-counter;
+            margin-bottom: 30px;
+        }
+
+        .process-step::before {
+            content: counter(step-counter);
+            position: absolute;
+            top: 0;
+            left: 30px;
+            font-size: 5rem;
+            font-weight: 700;
+            color: rgba(56, 142, 60, 0.2);
+            line-height: 1;
+            z-index: -1;
+        }
+
+        .process-step h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            padding-top: 20px;
+        }
+
+        .process-step p {
+            line-height: 1.6;
+            color: #ccc;
+        }
+
+        .subscription-examples {
+            margin-bottom: 80px;
+        }
+
+        .subscription-examples h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .examples-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .example-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .example-image {
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .example-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .example-card:hover .example-image img {
+            transform: scale(1.1);
+        }
+
+        .example-content {
+            padding: 20px;
+        }
+
+        .example-content h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .example-content p {
+            margin-bottom: 0;
+            line-height: 1.6;
+            color: #ccc;
+        }
+
+        .testimonials {
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 80px 20px;
+            margin-bottom: 80px;
+        }
+
+        .testimonials-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonials-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .testimonials-header h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background-color: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 30px;
+            position: relative;
+        }
+
+        .testimonial-quote {
+            font-size: 3rem;
+            color: #388E3C;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            opacity: 0.2;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            line-height: 1.8;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .testimonial-author-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+        }
+
+        .testimonial-author-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .testimonial-author-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .testimonial-author-info p {
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        .faq-section {
+            max-width: 800px;
+            margin: 0 auto 80px;
+        }
+
+        .faq-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .faq-header h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 20px;
+        }
+
+        .faq-question {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question i {
+            transition: transform 0.3s ease;
+        }
+
+        .faq-question.active i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            line-height: 1.6;
+            color: #ccc;
+            display: none;
+        }
+
+        .faq-answer.active {
+            display: block;
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 80px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            padding: 15px 30px;
+            background-color: #388E3C;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .cta-button.secondary {
+            background-color: transparent;
+            border: 1px solid #388E3C;
+        }
+
+        .cta-button:hover {
+            background-color: #2E7D32;
+            transform: translateY(-3px);
+        }
+
+        .cta-button.secondary:hover {
+            background-color: rgba(56, 142, 60, 0.1);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .subscription-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .examples-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-step {
+                flex: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo" style="padding-left: 20px;"><img style="height: 40px;" src="images/image-removebg-preview (41).png"><span class="hindi-ka"></span></div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <div class="dropdown">
+                <a href="#" class="dropdown-toggle">Shop <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <div class="dropdown-column">
+                        <h3>Men</h3>
+                        <ul>
+                            <li><a href="shop-men-gamcha.html">Gamcha</a></li>
+                            <li><a href="shop-men-lungi.html">Lungi</a></li>
+                            <li><a href="shop-men-yardage.html">Yardage</a></li>
+                            <li><a href="shop-men.html" class="view-all">View All</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown-column">
+                        <h3>Women</h3>
+                        <ul>
+                            <li><a href="shop-women-saree.html">Saree</a></li>
+                            <li><a href="shop-women-dupatta.html">Dupatta</a></li>
+                            <li><a href="shop-women-stole.html">Stole</a></li>
+                            <li><a href="shop-women-yardage.html">Yardage</a></li>
+                            <li><a href="shop-women.html" class="view-all">View All</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown-column">
+                        <h3>Utility</h3>
+                        <ul>
+                            <li><a href="shop-utility-napkin.html">Napkin</a></li>
+                            <li><a href="shop-utility-duster.html">Duster</a></li>
+                            <li><a href="shop-utility.html" class="view-all">View All</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown-column">
+                        <h3>Collections</h3>
+                        <ul>
+                            <li><a href="shop-collections-sutrashringar.html">Sutrashringar</a></li>
+                            <li><a href="shop-collections-lookbook.html">Lookbook</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown-column">
+                        <h3>Sale</h3>
+                        <ul>
+                            <li><a href="shop-sale-men.html">Men</a></li>
+                            <li><a href="shop-sale-women.html">Women</a></li>
+                            <li><a href="shop-sale-utility.html">Utility</a></li>
+                            <li><a href="shop-sale.html" class="view-all">View All</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown-column">
+                        <h3>Giftcards</h3>
+                        <ul>
+                            <li><a href="shop-giftcards-customise.html">Customise</a></li>
+                            <li><a href="shop-giftcards-b2b.html">B2B</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#" class="dropdown-toggle">Our Story <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <div class="dropdown-column">
+                        <ul>
+                            <li><a href="index.html#origin">Origin</a></li>
+                            <li><a href="index.html#artisans">Artisans</a></li>
+                            <li><a href="of-art.html">Of Art</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#" class="dropdown-toggle">Services <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <div class="dropdown-column">
+                        <ul>
+                            <li><a href="services-workshop.html">Workshops</a></li>
+                            <li><a href="services-subscription.html">Subscription Box</a></li>
+                            <li><a href="services-b2b.html">B2B</a></li>
+                            <li><a href="services-customise.html">Customise</a></li>
+                            <li><a href="services-giftcards.html">Giftcards</a></li>
+                            <li><a href="services.html" class="view-all">View All</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <a href="connect.html">Connect</a>
+        </div>
+        <div class="nav-icons">
+            <a href="#" class="nav-icon"><i class="fas fa-search"></i></a>
+            <a href="#" class="nav-icon"><i class="fas fa-user"></i></a>
+            <a href="#" class="nav-icon"><i class="fas fa-shopping-cart"></i></a>
+            <a href="#" class="nav-icon"><i class="fas fa-gift"></i></a>
+        </div>
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="subscription-hero">
+        <div class="subscription-hero-content">
+            <h1>Subscription Box</h1>
+            <p>Receive curated handcrafted textiles delivered to your doorstep every month, connecting you with India's rich textile heritage.</p>
+        </div>
+    </div>
+
+    <!-- Subscription Section -->
+    <div class="subscription-container">
+        <div class="subscription-intro">
+            <h2>Experience the Joy of Handcrafted Textiles</h2>
+            <p>Our subscription boxes bring the beauty of traditional Indian textiles directly to your home. Each carefully curated box contains exclusive handcrafted pieces, artisan stories, and cultural insights that connect you with India's rich textile heritage.</p>
+        </div>
+
+        <!-- Subscription Plans -->
+        <div class="subscription-plans">
+            <!-- Monthly Plan -->
+            <div class="plan-card">
+                <div class="plan-header">
+                    <h3>Monthly Discovery</h3>
+                    <div class="plan-price">₹1,499 <span>/month</span></div>
+                </div>
+                <div class="plan-content">
+                    <div class="plan-features">
+                        <div class="plan-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <p>1 handcrafted textile item each month</p>
+                        </div>
+                        <div class="plan-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <p>Artisan story card</p>
+                        </div>
+                        <div class="plan-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <p>Care instructions</p>
+                        </div>
+                        <div class="plan-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <p>Free shipping</p>
+                        </div>
+                        <div class="plan-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <p>Cancel anytime</p>
+                        </div>
+                    </div>
+                    <a href="#" class="plan-button">Subscribe Now</a>
+                </div>
+            </div>
+
+            <!-- Quarterly Plan -->
+            <div class="plan-card">
+                <div class="plan-header">
+                    <h3>Quarterly Collection</h3>
+                    <div class="plan-price">₹3,999 <span>/quarter</span></div>
+                </div>
+                <div class="plan-content">
+                    <div class="plan-features">
+                        <div class="plan-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <p>3 coordinated textile items each quarter</p>
+                        </div>
+                        <div class="plan-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <p>Detailed artisan stories</p>
+                        </div>
+                        <div class="plan-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <p>Exclusive textile guide</p>
+                        </div>
+                        <div class="plan-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <p>10% discount on regular products</p>
+                        </div>
+                        <div class="plan-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <p>Free priority shipping</p>
+                        </div>
+                    </div>
+                    <a href="#" class="plan-button">Subscribe Now</a>
+                </div>
+            </div>
+
+            <!-- Annual Plan -->
+            <div class="plan-card">
+                <div class="plan-header">
+                    <h3>Annual Heritage</h3>
+                    <div class="plan-price">₹14,999 <span>/year</span></div>
+                </div>
+                <div class="plan-content">
+                    <div class="plan-features">
+                        <div class="plan-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <p>12 premium textile items throughout the year</p>
+                        </div>
+                        <div class="plan-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <p>Exclusive limited-edition pieces</p>
+                        </div>
+                        <div class="plan-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <p>Comprehensive textile history book</p>
+                        </div>
+                        <div class="plan-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <p>15% discount on all products</p>
+                        </div>
+                        <div class="plan-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <p>Free workshop session (virtual)</p>
+                        </div>
+                    </div>
+                    <a href="#" class="plan-button">Subscribe Now</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Subscription Process -->
+        <div class="subscription-process">
+            <h2>How It Works</h2>
+            <div class="process-steps">
+                <div class="process-step">
+                    <h3>Subscribe</h3>
+                    <p>Choose your preferred subscription plan and complete the checkout process. You can select your preferences to personalize your experience.</p>
+                </div>
+                <div class="process-step">
+                    <h3>Curate</h3>
+                    <p>Our team works with artisans to select and create unique textile pieces based on seasonal themes and your preferences.</p>
+                </div>
+                <div class="process-step">
+                    <h3>Deliver</h3>
+                    <p>Your beautifully packaged subscription box is delivered to your doorstep according to your subscription schedule.</p>
+                </div>
+                <div class="process-step">
+                    <h3>Enjoy</h3>
+                    <p>Unbox your handcrafted treasures, learn about the artisans who created them, and incorporate these beautiful textiles into your life.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Previous Box Examples -->
+        <div class="subscription-examples">
+            <h2>Previous Box Highlights</h2>
+            <div class="examples-grid">
+                <!-- Example 1 -->
+                <div class="example-card">
+                    <div class="example-image">
+                        <img src="images/category (1).jpeg" alt="Summer Collection Box">
+                    </div>
+                    <div class="example-content">
+                        <h3>Summer Collection</h3>
+                        <p>Featured lightweight cotton stoles in vibrant colors, perfect for summer styling, created by artisans from Gujarat.</p>
+                    </div>
+                </div>
+
+                <!-- Example 2 -->
+                <div class="example-card">
+                    <div class="example-image">
+                        <img src="images/category (5).jpeg" alt="Festive Edition Box">
+                    </div>
+                    <div class="example-content">
+                        <h3>Festive Edition</h3>
+                        <p>Celebrated India's rich festival traditions with intricately embroidered table linens and decorative pieces.</p>
+                    </div>
+                </div>
+
+                <!-- Example 3 -->
+                <div class="example-card">
+                    <div class="example-image">
+                        <img src="images/category (6).jpeg" alt="Home Essentials Box">
+                    </div>
+                    <div class="example-content">
+                        <h3>Home Essentials</h3>
+                        <p>Curated collection of handwoven kitchen and dining textiles, including napkins and table runners in earthy tones.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="testimonials-container">
+            <div class="testimonials-header">
+                <h2>What Our Subscribers Say</h2>
+            </div>
+            <div class="testimonials-grid">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-quote"><i class="fas fa-quote-left"></i></div>
+                    <p class="testimonial-text">"Each month I look forward to my Sahrika box. The quality of the textiles is exceptional, and I love learning about the artisans and traditions behind each piece. It's like receiving a piece of Indian heritage every month."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-author-image">
+                            <img src="images/artisan (1).PNG" alt="Meera K.">
+                        </div>
+                        <div class="testimonial-author-info">
+                            <h4>Meera K.</h4>
+                            <p>Monthly Subscriber</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-quote"><i class="fas fa-quote-left"></i></div>

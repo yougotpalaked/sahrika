@@ -1,3 +1,22 @@
+:root {
+    /* Horizontal stripe colors - customize these values */
+    --h-stripe-color-1: #E4E8A4;
+    --h-stripe-color-2: #C5D99C;
+    --h-stripe-color-3: #CDF194;
+    --h-stripe-color-4: #D5E8A0;
+    
+    /* Vertical stripe colors - customize these values */
+    --v-stripe-color-1: #FFFFFF;
+    --v-stripe-color-2: #F5F5F5;
+    --v-stripe-color-3: #FAFAFA;
+    --v-stripe-color-4: #F0F0F0;
+    
+    /* Pattern settings - customizable */
+    --stripe-width: 4vh;
+    --stripe-opacity: 0.9;
+    --pattern-type: stripes;
+}
+
 .cloth-overlay {
     position: absolute;
     top: 0;
@@ -7,7 +26,7 @@
     z-index: 5;
     overflow: hidden;
     pointer-events: none;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(255, 255, 255, 0);
 }
 
 .h-stripe, .v-stripe {
@@ -21,32 +40,22 @@
 
 .h-stripe {
     width: 100%;
-    height: 4vh;
+    height: var(--stripe-width, 4vh);
     left: 0;
     transform-origin: left center;
     z-index: 6;
-    background-image: linear-gradient(to right, 
-        rgba(92, 26, 26, 0.9), 
-        rgba(94, 8, 8, 0.9), 
-        rgba(157, 5, 5, 0.9), 
-        rgba(133, 2, 2, 0.9), 
-        rgba(189, 13, 13, 0.9)
-    );
+    background-color: var(--h-stripe-color-1);
+    opacity: var(--stripe-opacity, 0.9);
 }
 
 .v-stripe {
     height: 100%;
-    width: 4vh;
+    width: var(--stripe-width, 4vh);
     top: 0;
     transform-origin: top center;
     z-index: 5;
-    background-image: linear-gradient(to bottom, 
-        rgba(207, 5, 5, 0.9), 
-        rgba(143, 6, 6, 0.9), 
-        rgba(176, 4, 4, 0.9), 
-        rgba(221, 0, 0, 0.9), 
-        rgba(149, 18, 18, 0.9)
-    );
+    background-color: var(--v-stripe-color-1);
+    opacity: var(--stripe-opacity, 0.9);
 }
 
 .h-stripe::before, .v-stripe::before {
@@ -84,20 +93,38 @@
     background-repeat: repeat-y;
 }
 
-.h-stripe:nth-child(4n+1), .v-stripe:nth-child(4n+1) {
-    filter: brightness(0.9);
+/* Horizontal stripes - different colors for each pattern */
+.h-stripe:nth-child(4n+1) {
+    background-color: var(--h-stripe-color-1);
 }
 
-.h-stripe:nth-child(4n+2), .v-stripe:nth-child(4n+2) {
-    filter: brightness(1.0);
+.h-stripe:nth-child(4n+2) {
+    background-color: var(--h-stripe-color-2);
 }
 
-.h-stripe:nth-child(4n+3), .v-stripe:nth-child(4n+3) {
-    filter: brightness(1.1);
+.h-stripe:nth-child(4n+3) {
+    background-color: var(--h-stripe-color-3);
 }
 
-.h-stripe:nth-child(4n), .v-stripe:nth-child(4n) {
-    filter: brightness(1.2);
+.h-stripe:nth-child(4n) {
+    background-color: var(--h-stripe-color-4);
+}
+
+/* Vertical stripes - different colors for each pattern */
+.v-stripe:nth-child(4n+1) {
+    background-color: var(--v-stripe-color-1);
+}
+
+.v-stripe:nth-child(4n+2) {
+    background-color: var(--v-stripe-color-2);
+}
+
+.v-stripe:nth-child(4n+3) {
+    background-color: var(--v-stripe-color-3);
+}
+
+.v-stripe:nth-child(4n) {
+    background-color: var(--v-stripe-color-4);
 }
 
 .v-stripe:nth-child(odd) {
@@ -137,4 +164,40 @@
 
 .v-stripe:nth-child(even)::before {
     box-shadow: 2px 0 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Dot pattern styles */
+.texture-dot {
+    position: absolute;
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    will-change: transform, opacity;
+}
+
+.texture-dot:hover {
+    filter: brightness(1.3);
+    transform: scale(1.1);
+}
+
+/* Pattern-specific styles */
+.cloth-overlay[data-pattern="checks"] .h-stripe,
+.cloth-overlay[data-pattern="checks"] .v-stripe {
+    z-index: auto !important;
+}
+
+.cloth-overlay[data-pattern="dots"] .texture-dot:nth-child(4n+1) {
+    background-color: var(--h-stripe-color-1);
+}
+
+.cloth-overlay[data-pattern="dots"] .texture-dot:nth-child(4n+2) {
+    background-color: var(--h-stripe-color-2);
+}
+
+.cloth-overlay[data-pattern="dots"] .texture-dot:nth-child(4n+3) {
+    background-color: var(--h-stripe-color-3);
+}
+
+.cloth-overlay[data-pattern="dots"] .texture-dot:nth-child(4n) {
+    background-color: var(--h-stripe-color-4);
 }

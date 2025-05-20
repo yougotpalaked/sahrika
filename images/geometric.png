@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+  <defs>
+    <pattern id="geometric" patternUnits="userSpaceOnUse" width="40" height="40">
+      <!-- Diamond shape -->
+      <path d="M20,0 L40,20 L20,40 L0,20 Z" fill="white" fill-opacity="0.2"/>
+      <!-- Inner diamond -->
+      <path d="M20,10 L30,20 L20,30 L10,20 Z" fill="white" fill-opacity="0.3"/>
+    </pattern>
+  </defs>
+  <rect width="200" height="200" fill="url(#geometric)"/>
+</svg>

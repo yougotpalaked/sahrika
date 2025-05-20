@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sahrika - Workshops</title>
+   
+    <link rel="icon" href="images/image-removebg-preview (41).png" type="image/png">
+    <link rel="shortcut icon" href="images/image-removebg-preview (41).png" type="image/png">
+    <link rel="apple-touch-icon" href="images/image-removebg-preview (41).png">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/carousel.css">
+    <link rel="stylesheet" href="css/new-sections.css">
+    <link rel="stylesheet" href="css/cloth-texture.css">
+    <link rel="stylesheet" href="css/scroll-button.css">
+    <link rel="stylesheet" href="css/wishlist-button.css">
+    <link rel="stylesheet" href="css/dropdown.css">
+    <link rel="stylesheet" href="css/plp.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Workshop Page Styles */
+        .workshop-hero {
+            height: 60vh;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/category (2).jpeg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-bottom: 60px;
+        }
+
+        .workshop-hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .workshop-hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+
+        .workshop-hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .workshop-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 80px;
+        }
+
+        .workshop-intro {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .workshop-intro h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .workshop-intro p {
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .workshop-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .workshop-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .workshop-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .workshop-image {
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .workshop-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .workshop-card:hover .workshop-image img {
+            transform: scale(1.1);
+        }
+
+        .workshop-content {
+            padding: 30px;
+        }
+
+        .workshop-content h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .workshop-content p {
+            margin-bottom: 20px;
+            line-height: 1.6;
+            color: #ccc;
+        }
+
+        .workshop-details {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+        }
+
+        .workshop-detail {
+            display: flex;
+            align-items: center;
+        }
+
+        .workshop-detail i {
+            margin-right: 8px;
+            color: #388E3C;
+        }
+
+        .workshop-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #388E3C;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .workshop-link:hover {
+            background-color: #2E7D32;
+        }
+
+        .workshop-process {
+            margin-bottom: 80px;
+        }
+
+        .workshop-process h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            counter-reset: step-counter;
+        }
+
+        .process-step {
+            flex: 1;
+            min-width: 250px;
+            padding: 30px;
+            position: relative;
+            counter-increment: step-counter;
+            margin-bottom: 30px;
+        }
+
+        .process-step::before {
+            content: counter(step-counter);
+            position: absolute;
+            top: 0;
+            left: 30px;
+            font-size: 5rem;
+            font-weight: 700;
+            color: rgba(56, 142, 60, 0.2);
+            line-height: 1;
+            z-index: -1;
+        }
+
+        .process-step h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            padding-top: 20px;
+        }
+
+        .process-step p {
+            line-height: 1.6;
+            color: #ccc;
+        }
+
+        .faq-section {
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 80px 20px;
+            margin-bottom: 80px;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .faq-header h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 20px;
+        }
+
+        .faq-question {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question i {
+            transition: transform 0.3s ease;
+        }
+
+        .faq-question.active i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            line-height: 1.6;
+            color: #ccc;
+            display: none;
+        }
+
+        .faq-answer.active {
+            display: block;
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 80px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            padding: 15px 30px;
+            background-color: #388E3C;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .cta-button.secondary {
+            background-color: transparent;
+            border: 1px solid #388E3C;
+        }
+
+        .cta-button:hover {
+            background-color: #2E7D32;
+            transform: translateY(-3px);
+        }
+
+        .cta-button.secondary:hover {
+            background-color: rgba(56, 142, 60, 0.1);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .workshop-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .workshop-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-step {
+                flex: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo" style="padding-left: 20px;"><img style="height: 40px;" src="images/image-removebg-preview (41).png"><span class="hindi-ka"></span></div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <div class="dropdown">
+                <a href="#" class="dropdown-toggle">Shop <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <div class="dropdown-column">
+                        <h3>Men</h3>
+                        <ul>
+                            <li><a href="shop-men-gamcha.html">Gamcha</a></li>
+                            <li><a href="shop-men-lungi.html">Lungi</a></li>
+                            <li><a href="shop-men-yardage.html">Yardage</a></li>
+                            <li><a href="shop-men.html" class="view-all">View All</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown-column">
+                        <h3>Women</h3>
+                        <ul>
+                            <li><a href="shop-women-saree.html">Saree</a></li>
+                            <li><a href="shop-women-dupatta.html">Dupatta</a></li>
+                            <li><a href="shop-women-stole.html">Stole</a></li>
+                            <li><a href="shop-women-yardage.html">Yardage</a></li>
+                            <li><a href="shop-women.html" class="view-all">View All</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown-column">
+                        <h3>Utility</h3>
+                        <ul>
+                            <li><a href="shop-utility-napkin.html">Napkin</a></li>
+                            <li><a href="shop-utility-duster.html">Duster</a></li>
+                            <li><a href="shop-utility.html" class="view-all">View All</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown-column">
+                        <h3>Collections</h3>
+                        <ul>
+                            <li><a href="shop-collections-sutrashringar.html">Sutrashringar</a></li>
+                            <li><a href="shop-collections-lookbook.html">Lookbook</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown-column">
+                        <h3>Sale</h3>
+                        <ul>
+                            <li><a href="shop-sale-men.html">Men</a></li>
+                            <li><a href="shop-sale-women.html">Women</a></li>
+                            <li><a href="shop-sale-utility.html">Utility</a></li>
+                            <li><a href="shop-sale.html" class="view-all">View All</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown-column">
+                        <h3>Giftcards</h3>
+                        <ul>
+                            <li><a href="shop-giftcards-customise.html">Customise</a></li>
+                            <li><a href="shop-giftcards-b2b.html">B2B</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#" class="dropdown-toggle">Our Story <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <div class="dropdown-column">
+                        <ul>
+                            <li><a href="index.html#origin">Origin</a></li>
+                            <li><a href="index.html#artisans">Artisans</a></li>
+                            <li><a href="of-art.html">Of Art</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#" class="dropdown-toggle">Services <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <div class="dropdown-column">
+                        <ul>
+                            <li><a href="services-workshop.html">Workshops</a></li>
+                            <li><a href="services-subscription.html">Subscription Box</a></li>
+                            <li><a href="services-b2b.html">B2B</a></li>
+                            <li><a href="services-customise.html">Customise</a></li>
+                            <li><a href="services-giftcards.html">Giftcards</a></li>
+                            <li><a href="services.html" class="view-all">View All</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <a href="connect.html">Connect</a>
+        </div>
+        <div class="nav-icons">
+            <a href="#" class="nav-icon"><i class="fas fa-search"></i></a>
+            <a href="#" class="nav-icon"><i class="fas fa-user"></i></a>
+            <a href="#" class="nav-icon"><i class="fas fa-shopping-cart"></i></a>
+            <a href="#" class="nav-icon"><i class="fas fa-gift"></i></a>
+        </div>
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="workshop-hero">
+        <div class="workshop-hero-content">
+            <h1>Textile Workshops</h1>
+            <p>Learn traditional weaving techniques directly from our master artisans and immerse yourself in the rich heritage of Indian textiles.</p>
+        </div>
+    </div>
+
+    <!-- Workshop Section -->
+    <div class="workshop-container">
+        <div class="workshop-intro">
+            <h2>Discover the Art of Handloom Weaving</h2>
+            <p>Our workshops offer a unique opportunity to learn directly from skilled artisans who have been practicing traditional textile techniques for generations. Each workshop is designed to provide hands-on experience while preserving and celebrating India's rich textile heritage.</p>
+        </div>
+
+        <div class="workshop-grid">
+            <!-- Workshop 1 -->
+            <div class="workshop-card">
+                <div class="workshop-image">
+                    <img src="images/category (2).jpeg" alt="Basic Weaving Workshop">
+                </div>
+                <div class="workshop-content">
+                    <h3>Basic Weaving Techniques</h3>
+                    <div class="workshop-details">
+                        <div class="workshop-detail">
+                            <i class="fas fa-clock"></i>
+                            <span>3 Hours</span>
+                        </div>
+                        <div class="workshop-detail">
+                            <i class="fas fa-user-friends"></i>
+                            <span>Beginner Friendly</span>
+                        </div>
+                    </div>
+                    <p>Learn the fundamentals of handloom weaving, including setting up a loom, understanding different yarns, and creating basic weaving patterns.</p>
+                    <a href="#" class="workshop-link">Book Now</a>
+                </div>
+            </div>
+
+            <!-- Workshop 2 -->
+            <div class="workshop-card">
+                <div class="workshop-image">
+                    <img src="images/category (3).jpeg" alt="Natural Dyeing Workshop">
+                </div>
+                <div class="workshop-content">
+                    <h3>Natural Dyeing Workshop</h3>
+                    <div class="workshop-details">
+                        <div class="workshop-detail">
+                            <i class="fas fa-clock"></i>
+                            <span>4 Hours</span>
+                        </div>
+                        <div class="workshop-detail">
+                            <i class="fas fa-user-friends"></i>
+                            <span>All Levels</span>
+                        </div>
+                    </div>
+                    <p>Explore the art of natural dyeing using plant-based materials. Learn to extract colors from flowers, roots, and leaves to create sustainable and beautiful textiles.</p>
+                    <a href="#" class="workshop-link">Book Now</a>
+                </div>
+            </div>
+
+            <!-- Workshop 3 -->
+            <div class="workshop-card">
+                <div class="workshop-image">
+                    <img src="images/category (4).jpeg" alt="Advanced Pattern Workshop">
+                </div>
+                <div class="workshop-content">
+                    <h3>Advanced Pattern Making</h3>
+                    <div class="workshop-details">
+                        <div class="workshop-detail">
+                            <i class="fas fa-clock"></i>
+                            <span>5 Hours</span>
+                        </div>
+                        <div class="workshop-detail">
+                            <i class="fas fa-user-friends"></i>
+                            <span>Intermediate</span>
+                        </div>
+                    </div>
+                    <p>Take your weaving skills to the next level by learning complex pattern techniques used in traditional Indian textiles like ikat, jamdani, and more.</p>
+                    <a href="#" class="workshop-link">Book Now</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Workshop Process -->
+        <div class="workshop-process">
+            <h2>How Our Workshops Work</h2>
+            <div class="process-steps">
+                <div class="process-step">
+                    <h3>Register</h3>
+                    <p>Choose your preferred workshop and date, then complete the registration process online or by contacting us directly.</p>
+                </div>
+                <div class="process-step">
+                    <h3>Prepare</h3>
+                    <p>We'll send you all the necessary information, including what to bring and what to expect during the workshop.</p>
+                </div>
+                <div class="process-step">
+                    <h3>Learn</h3>
+                    <p>Join us at our studio where our master artisans will guide you through each step of the textile-making process.</p>
+                </div>
+                <div class="process-step">
+                    <h3>Create</h3>
+                    <p>Apply your new skills to create your own handcrafted textile piece that you can take home as a memento of your experience.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="faq-container">
+            <div class="faq-header">
+                <h2>Frequently Asked Questions</h2>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Do I need any prior experience to join a workshop?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>No prior experience is necessary for our beginner workshops. We welcome participants of all skill levels and provide all the guidance you need to get started.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What materials are included in the workshop fee?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>All necessary materials and tools are included in the workshop fee. You'll have access to looms, yarns, dyes, and other supplies needed for your specific workshop.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Can I book a private workshop for a group?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, we offer private workshops for groups, corporate events, and special occasions. Please contact us directly to discuss your requirements and arrange a customized workshop experience.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Where are the workshops held?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Our workshops are held at our studio in [Location]. The exact address and directions will be provided upon registration.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What is your cancellation policy?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>We understand that plans can change. You can reschedule or cancel your workshop up to 48 hours before the scheduled time for a full refund. Cancellations within 48 hours are eligible for a 50% refund or the option to reschedule.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>Ready to Start Your Textile Journey?</h2>
+        <p>Join one of our upcoming workshops and learn the art of traditional textile making directly from our skilled artisans. Whether you're a beginner or looking to enhance your skills, we have a workshop that's perfect for you.</p>
+        <div class="cta-buttons">
+            <a href="#" class="cta-button">Book a Workshop</a>
+            <a href="#" class="cta-button secondary">Contact Us</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>About Sahrika</h3>
+                <p>Sahrika celebrates the rich heritage of Indian handloom textiles, connecting artisans with conscious consumers through sustainable and ethically crafted products.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop-men.html">Shop</a></li>
+                    <li><a href="of-art.html">Our Story</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="connect.html">Connect</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Customer Care</h3>
+                <ul>
+                    <li><a href="#">Shipping & Returns</a></li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Track Order</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-pinterest"></i></a>
+                </div>
+                <div class="newsletter">
+                    <h4>Subscribe to our newsletter</h4>
+                    <form>
+                        <input type="email" placeholder="Your email address">
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Sahrika. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle FAQ answers
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const isActive = answer.classList.contains('active');
+                
+                // Close all answers
+                document.querySelectorAll('.faq-answer').forEach(item => {
+                    item.classList.remove('active');
+                });
+                document.querySelectorAll('.faq-question').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                // Open clicked answer if it wasn't active
+                if (!isActive) {
+                    answer.classList.add('active');
+                    question.classList.add('active');
+                }
+            });
+        });
+
+        // Mobile menu toggle
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+            document.querySelector('.nav-icons').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

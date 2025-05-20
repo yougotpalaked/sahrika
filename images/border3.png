@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="60" viewBox="0 0 300 60">
+  <rect width="300" height="60" fill="none"/>
+  <!-- Decorative floral border -->
+  <line x1="0" y1="30" x2="300" y2="30" stroke="white" stroke-opacity="0.5" stroke-width="2"/>
+  
+  <!-- Repeating floral elements -->
+  <g fill="white" fill-opacity="0.5">
+    <!-- Element 1 -->
+    <circle cx="30" cy="30" r="3"/>
+    <path d="M30,20 Q35,25 30,30 Q25,25 30,20" fill="white" fill-opacity="0.5"/>
+    <path d="M30,40 Q35,35 30,30 Q25,35 30,40" fill="white" fill-opacity="0.5"/>
+    <path d="M20,30 Q25,35 30,30 Q25,25 20,30" fill="white" fill-opacity="0.5"/>
+    <path d="M40,30 Q35,35 30,30 Q35,25 40,30" fill="white" fill-opacity="0.5"/>
+    
+    <!-- Element 2 -->
+    <circle cx="90" cy="30" r="3"/>
+    <path d="M90,20 Q95,25 90,30 Q85,25 90,20" fill="white" fill-opacity="0.5"/>
+    <path d="M90,40 Q95,35 90,30 Q85,35 90,40" fill="white" fill-opacity="0.5"/>
+    <path d="M80,30 Q85,35 90,30 Q85,25 80,30" fill="white" fill-opacity="0.5"/>
+    <path d="M100,30 Q95,35 90,30 Q95,25 100,30" fill="white" fill-opacity="0.5"/>
+    
+    <!-- Element 3 -->
+    <circle cx="150" cy="30" r="3"/>
+    <path d="M150,20 Q155,25 150,30 Q145,25 150,20" fill="white" fill-opacity="0.5"/>
+    <path d="M150,40 Q155,35 150,30 Q145,35 150,40" fill="white" fill-opacity="0.5"/>
+    <path d="M140,30 Q145,35 150,30 Q145,25 140,30" fill="white" fill-opacity="0.5"/>
+    <path d="M160,30 Q155,35 150,30 Q155,25 160,30" fill="white" fill-opacity="0.5"/>
+    
+    <!-- Element 4 -->
+    <circle cx="210" cy="30" r="3"/>
+    <path d="M210,20 Q215,25 210,30 Q205,25 210,20" fill="white" fill-opacity="0.5"/>
+    <path d="M210,40 Q215,35 210,30 Q205,35 210,40" fill="white" fill-opacity="0.5"/>
+    <path d="M200,30 Q205,35 210,30 Q205,25 200,30" fill="white" fill-opacity="0.5"/>
+    <path d="M220,30 Q215,35 210,30 Q215,25 220,30" fill="white" fill-opacity="0.5"/>
+    
+    <!-- Element 5 -->
+    <circle cx="270" cy="30" r="3"/>
+    <path d="M270,20 Q275,25 270,30 Q265,25 270,20" fill="white" fill-opacity="0.5"/>
+    <path d="M270,40 Q275,35 270,30 Q265,35 270,40" fill="white" fill-opacity="0.5"/>
+    <path d="M260,30 Q265,35 270,30 Q265,25 260,30" fill="white" fill-opacity="0.5"/>
+    <path d="M280,30 Q275,35 270,30 Q275,25 280,30" fill="white" fill-opacity="0.5"/>
+  </g>
+</svg>

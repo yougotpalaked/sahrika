@@ -84,7 +84,7 @@
             </div>
             <a href="index.html#origin">Our Story</a>
             <a href="index.html#process">Services</a>
-            <a href="index.html#support">Connect</a>
+            <a href="connect.html">Connect</a>
         </div>
         <div class="nav-icons">
             <a href="#" class="nav-icon"><i class="fas fa-search"></i></a>
@@ -255,7 +255,7 @@
                             <img src="images/category (1).jpeg" alt="Product 1">
                             <div class="product-actions">
                                 <button class="quick-view"><i class="fas fa-eye"></i></button>
-                                <button class="add-to-wishlist"><i class="far fa-heart"></i></button>
+                                <button class="add-to-wishlist product-card-wishlist" data-product-id="product-001"><i class="far fa-heart"></i></button>
                                 <button class="add-to-cart">Add to Cart</button>
                             </div>
                         </div>
@@ -278,7 +278,7 @@
                             <img src="images/category (2).jpeg" alt="Product 2">
                             <div class="product-actions">
                                 <button class="quick-view"><i class="fas fa-eye"></i></button>
-                                <button class="add-to-wishlist"><i class="far fa-heart"></i></button>
+                                <button class="add-to-wishlist product-card-wishlist" data-product-id="product-002"><i class="far fa-heart"></i></button>
                                 <button class="add-to-cart">Add to Cart</button>
                             </div>
                         </div>
@@ -301,7 +301,7 @@
                             <img src="images/category (3).jpeg" alt="Product 3">
                             <div class="product-actions">
                                 <button class="quick-view"><i class="fas fa-eye"></i></button>
-                                <button class="add-to-wishlist"><i class="far fa-heart"></i></button>
+                                <button class="add-to-wishlist product-card-wishlist" data-product-id="product-003"><i class="far fa-heart"></i></button>
                                 <button class="add-to-cart">Add to Cart</button>
                             </div>
                         </div>
@@ -318,7 +318,27 @@
                             </div>
                         </div>
                     </div>
-                    
-                    <!-- Repeat for more products -->
-                    <div class="product-item">
-                        <div class="product-image
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Floating Scroll Buttons -->
+    <div class="scroll-button" id="scroll-to-bottom">
+        <i class="fas fa-chevron-down"></i>
+    </div>
+    <div class="scroll-button" id="scroll-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+    
+    <!-- Floating Wishlist Button -->
+    <div class="wishlist-button" id="wishlist-button">
+        <i class="fas fa-heart"></i>
+        <span class="wishlist-count">0</span>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/plp.js"></script>
+    <script src="js/wishlist.js"></script>
+</body>
+</html>

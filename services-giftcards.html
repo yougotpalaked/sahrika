@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sahrika - Services</title>
+    <title>Sahrika - Gift Cards</title>
    
     <link rel="icon" href="images/image-removebg-preview (41).png" type="image/png">
     <link rel="shortcut icon" href="images/image-removebg-preview (41).png" type="image/png">
@@ -21,10 +21,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Services Page Styles */
-        .services-hero {
+        /* Gift Cards Page Styles */
+        .giftcards-hero {
             height: 60vh;
-            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/category (1).jpeg');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/category (6).jpeg');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -35,97 +35,105 @@
             margin-bottom: 60px;
         }
 
-        .services-hero-content {
+        .giftcards-hero-content {
             max-width: 800px;
             padding: 0 20px;
         }
 
-        .services-hero h1 {
+        .giftcards-hero h1 {
             font-family: 'Cormorant Garamond', serif;
             font-size: 3.5rem;
             margin-bottom: 20px;
         }
 
-        .services-hero p {
+        .giftcards-hero p {
             font-size: 1.2rem;
             margin-bottom: 30px;
             line-height: 1.6;
         }
 
-        .services-container {
+        .giftcards-container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px 80px;
         }
 
-        .services-intro {
+        .giftcards-intro {
             text-align: center;
             margin-bottom: 60px;
         }
 
-        .services-intro h2 {
+        .giftcards-intro h2 {
             font-family: 'Cormorant Garamond', serif;
             font-size: 2.5rem;
             margin-bottom: 20px;
         }
 
-        .services-intro p {
+        .giftcards-intro p {
             max-width: 800px;
             margin: 0 auto;
             line-height: 1.8;
         }
 
-        .services-grid {
+        .giftcards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 40px;
+            margin-bottom: 60px;
         }
 
-        .service-card {
+        .giftcard-card {
             background-color: rgba(255, 255, 255, 0.05);
             border-radius: 8px;
             overflow: hidden;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .service-card:hover {
+        .giftcard-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
         }
 
-        .service-image {
+        .giftcard-image {
             height: 250px;
             overflow: hidden;
         }
 
-        .service-image img {
+        .giftcard-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.5s ease;
         }
 
-        .service-card:hover .service-image img {
+        .giftcard-card:hover .giftcard-image img {
             transform: scale(1.1);
         }
 
-        .service-content {
+        .giftcard-content {
             padding: 30px;
         }
 
-        .service-content h3 {
+        .giftcard-content h3 {
             font-family: 'Cormorant Garamond', serif;
             font-size: 1.8rem;
             margin-bottom: 15px;
         }
 
-        .service-content p {
+        .giftcard-content p {
             margin-bottom: 20px;
             line-height: 1.6;
             color: #ccc;
         }
 
-        .service-link {
+        .giftcard-price {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #388E3C;
+        }
+
+        .giftcard-button {
             display: inline-block;
             padding: 10px 20px;
             background-color: #388E3C;
@@ -135,98 +143,129 @@
             transition: background-color 0.3s ease;
         }
 
-        .service-link:hover {
+        .giftcard-button:hover {
             background-color: #2E7D32;
         }
 
-        /* Testimonials Section */
-        .testimonials {
+        /* How It Works Section */
+        .how-it-works {
             background-color: rgba(255, 255, 255, 0.05);
             padding: 80px 20px;
-            margin-top: 80px;
+            margin-bottom: 60px;
         }
 
-        .testimonials-container {
+        .how-it-works-container {
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        .testimonials-header {
+        .how-it-works-header {
             text-align: center;
             margin-bottom: 60px;
         }
 
-        .testimonials-header h2 {
+        .how-it-works-header h2 {
             font-family: 'Cormorant Garamond', serif;
             font-size: 2.5rem;
             margin-bottom: 20px;
         }
 
-        .testimonials-grid {
+        .how-it-works-steps {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
 
-        .testimonial-card {
-            background-color: rgba(0, 0, 0, 0.3);
-            border-radius: 8px;
+        .step-card {
+            text-align: center;
             padding: 30px;
-            position: relative;
         }
 
-        .testimonial-quote {
-            font-size: 3rem;
-            color: #388E3C;
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            opacity: 0.2;
-        }
-
-        .testimonial-text {
-            font-style: italic;
-            margin-bottom: 20px;
-            line-height: 1.8;
-            position: relative;
-            z-index: 1;
-        }
-
-        .testimonial-author {
+        .step-number {
             display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background-color: #388E3C;
+            color: white;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 0 auto 20px;
+        }
+
+        .step-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .step-card p {
+            line-height: 1.6;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            max-width: 800px;
+            margin: 0 auto 80px;
+            padding: 0 20px;
+        }
+
+        .faq-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .faq-header h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 20px;
+        }
+
+        .faq-question {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
             align-items: center;
         }
 
-        .testimonial-author-image {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            overflow: hidden;
-            margin-right: 15px;
+        .faq-question i {
+            transition: transform 0.3s ease;
         }
 
-        .testimonial-author-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        .faq-answer {
+            line-height: 1.6;
+            display: none;
+            padding-top: 10px;
         }
 
-        .testimonial-author-info h4 {
-            font-size: 1.1rem;
-            margin-bottom: 5px;
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
         }
 
-        .testimonial-author-info p {
-            font-size: 0.9rem;
-            color: #888;
+        .faq-item.active .faq-answer {
+            display: block;
         }
 
         /* CTA Section */
         .cta-section {
             text-align: center;
-            padding: 80px 20px;
-            max-width: 800px;
-            margin: 0 auto;
+            padding: 60px 20px;
+            background-color: rgba(56, 142, 60, 0.1);
+            border-radius: 8px;
+            max-width: 1000px;
+            margin: 0 auto 80px;
         }
 
         .cta-section h2 {
@@ -238,6 +277,9 @@
         .cta-section p {
             margin-bottom: 30px;
             line-height: 1.8;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .cta-buttons {
@@ -273,16 +315,19 @@
 
         /* Responsive Styles */
         @media (max-width: 768px) {
-            .services-hero h1 {
+            .giftcards-hero h1 {
                 font-size: 2.5rem;
             }
 
-            .services-grid,
-            .testimonials-grid {
+            .giftcards-grid {
                 grid-template-columns: 1fr;
             }
 
-            .service-image {
+            .how-it-works-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .giftcard-image {
                 height: 200px;
             }
         }
@@ -370,6 +415,7 @@
                             <li><a href="services-subscription.html">Subscription Box</a></li>
                             <li><a href="services-b2b.html">B2B</a></li>
                             <li><a href="services-customise.html">Customise</a></li>
+                            <li><a href="services-giftcards.html">Giftcards</a></li>
                             <li><a href="services.html" class="view-all">View All</a></li>
                         </ul>
                     </div>
@@ -389,133 +435,146 @@
     </nav>
 
     <!-- Hero Section -->
-    <div class="services-hero">
-        <div class="services-hero-content">
-            <h1>Our Services</h1>
-            <p>Discover the world of handcrafted textiles through our specialized services designed to connect you with the rich heritage of Indian craftsmanship.</p>
+    <div class="giftcards-hero">
+        <div class="giftcards-hero-content">
+            <h1>Gift Cards</h1>
+            <p>Share the gift of handcrafted textiles with your loved ones. Our gift cards allow recipients to choose their favorite products from our collection.</p>
         </div>
     </div>
 
-    <!-- Services Section -->
-    <div class="services-container">
-        <div class="services-intro">
-            <h2>Experience Sahrika Beyond Products</h2>
-            <p>At Sahrika, we believe in creating meaningful connections between our artisans and customers. Our services are designed to immerse you in the world of traditional textiles while supporting sustainable craftsmanship.</p>
+    <!-- Gift Cards Section -->
+    <div class="giftcards-container">
+        <div class="giftcards-intro">
+            <h2>The Perfect Gift for Any Occasion</h2>
+            <p>Our gift cards are a thoughtful way to share the beauty of traditional handloom textiles. Whether it's for a birthday, anniversary, or special celebration, a Sahrika gift card allows your loved ones to choose pieces that resonate with their personal style.</p>
         </div>
 
-        <div class="services-grid">
-            <!-- Workshops Card -->
-            <div class="service-card">
-                <div class="service-image">
-                    <img src="images/category (2).jpeg" alt="Textile Workshops">
+        <div class="giftcards-grid">
+            <!-- Gift Card 1 -->
+            <div class="giftcard-card">
+                <div class="giftcard-image">
+                    <img src="images/category (6).jpeg" alt="Standard Gift Card">
                 </div>
-                <div class="service-content">
-                    <h3>Workshops</h3>
-                    <p>Learn traditional weaving techniques directly from our master artisans. Our workshops offer hands-on experience in creating beautiful textiles using age-old methods.</p>
-                    <a href="services-workshop.html" class="service-link">Learn More</a>
-                </div>
-            </div>
-
-            <!-- Subscription Box Card -->
-            <div class="service-card">
-                <div class="service-image">
-                    <img src="images/category (3).jpeg" alt="Subscription Box">
-                </div>
-                <div class="service-content">
-                    <h3>Subscription Box</h3>
-                    <p>Receive curated handcrafted textiles delivered to your doorstep every month. Each box tells a story of Indian craftsmanship with exclusive products and artisan stories.</p>
-                    <a href="services-subscription.html" class="service-link">Learn More</a>
+                <div class="giftcard-content">
+                    <h3>Standard Gift Card</h3>
+                    <p>Our standard gift card comes in a beautiful digital format, perfect for last-minute gifting. Recipients can redeem it for any product on our website.</p>
+                    <div class="giftcard-price">Available from ₹1,000 - ₹10,000</div>
+                    <a href="#" class="giftcard-button">Purchase Now</a>
                 </div>
             </div>
 
-            <!-- B2B Card -->
-            <div class="service-card">
-                <div class="service-image">
-                    <img src="images/category (4).jpeg" alt="B2B Services">
+            <!-- Gift Card 2 -->
+            <div class="giftcard-card">
+                <div class="giftcard-image">
+                    <img src="images/category (1).jpeg" alt="Premium Gift Card">
                 </div>
-                <div class="service-content">
-                    <h3>B2B</h3>
-                    <p>Partner with us for wholesale opportunities, corporate gifting, and custom textile solutions for your business. We offer sustainable and ethically sourced products.</p>
-                    <a href="services-b2b.html" class="service-link">Learn More</a>
-                </div>
-            </div>
-
-            <!-- Customise Card -->
-            <div class="service-card">
-                <div class="service-image">
-                    <img src="images/category (5).jpeg" alt="Customise Products">
-                </div>
-                <div class="service-content">
-                    <h3>Customise</h3>
-                    <p>Create your own unique textile pieces with our customization service. Work with our artisans to design personalized products that reflect your style and vision.</p>
-                    <a href="services-customise.html" class="service-link">Learn More</a>
+                <div class="giftcard-content">
+                    <h3>Premium Gift Card</h3>
+                    <p>Our premium gift card comes in an elegant physical package with a handwritten note, making it a special keepsake along with the gift itself.</p>
+                    <div class="giftcard-price">Available from ₹2,500 - ₹25,000</div>
+                    <a href="#" class="giftcard-button">Purchase Now</a>
                 </div>
             </div>
 
-            <!-- Giftcards Card -->
-            <div class="service-card">
-                <div class="service-image">
-                    <img src="images/category (6).jpeg" alt="Gift Cards">
+            <!-- Gift Card 3 -->
+            <div class="giftcard-card">
+                <div class="giftcard-image">
+                    <img src="images/category (4).jpeg" alt="Corporate Gift Card">
                 </div>
-                <div class="service-content">
-                    <h3>Giftcards</h3>
-                    <p>Share the gift of handcrafted textiles with your loved ones. Our gift cards are perfect for special occasions and allow recipients to choose their favorite products.</p>
-                    <a href="services-giftcards.html" class="service-link">Learn More</a>
+                <div class="giftcard-content">
+                    <h3>Corporate Gift Card</h3>
+                    <p>Perfect for businesses looking to appreciate clients or employees. Bulk orders available with customized branding options.</p>
+                    <div class="giftcard-price">Custom pricing for bulk orders</div>
+                    <a href="services-b2b.html" class="giftcard-button">Learn More</a>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Testimonials Section -->
-    <section class="testimonials">
-        <div class="testimonials-container">
-            <div class="testimonials-header">
-                <h2>What Our Customers Say</h2>
+    <!-- How It Works Section -->
+    <section class="how-it-works">
+        <div class="how-it-works-container">
+            <div class="how-it-works-header">
+                <h2>How It Works</h2>
             </div>
-            <div class="testimonials-grid">
-                <!-- Testimonial 1 -->
-                <div class="testimonial-card">
-                    <div class="testimonial-quote"><i class="fas fa-quote-left"></i></div>
-                    <p class="testimonial-text">"The weaving workshop was an incredible experience. Learning directly from the artisans gave me a deep appreciation for the craft and the cultural heritage behind each piece."</p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-author-image">
-                            <img src="images/artisan (1).PNG" alt="Priya S.">
-                        </div>
-                        <div class="testimonial-author-info">
-                            <h4>Priya S.</h4>
-                            <p>Workshop Participant</p>
-                        </div>
-                    </div>
+            <div class="how-it-works-steps">
+                <!-- Step 1 -->
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Choose a Gift Card</h3>
+                    <p>Select the type of gift card and the amount you'd like to gift. You can choose between digital and physical gift cards.</p>
                 </div>
 
-                <!-- Testimonial 2 -->
-                <div class="testimonial-card">
-                    <div class="testimonial-quote"><i class="fas fa-quote-left"></i></div>
-                    <p class="testimonial-text">"The subscription box has been a delightful surprise each month. The quality of the textiles is exceptional, and I love learning about the artisans who create these beautiful pieces."</p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-author-image">
-                            <img src="images/artisan (2).PNG" alt="Rahul M.">
-                        </div>
-                        <div class="testimonial-author-info">
-                            <h4>Rahul M.</h4>
-                            <p>Subscription Member</p>
-                        </div>
-                    </div>
+                <!-- Step 2 -->
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Personalize Your Gift</h3>
+                    <p>Add a personal message and choose when you'd like the gift card to be delivered to the recipient.</p>
                 </div>
 
-                <!-- Testimonial 3 -->
-                <div class="testimonial-card">
-                    <div class="testimonial-quote"><i class="fas fa-quote-left"></i></div>
-                    <p class="testimonial-text">"We partnered with Sahrika for our corporate gifting needs, and the response has been overwhelmingly positive. The customized products reflect our brand values while supporting traditional craftsmanship."</p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-author-image">
-                            <img src="images/pair.png" alt="Anita K.">
-                        </div>
-                        <div class="testimonial-author-info">
-                            <h4>Anita K.</h4>
-                            <p>Business Client</p>
-                        </div>
-                    </div>
+                <!-- Step 3 -->
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Recipient Redeems</h3>
+                    <p>The recipient receives the gift card and can use it to shop for any products on our website within the card's validity period.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="faq-header">
+            <h2>Frequently Asked Questions</h2>
+        </div>
+        <div class="faq-list">
+            <!-- FAQ Item 1 -->
+            <div class="faq-item active">
+                <div class="faq-question">
+                    How long are gift cards valid? <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    Our gift cards are valid for 12 months from the date of purchase. The expiration date will be clearly mentioned on the gift card.
+                </div>
+            </div>
+
+            <!-- FAQ Item 2 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    Can I use multiple gift cards for a single purchase? <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    Yes, you can use multiple gift cards for a single purchase. If the total purchase amount exceeds the gift card value, you can pay the remaining amount using other payment methods.
+                </div>
+            </div>
+
+            <!-- FAQ Item 3 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    Can I return or exchange a gift card? <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    Gift cards are non-refundable and cannot be exchanged for cash. However, if there's an issue with your gift card, please contact our customer service team for assistance.
+                </div>
+            </div>
+
+            <!-- FAQ Item 4 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    How quickly will the digital gift card be delivered? <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    Digital gift cards are delivered instantly to the recipient's email address. You can also schedule the delivery for a future date if you're planning ahead for a special occasion.
+                </div>
+            </div>
+
+            <!-- FAQ Item 5 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    Can I customize the gift card design? <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    Yes, we offer customization options for both digital and physical gift cards. You can choose from various designs or add a personal touch with a custom message.
                 </div>
             </div>
         </div>
@@ -523,11 +582,11 @@
 
     <!-- CTA Section -->
     <section class="cta-section">
-        <h2>Ready to Experience Sahrika Services?</h2>
-        <p>Whether you're looking to learn a new skill, receive curated textiles, or create custom pieces, we have a service that's perfect for you. Join us in celebrating and preserving India's rich textile heritage.</p>
+        <h2>Ready to Give the Gift of Handcrafted Textiles?</h2>
+        <p>Whether it's for a birthday, anniversary, or just because, a Sahrika gift card is a thoughtful way to share the beauty of traditional handloom textiles with your loved ones.</p>
         <div class="cta-buttons">
-            <a href="services-workshop.html" class="cta-button">Explore Workshops</a>
-            <a href="services-subscription.html" class="cta-button secondary">Subscribe Now</a>
+            <a href="#" class="cta-button">Purchase a Gift Card</a>
+            <a href="services-customise.html" class="cta-button secondary">Explore Customization</a>
         </div>
     </section>
 
@@ -536,49 +595,58 @@
         <div class="footer-content">
             <div class="footer-section">
                 <h3>About Sahrika</h3>
-                <p>Sahrika celebrates India's rich textile heritage by connecting artisans with conscious consumers, preserving traditional craftsmanship while creating sustainable livelihoods.</p>
+                <p>Sahrika celebrates the rich heritage of Indian handloom textiles, connecting artisans with conscious consumers who value tradition, craftsmanship, and sustainability.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-pinterest"></i></a>
+                </div>
             </div>
             <div class="footer-section">
                 <h3>Quick Links</h3>
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="shop-men.html">Shop</a></li>
+                    <li><a href="shop-men.html">Shop Men</a></li>
+                    <li><a href="shop-women.html">Shop Women</a></li>
+                    <li><a href="shop-utility.html">Shop Utility</a></li>
                     <li><a href="services.html">Services</a></li>
-                    <li><a href="of-art.html">Our Story</a></li>
-                    <li><a href="index.html#support">Contact</a></li>
+                    <li><a href="index.html#origin">Our Story</a></li>
                 </ul>
             </div>
             <div class="footer-section">
-                <h3>Contact Us</h3>
-                <p>Email: info@sahrika.com</p>
-                <p>Phone: +91 98765 43210</p>
-                <div class="social-icons">
-                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-pinterest"></i></a>
-                </div>
+                <h3>Customer Care</h3>
+                <ul>
+                    <li><a href="#">Track Order</a></li>
+                    <li><a href="#">Shipping & Returns</a></li>
+                    <li><a href="#">Care Instructions</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
             </div>
             <div class="footer-section">
                 <h3>Newsletter</h3>
-                <p>Subscribe to receive updates on new products, special offers, and artisan stories.</p>
+                <p>Subscribe to receive updates on new collections, artisan stories, and exclusive offers.</p>
                 <form class="newsletter-form">
-                    <input type="email" placeholder="Your email address" required>
+                    <input type="email" placeholder="Your Email Address" required>
                     <button type="submit">Subscribe</button>
                 </form>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2023 Sahrika. All rights reserved.</p>
-            <div class="footer-links">
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Service</a>
-                <a href="#">Shipping Policy</a>
-                <a href="#">Returns & Exchanges</a>
-            </div>
+            <p>&copy; 2023 Sahrika. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
         </div>
     </footer>
 
     <script src="js/main.js"></script>
+    <script>
+        // FAQ Toggle
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                faqItem.classList.toggle('active');
+            });
+        });
+    </script>
 </body>
 </html>
