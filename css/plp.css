@@ -246,8 +246,8 @@
 }
 
 .checkbox-option input:checked {
-    background-color: #388E3C;
-    border-color: #388E3C;
+    background-color: #000000;
+    border-color: #000000;
 }
 
 .checkbox-option input:checked::after {
@@ -315,7 +315,7 @@
 }
 
 .sort-options select:focus {
-    border-color: #388E3C;
+    border-color: #000000;
 }
 
 .view-toggle {
@@ -342,8 +342,8 @@
 }
 
 .view-toggle button.active {
-    background-color: #388E3C;
-    border-color: #388E3C;
+    background-color: #000000;
+    border-color: #000000;
     color: #fff;
 }
 
@@ -507,7 +507,7 @@
 }
 
 .pagination-numbers a.active {
-    background-color: #388E3C;
+    background-color: #000000;
     color: #fff;
 }
 

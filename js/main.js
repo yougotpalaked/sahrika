@@ -497,8 +497,8 @@ function initBlessingHearts() {
             // Remove oldest heart if we reach the maximum
             const oldestHeart = document.querySelector('.pile-heart');
             if (oldestHeart) {
-                oldestHeart.style.opacity = '0';
-                setTimeout(() => oldestHeart.remove(), 500);
+                oldestHeart.style.opacity = '1';
+              
                 heartCount--;
             }
             return; // Don't create more hearts if we're at the maximum
@@ -552,7 +552,7 @@ function initBlessingHearts() {
         heart.style.pointerEvents = 'none';
         
        
-        heart.style.backgroundImage = "url('images/handwoven-heart.svg')";
+        heart.style.backgroundImage = "url('images/heart1.png')";
         heart.style.backgroundSize = 'contain';
         heart.style.backgroundRepeat = 'no-repeat';
         heart.style.backgroundPosition = 'center';
@@ -560,7 +560,7 @@ function initBlessingHearts() {
         
         const brightness = 100 + Math.floor(Math.random() * 30);
         const saturation = 120 + Math.floor(Math.random() * 30);
-        heart.style.filter = `drop-shadow(0 0 5px rgba(255, 255, 255, 0.5)) hue-rotate(${hue}deg) brightness(${brightness}%) saturate(${saturation}%)`;
+        
         
        
         document.body.appendChild(heart);

@@ -3,46 +3,431 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sahrika - Textile Pattern Customizer</title>
+    <title>Sahrika - Customize Your Handloom</title>
    
     <link rel="icon" href="images/image-removebg-preview (41).png" type="image/png">
     <link rel="shortcut icon" href="images/image-removebg-preview (41).png" type="image/png">
     <link rel="apple-touch-icon" href="images/image-removebg-preview (41).png">
 
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/carousel.css">
+    <link rel="stylesheet" href="css/new-sections.css">
     <link rel="stylesheet" href="css/cloth-texture.css">
+    <link rel="stylesheet" href="css/scroll-button.css">
+    <link rel="stylesheet" href="css/wishlist-button.css">
+    <link rel="stylesheet" href="css/dropdown.css">
     <link rel="stylesheet" href="css/texture-customizer.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Customization Page Styles */
+        .customization-hero {
+            height: 80vh;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('images/Screenshot 2024-08-11 130116.png');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .customization-hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        
+        .customization-hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        
+        .customization-hero p {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+        }
+        
+        .customization-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .customization-intro {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .customization-intro h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .customization-intro p {
+            font-size: 1.1rem;
+            color: #555;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .customization-steps {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        
+        .step {
+            display: flex;
+            align-items: center;
+            margin: 0 15px;
+        }
+        
+        .step-number {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #333;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+        }
+        
+        .step.active .step-number {
+            background-color: #8B5A2B;
+        }
+        
+        .step-label {
+            font-size: 0.9rem;
+            color: #555;
+        }
+        
+        .step.active .step-label {
+            color: #8B5A2B;
+            font-weight: 600;
+        }
+        
+        .cart-summary {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 30px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+        
+        .cart-summary h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .summary-item:last-child {
+            border-bottom: none;
+        }
+        
+        .summary-total {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 2px solid #ddd;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        .add-to-cart-btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background-color: #8B5A2B;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+        }
+        
+        .add-to-cart-btn:hover {
+            background-color: #6d4522;
+        }
+    </style>
 </head>
 <body>
-    <!-- Header Section -->
-    <header class="site-header">
-        <div class="header-container">
-           
-           
-          
+    <div class="loader">
+        <div class="loader-content">
+            <h1><span id="changing-word">SAHRI</span><img style="height: 45px;" src="images/image-removebg-preview (41).png" alt=""></h1>
+            <p>Handloom Heritage</p>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo" style="padding-left: 20px;"><img style="height: 40px;" src="images/image-removebg-preview (41).png"><span class="hindi-ka"></span></div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <div class="dropdown">
+                <a href="#" class="dropdown-toggle">Shop <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <div class="dropdown-column">
+                        <h3>Men</h3>
+                        <ul>
+                            <li><a href="shop-men-gamcha.html">Gamcha</a></li>
+                            <li><a href="shop-men-lungi.html">Lungi</a></li>
+                            <li><a href="shop-men-yardage.html">Yardage</a></li>
+                            <li><a href="shop-men.html" class="view-all">View All</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown-column">
+                        <h3>Women</h3>
+                        <ul>
+                            <li><a href="shop-women-saree.html">Saree</a></li>
+                            <li><a href="shop-women-dupatta.html">Dupatta</a></li>
+                            <li><a href="shop-women-stole.html">Stole</a></li>
+                            <li><a href="shop-women-yardage.html">Yardage</a></li>
+                            <li><a href="shop-women.html" class="view-all">View All</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown-column">
+                        <h3>Utility</h3>
+                        <ul>
+                            <li><a href="shop-utility-napkin.html">Napkin</a></li>
+                            <li><a href="shop-utility-duster.html">Duster</a></li>
+                            <li><a href="shop-utility.html" class="view-all">View All</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown-column">
+                        <h3>Collections</h3>
+                        <ul>
+                            <li><a href="shop-collections-sutrashringar.html">Sutrashringar</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown-column">
+                        <h3>Sale</h3>
+                        <ul>
+                            <li><a href="shop-sale-men.html">Men</a></li>
+                            <li><a href="shop-sale-women.html">Women</a></li>
+                            <li><a href="shop-sale-utility.html">Utility</a></li>
+                            <li><a href="shop-sale.html" class="view-all">View All</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown-column">
+                        <h3>Giftcards</h3>
+                        <ul>
+                            <li><a href="shop-giftcards-customise.html">Customise</a></li>
+                            <li><a href="shop-giftcards-b2b.html">B2B</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#" class="dropdown-toggle">Story <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <div class="dropdown-column">
+                        <ul>
+                            <li><a href="of-art.html">Of the Art</a></li>
+                            <li><a href="#artisans">of the Artisans</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="services.html" class="dropdown-toggle">Services <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <div class="dropdown-column">
+                        <ul>
+                            <li><a href="services-workshop.html">Workshop</a></li>
+                            <li><a href="services-subscription.html">Subscription Box</a></li>
+                            <li><a href="contact.html">B2B</a></li>
+                            <li><a href="services-customise.html">Customise</a></li>
+                            <li><a href="services-giftcards.html">Giftcards</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <a href="connect.html">Connect</a>
+        </div>
+        <div class="nav-icons">
+            <a href="#" class="nav-icon"><i class="fas fa-search"></i></a>
+            <a href="#" class="nav-icon"><i class="fas fa-user"></i></a>
+            <a href="cart.html" class="nav-icon"><i class="fas fa-shopping-cart"></i></a>
+            <a href="#" class="nav-icon"><i class="fas fa-gift"></i></a>
+        </div>
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
 
     <!-- Hero Section -->
     <section class="customization-hero">
         <div class="customization-hero-content">
-           
+            <h1>Customize Your Handloom</h1>
+            <p>Create a unique piece that tells your story, handcrafted by our skilled artisans</p>
         </div>
     </section>
+
+    <!-- Main Content -->
+    <main class="customization-container">
+        <div class="customization-intro">
+            <h2>Design Your Perfect Handloom</h2>
+            <p>Our customization service allows you to create a truly unique handwoven piece. Select your preferred cloth type, pattern, material, and colors to create something that perfectly matches your style and needs.</p>
+        </div>
+
+        <div class="customization-steps">
+            <div class="step active">
+                <div class="step-number">1</div>
+                <div class="step-label">Choose Cloth Type</div>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-label">Select Pattern</div>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-label">Choose Material</div>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <div class="step-label">Select Colors</div>
+            </div>
+            <div class="step">
+                <div class="step-number">5</div>
+                <div class="step-label">Review & Order</div>
+            </div>
+        </div>
 
         <div class="customization-interface">
             <!-- The texture customizer will be inserted here by JavaScript -->
         </div>
 
-        
-           
-            
-      
+        <div class="cart-summary">
+            <h3>Your Custom Handloom</h3>
+            <div class="summary-item">
+                <span>Cloth Type:</span>
+                <span id="selected-cloth-type">Dupatta</span>
+            </div>
+            <div class="summary-item">
+                <span>Pattern:</span>
+                <span id="selected-pattern">Stripes</span>
+            </div>
+            <div class="summary-item">
+                <span>Material:</span>
+                <span id="selected-material">Cotton</span>
+            </div>
+            <div class="summary-item">
+                <span>Colors:</span>
+                <span id="selected-colors">Custom Selection</span>
+            </div>
+            <div class="summary-total">
+                <span>Total:</span>
+                <span id="total-price">₹1,800</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="blessing-section">
+            <p>Leave a heart if you liked our work!</p>
+            <button id="blessing-button" class="blessing-button">🤍</button>
+            <div class="blessing-hearts"></div>
+        </div>
+        <div class="footer-content">
+            <div class="footer-logo"> <img src="images/image-removebg-preview (41).png" alt="">
+                <p>Handloom Heritage</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h3>Explore</h3>
+                    <a href="#origin">Our Story</a>
+                    <a href="#artisans">Artisans</a>
+                    <a href="#shop-by-category">Categories</a>
+                    <a href="#collection">Collection</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Shop</h3>
+                    <a href="#bestsellers">Bestsellers</a>
+                    <a href="#shop-by-color">By Color</a>
+                    <a href="#customize">Customize</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <a href="#support">How to Support</a>
+                    <a href="#">Contact Us</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Connect</h3>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                    <p class="copyright">&copy; 2025 Sahrika. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <!-- This area is now reserved exclusively for hearts collection -->
+        </div>
+    </footer>
+
+    <!-- Floating Scroll Buttons -->
+    <div class="scroll-button" id="scroll-to-bottom">
+        <i class="fas fa-chevron-down"></i>
+    </div>
+    <div class="scroll-button" id="scroll-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+    
+    <!-- Floating Wishlist Button -->
+    <div class="wishlist-button" id="wishlist-button">
+        <i class="fas fa-heart"></i>
+        <span class="wishlist-count">0</span>
+    </div>
 
     <!-- Scripts -->
     <script src="js/main.js"></script>
     <script src="js/cloth-texture.js"></script>
-    <script src="js/texture-customizer.js"></script>
+    <script src="js/enhanced-texture-customizer.js"></script>
+    <script>
+        // Initialize the customization interface
+        document.addEventListener('DOMContentLoaded', () => {
+            // Update the step indicators when clicking on them
+            const steps = document.querySelectorAll('.step');
+            steps.forEach((step, index) => {
+                step.addEventListener('click', () => {
+                    steps.forEach(s => s.classList.remove('active'));
+                    step.classList.add('active');
+                });
+            });
+
+            // Add to cart button functionality
+            const addToCartBtn = document.querySelector('.add-to-cart-btn');
+            if (addToCartBtn) {
+                addToCartBtn.addEventListener('click', () => {
+                    alert('Your custom handloom has been added to cart!');
+                });
+            }
+        });
+    </script>
 </body>
 </html>

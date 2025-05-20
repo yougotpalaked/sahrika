@@ -1,14 +1,14 @@
 :root {
     /* Horizontal stripe colors - customize these values */
-    --h-stripe-color-1: #E4E8A4;
-    --h-stripe-color-2: #C5D99C;
-    --h-stripe-color-3: #CDF194;
-    --h-stripe-color-4: #D5E8A0;
+    --h-stripe-color-1: #c8e282;
+    --h-stripe-color-2: #c8e282;
+    --h-stripe-color-3: #d2e282;
+    --h-stripe-color-4: #ffffff;
     
     /* Vertical stripe colors - customize these values */
-    --v-stripe-color-1: #FFFFFF;
-    --v-stripe-color-2: #F5F5F5;
-    --v-stripe-color-3: #FAFAFA;
+    --v-stripe-color-1: #d0e486;
+    --v-stripe-color-2: #ffffff;
+    --v-stripe-color-3: #cce486;
     --v-stripe-color-4: #F0F0F0;
     
     /* Pattern settings - customizable */
@@ -26,7 +26,7 @@
     z-index: 5;
     overflow: hidden;
     pointer-events: none;
-    background-color: rgba(255, 255, 255, 0);
+    background-color: rgba(255, 255, 255, 0.077);
 }
 
 .h-stripe, .v-stripe {
