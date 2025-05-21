@@ -1259,7 +1259,7 @@ background-image: url('../images/footerpng3.png');
 
 
 .category-section {
-    background-color: #f9f7f3;
+    background-color: #fcfcfc;
     position: relative;
     overflow: hidden;
     padding: 4rem 2rem;
@@ -1906,3 +1906,13 @@ background-image: url('../images/footerpng3.png');
         padding: 1rem 5%;
     }
 }
+body {
+    background: #ffffff;
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+
+  
+  

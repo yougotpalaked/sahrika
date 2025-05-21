@@ -90,7 +90,7 @@
 }
 
 .dropdown-column ul li a:hover {
-    color: #388E3C;
+    color: #000000;
     transform: translateX(5px);
 }
 
@@ -101,7 +101,7 @@
     left: 0;
     width: 0;
     height: 1px;
-    background-color: #388E3C;
+    background-color: #000000;
     transition: width 0.3s ease;
 }
 
@@ -116,7 +116,7 @@
 }
 
 .view-all:hover {
-    color: #388E3C !important;
+    color: #000000 !important;
 }
 
 /* Mobile Dropdown Styles */

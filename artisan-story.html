@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sahrika - Story of the Artisan</title>
+   
+    <link rel="icon" href="images/image-removebg-preview (41).png" type="image/png">
+    <link rel="shortcut icon" href="images/image-removebg-preview (41).png" type="image/png">
+    <link rel="apple-touch-icon" href="images/image-removebg-preview (41).png">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/carousel.css">
+    <link rel="stylesheet" href="css/new-sections.css">
+    <link rel="stylesheet" href="css/cloth-texture.css">
+    <link rel="stylesheet" href="css/scroll-button.css">
+    <link rel="stylesheet" href="css/wishlist-button.css">
+    <link rel="stylesheet" href="css/dropdown.css">
+    <link rel="stylesheet" href="css/plp.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Artisan Story Page Styles */
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            margin-top: 80px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .page-title {
+            text-align: center;
+            margin: 60px 0 30px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .page-subtitle {
+            text-align: center;
+            margin: 0 auto 60px;
+            max-width: 800px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #000000;
+            padding: 0 20px;
+        }
+        
+        .artisans-section {
+            padding: 80px 20px;
+            background-color: #f9f7f4;
+        }
+        
+        .artisans-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 50px;
+            color: #333;
+        }
+        
+        .artisans-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .artisan-card {
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .artisan-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+        }
+        
+        .artisan-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+        
+        .artisan-info {
+            padding: 25px;
+        }
+        
+        .artisan-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .artisan-role {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+        
+        .artisan-bio {
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: #555;
+        }
+        
+        .blog-section {
+            padding: 80px 20px;
+        }
+        
+        .blog-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .featured-blog {
+            margin-bottom: 60px;
+            background-color: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .featured-blog-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+        
+        .featured-blog-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            min-height: 400px;
+        }
+        
+        .featured-blog-text {
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .featured-blog-tag {
+            display: inline-block;
+            background-color: #e6d7c3;
+            color: #333;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+        
+        .featured-blog-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .featured-blog-excerpt {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 25px;
+        }
+        
+        .read-more-btn {
+            display: inline-block;
+            background-color: #333;
+            color: #fff;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            align-self: flex-start;
+        }
+        
+        .read-more-btn:hover {
+            background-color: #555;
+        }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .blog-card {
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+        }
+        
+        .blog-card-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+        
+        .blog-card-content {
+            padding: 25px;
+        }
+        
+        .blog-card-tag {
+            display: inline-block;
+            background-color: #f0e9e0;
+            color: #333;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+        
+        .blog-card-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .blog-card-excerpt {
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.9rem;
+            line-height: 1.7;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        
+        .blog-card-link {
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #333;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .blog-card-link i {
+            margin-left: 5px;
+            transition: transform 0.3s ease;
+        }
+        
+        .blog-card-link:hover i {
+            transform: translateX(5px);
+        }
+        
+        @media (max-width: 992px) {
+            .featured-blog-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .featured-blog-image {
+                height: 300px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .artisans-grid,
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .page-title {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo" style="padding-left: 20px;"><img style="height: 40px;" src="images/image-removebg-preview (41).png"><span class="hindi-ka"></span></div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <div class="dropdown">
+                <a href="#" class="dropdown-toggle">Shop <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <div class="dropdown-column">
+                        <h3>Men</h3>
+                        <ul>
+                            <li><a href="shop-men-gamcha.html">Gamcha</a></li>
+                            <li><a href="shop-men-lungi.html">Lungi</a></li>
+                            <li><a href="shop-men-yardage.html">Yardage</a></li>
+                            <li><a href="shop-men.html" class="view-all">View All</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown-column">
+                        <h3>Women</h3>
+                        <ul>
+                            <li><a href="shop-women-saree.html">Saree</a></li>
+                            <li><a href="shop-women-dupatta.html">Dupatta</a></li>
+                            <li><a href="shop-women-stole.html">Stole</a></li>
+                            <li><a href="shop-women-yardage.html">Yardage</a></li>
+                            <li><a href="shop-women.html" class="view-all">View All</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown-column">
+                        <h3>Utility</h3>
+                        <ul>
+                            <li><a href="shop-utility-napkin.html">Napkin</a></li>
+                            <li><a href="shop-utility-duster.html">Duster</a></li>
+                            <li><a href="shop-utility.html" class="view-all">View All</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown-column">
+                        <h3>Collections</h3>
+                        <ul>
+                            <li><a href="shop-collections-sutrashringar.html">Sutrashringar</a></li>
+                            <li><a href="shop-collections-lookbook.html">Lookbook</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown-column">
+                        <h3>Sale</h3>
+                        <ul>
+                            <li><a href="shop-sale-men.html">Men</a></li>
+                            <li><a href="shop-sale-women.html">Women</a></li>
+                            <li><a href="shop-sale-utility.html">Utility</a></li>
+                            <li><a href="shop-sale.html" class="view-all">View All</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown-column">
+                        <h3>Giftcards</h3>
+                        <ul>
+                            <li><a href="shop-giftcards-customise.html">Customise</a></li>
+                            <li><a href="shop-giftcards-b2b.html">B2B</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#" class="dropdown-toggle">Our Story <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <div class="dropdown-column">
+                        <ul>
+                            <li><a href="index.html#origin">Origin</a></li>
+                            <li><a href="index.html#artisans">Artisans</a></li>
+                            <li><a href="artisan-story.html">Story of the Artisan</a></li>
+                            <li><a href="of-art.html">Of Art</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <a href="services.html">Services</a>
+            <a href="connect.html">Connect</a>
+        </div>
+        <div class="nav-icons">
+            <a href="#" class="nav-icon"><i class="fas fa-search"></i></a>
+            <a href="#" class="nav-icon"><i class="fas fa-user"></i></a>
+            <a href="cart.html" class="nav-icon"><i class="fas fa-shopping-cart"></i></a>
+            <a href="#" class="nav-icon"><i class="fas fa-gift"></i></a>
+        </div>
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- Page Title -->
+    <h1 class="page-title">Story of the Artisan</h1>
+    <p class="page-subtitle">Discover the skilled hands and rich traditions behind every handloom piece. Our artisans are the heart of Sahrika, preserving ancient crafts while creating contemporary treasures.</p>
+
+    <!-- Video Section -->
+    <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/UQLmfZM3z2E" title="Handloom Artisans" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
+    <!-- Artisans Section -->
+    <section class="artisans-section">
+        <div class="artisans-container">
+            <h2 class="section-title">Meet Our Artisans</h2>
+            <div class="artisans-grid">
+                <div class="artisan-card">
+                    <img src="images/artisan (1).PNG" alt="Master Weaver Rajesh" class="artisan-image">
+                    <div class="artisan-info">
+                        <h3 class="artisan-name">Rajesh Kumar</h3>
+                        <p class="artisan-role">Master Weaver, 30 years experience</p>
+                        <p class="artisan-bio">Rajesh learned the art of weaving from his father at the age of 12. His specialty lies in creating intricate geometric patterns that have become a signature of our collection. Each piece he creates carries forward a family legacy spanning five generations.</p>
+                    </div>
+                </div>
+                <div class="artisan-card">
+                    <img src="images/artisan (2).PNG" alt="Color Master Lakshmi" class="artisan-image">
+                    <div class="artisan-info">
+                        <h3 class="artisan-name">Lakshmi Devi</h3>
+                        <p class="artisan-role">Natural Dye Specialist, 25 years experience</p>
+                        <p class="artisan-bio">Lakshmi is renowned for her expertise in natural dyeing techniques. Using plants, flowers, and minerals sourced locally, she creates vibrant, long-lasting colors that are environmentally friendly. Her knowledge of traditional color combinations brings life to every fabric.</p>
+                    </div>
+                </div>
+                <div class="artisan-card">
+                    <img src="images/category (1).jpeg" alt="Young Weaver Arjun" class="artisan-image">
+                    <div class="artisan-info">
+                        <h3 class="artisan-name">Arjun Singh</h3>
+                        <p class="artisan-role">Pattern Designer, 15 years experience</p>
+                        <p class="artisan-bio">Arjun represents the new generation of weavers who blend traditional techniques with contemporary designs. His innovative approach to pattern-making has helped revitalize ancient motifs for modern tastes while maintaining the authenticity of handloom craftsmanship.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="blog-section">
+        <div class="blog-container">
+            <h2 class="section-title">Artisan Stories & Craft News</h2>
+            
+            <!-- Featured Blog (GI Tag) -->
+            <div class="featured-blog">
+                <div class="featured-blog-content">
+                    <img src="images/category (3).jpeg" alt="GI Tag Certification" class="featured-blog-image">
+                    <div class="featured-blog-text">
+                        <span class="featured-blog-tag">ACHIEVEMENT</span>
+                        <h3 class="featured-blog-title">Geographical Indication Tag Awarded to Our Handloom Craft</h3>
+                        <p class="featured-blog-excerpt">In a momentous achievement for our artisan community, our traditional handloom craft has been awarded the prestigious Geographical Indication (GI) tag. This recognition not only protects the unique identity of our craft but also acknowledges the centuries-old techniques and cultural significance of our weaving traditions. The GI tag ensures that only textiles produced in our region using authentic methods can bear this distinguished mark of origin.</p>
+                        <a href="#" class="read-more-btn">Read Full Story</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Blog Grid -->
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <img src="images/category (4).jpeg" alt="Sustainable Practices" class="blog-card-image">
+                    <div class="blog-card-content">
+                        <span class="blog-card-tag">SUSTAINABILITY</span>
+                        <h3 class="blog-card-title">Embracing Eco-Friendly Practices in Traditional Weaving</h3>
+                        <p class="blog-card-excerpt">Discover how our artisans are incorporating sustainable practices into their craft, from natural dyeing techniques to zero-waste production methods.</p>
+                        <a href="#" class="blog-card-link">Continue Reading <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <img src="images/category (5).jpeg" alt="Weaving Workshop" class="blog-card-image">
+                    <div class="blog-card-content">
+                        <span class="blog-card-tag">EDUCATION</span>
+                        <h3 class="blog-card-title">Preserving Heritage: Our Weaving Workshops for the Next Generation</h3>
+                        <p class="blog-card-excerpt">Learn about our initiatives to pass down traditional weaving skills to younger generations through immersive workshops and apprenticeship programs.</p>
+                        <a href="#" class="blog-card-link">Continue Reading <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <img src="images/category (6).jpeg" alt="Artisan Spotlight" class="blog-card-image">
+                    <div class="blog-card-content">
+                        <span class="blog-card-tag">ARTISAN SPOTLIGHT</span>
+                        <h3 class="blog-card-title">From Village to Runway: The Journey of Master Weaver Priya</h3>
+                        <p class="blog-card-excerpt">The inspiring story of Priya, whose exceptional talent took her from a small village to collaborating with international fashion designers.</p>
+                        <a href="#" class="blog-card-link">Continue Reading <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="blessing-section">
+            <p>Leave a heart if you liked our work!</p>
+            <button id="blessing-button" class="blessing-button">🤍</button>
+            <div class="blessing-hearts"></div>
+        </div>
+        <div class="footer-content">
+            <div class="footer-logo"> <img src="images/image-removebg-preview (41).png" alt="">
+                <p>Handloom Heritage</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h3>Shop</h3>
+                    <ul>
+                        <li><a href="shop-men.html">Men</a></li>
+                        <li><a href="shop-women.html">Women</a></li>
+                        <li><a href="shop-utility.html">Utility</a></li>
+                        <li><a href="shop-collections-sutrashringar.html">Collections</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>About</h3>
+                    <ul>
+                        <li><a href="index.html#origin">Our Story</a></li>
+                        <li><a href="index.html#artisans">Artisans</a></li>
+                        <li><a href="artisan-story.html">Story of the Artisan</a></li>
+                        <li><a href="of-art.html">Of Art</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Returns & Exchanges</a></li>
+                        <li><a href="#">FAQs</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-newsletter">
+                <h3>Join Our Newsletter</h3>
+                <p>Stay updated with our latest collections and artisan stories.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your email address" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-pinterest-p"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Sahrika. All rights reserved.</p>
+            <div class="footer-bottom-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            
+            menuToggle.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+                menuToggle.classList.toggle('active');
+            });
+            
+            // Blessing button functionality
+            const blessingButton = document.getElementById('blessing-button');
+            const blessingHearts = document.querySelector('.blessing-hearts');
+            let isBlessed = false;
+            
+            blessingButton.addEventListener('click', function() {
+                if (!isBlessed) {
+                    blessingButton.textContent = '❤️';
+                    isBlessed = true;
+                    
+                    // Create floating hearts animation
+                    for (let i = 0; i < 5; i++) {
+                        setTimeout(() => {
+                            const heart = document.createElement('div');
+                            heart.classList.add('blessing-heart');
+                            heart.textContent = '❤️';
+                            heart.style.left = `${Math.random() * 100}%`;
+                            blessingHearts.appendChild(heart);
+                            
+                            setTimeout(() => {
+                                heart.remove();
+                            }, 3000);
+                        }, i * 300);
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

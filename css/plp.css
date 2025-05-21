@@ -101,7 +101,7 @@
 }
 
 .clear-filters:hover {
-    color: #388E3C;
+    color: #000000;
     text-decoration: underline;
 }
 
@@ -157,7 +157,7 @@
     -webkit-appearance: none;
     width: 18px;
     height: 18px;
-    background: #388E3C;
+    background: #000000;
     border-radius: 50%;
     cursor: pointer;
     border: 2px solid #fff;
@@ -413,7 +413,7 @@
     transition: all 0.2s ease;
 }
 
-.quick-view, .add-to-wishlist {
+.add-to-wishlist {
     width: 36px;
     height: 36px;
     display: flex;
@@ -479,7 +479,7 @@
 
 .pagination-prev:hover, .pagination-next:hover {
     background-color: #f5f5f5;
-    color: #388E3C;
+    color: #000000;
 }
 
 .pagination-numbers {
@@ -503,7 +503,7 @@
 
 .pagination-numbers a:hover {
     background-color: #f5f5f5;
-    color: #388E3C;
+    color: #000000;
 }
 
 .pagination-numbers a.active {
@@ -619,7 +619,7 @@
     display: none;
     width: 100%;
     padding: 12px;
-    background-color: #388E3C;
+    background-color: #000000;
     color: #fff;
     border: none;
     border-radius: 4px;
