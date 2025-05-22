@@ -21,6 +21,50 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        /* Double-line Button Styles */
+        .double-line-button {
+            display: flex;
+            align-items: center;
+            padding: 1px 20px;
+            background-color: transparent;
+            color: white;
+            font-size: 16px;
+            font-family: sans-serif;
+            border: 1px solid #ddd;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .line-group {
+            display: flex;
+            flex-direction: row;
+            gap: 8px;
+        }
+        
+        .v-line {
+            width: 1px;
+            height: 30px;
+            background-color: #ddd;
+        }
+        
+        .button-content {
+            display: flex;
+            align-items: center;
+            padding: 0 15px;
+            gap: 5px;
+        }
+        
+        .double-line-button:hover {
+            background-color: #333;
+            color: white;
+            border-color: white;
+            transform: translateY(-2px);
+        }
+        
+        .double-line-button:hover .v-line {
+            background-color: white;
+        }
+        
         /* Product Detail Page Styles */
         .product-detail-container {
             max-width: 1200px;
@@ -438,7 +482,7 @@
             padding: 15px;
             background-color: #000000;
             color: white;
-            border: none;
+            border: 1px solid #ddd;
             border-radius: 4px;
             font-size: 1rem;
             font-weight: 500;
@@ -449,11 +493,14 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
+            position: relative;
+            overflow: hidden;
         }
 
         .add-to-cart-btn:hover {
             background-color: #333333;
             transform: translateY(-2px);
+            border-color: #ffffff;
         }
         
         .wishlist-btn.in-wishlist {
@@ -480,11 +527,14 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
+            position: relative;
+            overflow: hidden;
         }
 
         .wishlist-btn:hover {
             border-color: #000000;
             color: #000000;
+            transform: translateY(-2px);
         }
 
         /* Product Tabs */
@@ -1044,18 +1094,19 @@
                     <div>
                         <h3 style="margin-bottom: 10px; font-size: 1.3rem;">Customer Reviews</h3>
                         <div style="display: flex; align-items: center;">
-                            <div style="display: flex; margin-right: 15px;">
-                                <i class="fas fa-star" style="color: #FBC02D;"></i>
-                                <i class="fas fa-star" style="color: #FBC02D;"></i>
-                                <i class="fas fa-star" style="color: #FBC02D;"></i>
-                                <i class="fas fa-star" style="color: #FBC02D;"></i>
-                                <i class="fas fa-star-half-alt" style="color: #FBC02D;"></i>
-                            </div>
-                            <span>4.5 out of 5 (12 reviews)</span>
+                            <!-- Ratings removed as requested -->
                         </div>
                     </div>
-                    <button style="padding: 10px 20px; background-color: transparent; border: 1px solid #ddd; color: #fff; border-radius: 4px; cursor: pointer; transition: all 0.3s ease;">
-                        Write a Review
+                    <button class="double-line-button" style="padding: 10px 20px; background-color: transparent; border: 1px solid #ddd; color: #fff; border-radius: 4px; cursor: pointer; transition: all 0.3s ease;">
+                        <span class="line-group">
+                            <span class="v-line"></span>
+                            <span class="v-line"></span>
+                        </span>
+                        <span class="button-content">Write a Review</span>
+                        <span class="line-group">
+                            <span class="v-line"></span>
+                            <span class="v-line"></span>
+                        </span>
                     </button>
                 </div>
 
@@ -1064,13 +1115,7 @@
                     <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
                         <div>
                             <h4 style="margin-bottom: 5px;">Exceptional Craftsmanship</h4>
-                            <div style="display: flex;">
-                                <i class="fas fa-star" style="color: #FBC02D;"></i>
-                                <i class="fas fa-star" style="color: #FBC02D;"></i>
-                                <i class="fas fa-star" style="color: #FBC02D;"></i>
-                                <i class="fas fa-star" style="color: #FBC02D;"></i>
-                                <i class="fas fa-star" style="color: #FBC02D;"></i>
-                            </div>
+                            <!-- Ratings removed as requested -->
                         </div>
                         <div style="color: #888; font-size: 0.9rem;">June 15, 2023</div>
                     </div>
@@ -1084,13 +1129,7 @@
                     <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
                         <div>
                             <h4 style="margin-bottom: 5px;">Beautiful and Versatile</h4>
-                            <div style="display: flex;">
-                                <i class="fas fa-star" style="color: #FBC02D;"></i>
-                                <i class="fas fa-star" style="color: #FBC02D;"></i>
-                                <i class="fas fa-star" style="color: #FBC02D;"></i>
-                                <i class="fas fa-star" style="color: #FBC02D;"></i>
-                                <i class="far fa-star" style="color: #FBC02D;"></i>
-                            </div>
+                            <!-- Ratings removed as requested -->
                         </div>
                         <div style="color: #888; font-size: 0.9rem;">May 22, 2023</div>
                     </div>
@@ -1104,13 +1143,7 @@
                     <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
                         <div>
                             <h4 style="margin-bottom: 5px;">Great Quality, Slow Shipping</h4>
-                            <div style="display: flex;">
-                                <i class="fas fa-star" style="color: #FBC02D;"></i>
-                                <i class="fas fa-star" style="color: #FBC02D;"></i>
-                                <i class="fas fa-star" style="color: #FBC02D;"></i>
-                                <i class="fas fa-star" style="color: #FBC02D;"></i>
-                                <i class="far fa-star" style="color: #FBC02D;"></i>
-                            </div>
+                            <!-- Ratings removed as requested -->
                         </div>
                         <div style="color: #888; font-size: 0.9rem;">April 10, 2023</div>
                     </div>
@@ -1120,8 +1153,16 @@
                     <p>The gamcha itself is excellent quality and exactly as described. The handwoven texture is beautiful. Shipping took longer than expected, but the product was worth the wait. Would buy from Sahrika again.</p>
                 </div>
 
-                <button style="display: block; margin: 0 auto; padding: 10px 20px; background-color: transparent; border: 1px solid #ddd; color: #fff; border-radius: 4px; cursor: pointer; transition: all 0.3s ease;">
-                    Load More Reviews
+                <button class="double-line-button" style="display: block; margin: 0 auto; padding: 10px 20px; background-color: transparent; border: 1px solid #ddd; color: #fff; border-radius: 4px; cursor: pointer; transition: all 0.3s ease;">
+                    <span class="line-group">
+                        <span class="v-line"></span>
+                        <span class="v-line"></span>
+                    </span>
+                    <span class="button-content">Load More Reviews</span>
+                    <span class="line-group">
+                        <span class="v-line"></span>
+                        <span class="v-line"></span>
+                    </span>
                 </button>
             </div>
         </div>
@@ -1231,63 +1272,49 @@
     <footer class="footer">
         <div class="blessing-section">
             <p>Leave a heart if you liked our work!</p>
-            <button id="blessing-button" class="blessing-button">🤍</button>
+            <button id="blessing-button" class="blessing-button"><img src="images/heartblack.png" alt="Heart"></button>
             <div class="blessing-hearts"></div>
         </div>
         <div class="footer-content">
-            <div class="footer-logo"> <img src="images/image-removebg-preview (41).png" alt="">
+            <div class="footer-logo"> <img src="images/logo2.png" alt="">
                 <p>Handloom Heritage</p>
             </div>
             <div class="footer-links">
                 <div class="footer-column">
-                    <h3>Shop</h3>
-                    <ul>
-                        <li><a href="shop-men.html">Men</a></li>
-                        <li><a href="shop-women.html">Women</a></li>
-                        <li><a href="shop-utility.html">Utility</a></li>
-                        <li><a href="shop-collections-sutrashringar.html">Collections</a></li>
-                    </ul>
+                    <h3>Explore</h3>
+                    <a href="index.html#subscription">Our Story</a>
+                    <a href="index.html#artisans">Artisans</a>
+                    <a href="index.html#shop-by-category">Categories</a>
+                    <a href="index.html#collection">Collection</a>
                 </div>
                 <div class="footer-column">
-                    <h3>About</h3>
-                    <ul>
-                        <li><a href="index.html#origin">Our Story</a></li>
-                        <li><a href="index.html#artisans">Artisans</a></li>
-                        <li><a href="of-art.html">Of Art</a></li>
-                        <li><a href="#">Blog</a></li>
-                    </ul>
+                    <h3>Shop</h3>
+                    <a href="index.html#bestsellers">Bestsellers</a>
+                    <a href="index.html#shop-by-color">By Color</a>
+                    <a href="index.html#customize">Customize</a>
                 </div>
                 <div class="footer-column">
                     <h3>Support</h3>
-                    <ul>
-                        <li><a href="#">Contact Us</a></li>
-                        <li><a href="#">Shipping Policy</a></li>
-                        <li><a href="#">Returns & Exchanges</a></li>
-                        <li><a href="#">FAQs</a></li>
-                    </ul>
+                    <a href="#support">How to Support</a>
+                    <a href="connect.html">Contact Us</a>
                 </div>
-            </div>
-            <div class="footer-newsletter">
-                <h3>Join Our Newsletter</h3>
-                <p>Stay updated with our latest collections and artisan stories.</p>
-                <form class="newsletter-form">
-                    <input type="email" placeholder="Your email address" required>
-                    <button type="submit">Subscribe</button>
-                </form>
-                <div class="social-icons">
-                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-pinterest-p"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <div class="footer-column">
+                    <h3>Connect</h3>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                    <p class="copyright">&copy; 2025 Sahrika. All rights reserved.</p>
+                    
                 </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2023 Sahrika. All rights reserved.</p>
-            <div class="footer-bottom-links">
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Service</a>
-            </div>
+            <!-- This area is now reserved exclusively for hearts collection -->
+        </div>
         </div>
     </footer>
 

@@ -16,11 +16,18 @@
     <link rel="stylesheet" href="css/scroll-button.css">
     <link rel="stylesheet" href="css/wishlist-button.css">
     <link rel="stylesheet" href="css/dropdown.css">
+    <link rel="stylesheet" href="css/bestsellers-scroll.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Swiper CSS -->
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Swiper JS -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
 </head>
 <body>
+    <div style="background-color: white;">
     <div class="loader">
         <div class="loader-content">
             <h1><span id="changing-word">SAHRI</span><img style="height: 45px;" src="images/image-removebg-preview (41).png" alt=""></h1>
@@ -230,54 +237,90 @@
             </div>
         </section>
 
+        <section class="lookbook-section">
+            <div class="lookbook-left">
+              <h2>THE<br>SUTRADHAR<br>LOOKBOOK</h2>
+            </div>
+            <div class="lookbook-right swiper">
+              <div class="swiper-wrapper">
+                <!-- Slide 1 -->
+                <div class="swiper-slide">
+                  <img src="images/LOOK (1).png" alt="Look 1">
+                </div>
+                <!-- Slide 2 -->
+                <div class="swiper-slide">
+                  <img src="images/LOOK (2).png" alt="Look 2">
+                </div>
+                <!-- Slide 3 -->
+                <div class="swiper-slide">
+                  <img src="images/LOOK (3).png" alt="Look 3">
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/LOOK (4).png" alt="Look 3">
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="images/LOOK (5).png" alt="Look 3">
+                  </div>
+                <!-- Add more slides as needed -->
+              </div>
+            </div>
+          </section>
+          
         <!-- Bestsellers Section -->
         <section id="bestsellers" class="section bestsellers-section">
             <div class="section-container">
                 <h2 class="section-title">Our Bestsellers</h2>
-                <div class="bestsellers-grid">
-                    <div class="bestseller-item">
-                        <div class="bestseller-image bestseller-1"></div>
-                        <div class="bestseller-info">
-                            <h3>Crimson Silk Saree</h3>
-                            <p class="bestseller-price">₹4,500</p>
-                            <div class="bestseller-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
-                                <span>(42)</span>
+                <div class="bestsellers-scroll-container">
+                    <div class="bestsellers-wrapper">
+                        <div class="bestseller-item">
+                            <div class="bestseller-image bestseller-1"></div>
+                            <div class="bestseller-info">
+                                <h3>Crimson Silk Saree</h3>
+                                <p class="bestseller-price">₹4,500</p>
+                            </div>
+                        </div>
+                        <div class="bestseller-item">
+                            <div class="bestseller-image bestseller-2"></div>
+                            <div class="bestseller-info">
+                                <h3>Azure Blue Dupatta</h3>
+                                <p class="bestseller-price">₹1,200</p>
+                            </div>
+                        </div>
+                        <div class="bestseller-item">
+                            <div class="bestseller-image bestseller-3"></div>
+                            <div class="bestseller-info">
+                                <h3>Golden Zari Stole</h3>
+                                <p class="bestseller-price">₹850</p>
+                            </div>
+                        </div>
+                        <div class="bestseller-item">
+                            <div class="bestseller-image" style="background-image: url('images/Waffled Block Check Wool Throw - Cobalt Multi.jpeg');"></div>
+                            <div class="bestseller-info">
+                                <h3>Handwoven Gamcha</h3>
+                                <p class="bestseller-price">₹650</p>
+                            </div>
+                        </div>
+                        <div class="bestseller-item">
+                            <div class="bestseller-image" style="background-image: url('images/category (3).jpeg');"></div>
+                            <div class="bestseller-info">
+                                <h3>Embroidered Stole</h3>
+                                <p class="bestseller-price">₹950</p>
+                            </div>
+                        </div>
+                        <div class="bestseller-item">
+                            <div class="bestseller-image" style="background-image: url('images/category (2).jpeg');"></div>
+                            <div class="bestseller-info">
+                                <h3>Handcrafted Duster</h3>
+                                <p class="bestseller-price">₹350</p>
                             </div>
                         </div>
                     </div>
-                    <div class="bestseller-item">
-                        <div class="bestseller-image bestseller-2"></div>
-                        <div class="bestseller-info">
-                            <h3>Azure Blue Dupatta</h3>
-                            <p class="bestseller-price">₹1,200</p>
-                            <div class="bestseller-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <span>(38)</span>
-                            </div>
+                    <div class="bestsellers-nav">
+                        <div class="bestsellers-arrow prev">
+                            <i class="fas fa-chevron-left"></i>
                         </div>
-                    </div>
-                    <div class="bestseller-item">
-                        <div class="bestseller-image bestseller-3"></div>
-                        <div class="bestseller-info">
-                            <h3>Golden Zari Stole</h3>
-                            <p class="bestseller-price">₹850</p>
-                            <div class="bestseller-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                                <span>(29)</span>
-                            </div>
+                        <div class="bestsellers-arrow next">
+                            <i class="fas fa-chevron-right"></i>
                         </div>
                     </div>
                 </div>
@@ -339,23 +382,23 @@
                                 <h3>Pick Pattern</h3>
                             </div>
                         </div>
-                        <a href="#" class="button">Start Designing</a>
+                        <a href="customise-product.html" class="button">Start Customising</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Origin Section -->
-        <section id="origin" class="section origin-section">
+        <!-- Subscription Box Section -->
+        <section id="subscription" class="section subscription-section">
             <div class="section-container">
-                <h2 class="section-title">The Origin of Sahrika</h2>
+                <h2 class="section-title">Sahrika Subscription Box</h2>
                 <div class="section-content">
                     <div class="text-content">
-                        <p>In the heart of Barabanki, near the cultural hub of Lucknow, lies the village of Sahri - home to generations of master weavers who have preserved the ancient art of handloom weaving.</p>
-                        <p>Sahrika was born from a desire to honor this heritage, connecting the skilled artisans of Sahri with appreciators of authentic craftsmanship worldwide.</p>
+                        <p>Experience the joy of handloom treasures delivered to your doorstep every month with our curated subscription boxes.</p>
+                        <p>Each box contains carefully selected handwoven pieces, artisan stories, and exclusive offers - bringing the magic of traditional craftsmanship into your home.</p>
+                        <a href="services-subscription.html" class="button">Explore Subscription Box</a>
                     </div>
-                    <div class="image-content"><img src="images/Screenshot 2024-08-02 212846.png" alt="">
-                        <div class="parallax-image origin-image"></div>
+                    <div class="image-content"><img src="images/category (3).jpeg" alt="Subscription Box">
                     </div>
                 </div>
             </div>
@@ -389,6 +432,7 @@
             </div>
         </section>
     </main>
+</div>
 
     <!-- Footer -->
     <footer class="footer">
@@ -404,7 +448,7 @@
             <div class="footer-links">
                 <div class="footer-column">
                     <h3>Explore</h3>
-                    <a href="#origin">Our Story</a>
+                    <a href="index.html#subscription">Our Story</a>
                     <a href="#artisans">Artisans</a>
                     <a href="#shop-by-category">Categories</a>
                     <a href="#collection">Collection</a>
@@ -461,5 +505,32 @@
     <script src="js/collection-carousel.js"></script>
     <script src="js/cloth-texture.js"></script>
     <script src="js/wishlist.js"></script>
+    <script src="js/bestsellers-scroll.js"></script>
+
+    <script>
+        var swiper = new Swiper('.swiper', {
+          loop: true,
+          spaceBetween: 0,
+          slidesPerView: 3,
+          autoplay: {
+            delay: 3000,
+          },
+          speed: 800,
+          breakpoints: {
+            640: {
+              slidesPerView: 1
+            },
+            768: {
+              slidesPerView: 2
+            },
+            1024: {
+              slidesPerView: 3
+            }
+          }
+        });
+      </script>
+      
+      
+      
 </body>
 </html>

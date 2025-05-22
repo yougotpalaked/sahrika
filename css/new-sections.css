@@ -3,16 +3,16 @@
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: repeat(6, 1fr);
     gap: 0.8rem;
-    margin-top: 1.5rem; 
+    margin-top: 0rem; 
     height: 600px;
-    background-color: #121212; 
+    background-color: #ffffff; 
 }
 
 .collection-item {
     position: relative;
-    border-radius: 8px;
+    border-radius: 0px;
     overflow: hidden;
-    background-color: #222;
+    background-color: #ffffff;
     display: flex;
     align-items: center;
     justify-content: center;
