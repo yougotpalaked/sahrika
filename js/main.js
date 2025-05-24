@@ -5,7 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
     initProcessAnimation();
     initCollectionHover();
     initCategorySection();
-    initBlessingHearts();
+    // Hearts are now handled by footer-hearts.js
+    // initBlessingHearts();
     initScrollIndicator();
     initScrollButtons();
 });

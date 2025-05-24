@@ -566,34 +566,12 @@
                 navLinks.classList.toggle('active');
                 menuToggle.classList.toggle('active');
             });
-            
-            // Blessing button functionality
-            const blessingButton = document.getElementById('blessing-button');
-            const blessingHearts = document.querySelector('.blessing-hearts');
-            let isBlessed = false;
-            
-            blessingButton.addEventListener('click', function() {
-                if (!isBlessed) {
-                    blessingButton.textContent = '❤️';
-                    isBlessed = true;
-                    
-                    // Create floating hearts animation
-                    for (let i = 0; i < 5; i++) {
-                        setTimeout(() => {
-                            const heart = document.createElement('div');
-                            heart.classList.add('blessing-heart');
-                            heart.textContent = '❤️';
-                            heart.style.left = `${Math.random() * 100}%`;
-                            blessingHearts.appendChild(heart);
-                            
-                            setTimeout(() => {
-                                heart.remove();
-                            }, 3000);
-                        }, i * 300);
-                    }
-                }
-            });
         });
     </script>
+    
+    <!-- Include GSAP for heart animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <!-- Include the footer hearts script -->
+    <script src="js/footer-hearts.js"></script>
 </body>
 </html>
